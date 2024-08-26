@@ -1,50 +1,70 @@
-# React + TypeScript + Vite
+<h1 align="center" id="title">⚒️ PROJECT IS CURRENTLY UNDER DEVELOPMENT ⚒️</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<hr>
 
-Currently, two official plugins are available:
+<h2 align="center" id="title">🟢 NativeTranslate 🟢</h2>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<div align="center">
 
-## Expanding the ESLint configuration
+![PRs](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=shields)
+[![license](https://img.shields.io/badge/license-AGPL_3.0-blue.svg)](LICENSE)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+</div>
 
-- Configure the top-level `parserOptions` property like this:
+<hr>
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🌐 Demo
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+A live demo is currently not available, but stay tuned for updates!
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## 📝 Description
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Welcome to NativeTranslate! This ambitious tool offers accurate, context-aware translations in a single, streamlined platform. Here’s a brief overview:
+
+ - **Motivation:** Providing precise translations that capture cultural nuances, making cross-language communication seamless.
+
+- **Purpose:** To develop a versatile, multi-language translation system that adapts to various needs, offering a reliable and efficient platform for global users.
+
+## ⚒️ How to Contribute
+
+Want to contribute? Awesome! Here's how you can help:
+
+1. Fork the repo
+2. Create a new branch (`git checkout -b improve-feature`)
+3. Make your changes
+4. Add your changes to the commit
+5. Commit your changes (`git commit -am 'Improve feature'`)
+6. Push to the branch (`git push origin improve-feature`)
+7. Create a Pull Request
+
+## 📩 Bug / Feature Request
+
+Found a bug? Please open an issue [here](https://github.com/NativeTranslate/frontend/issues/new) and describe the
+problem with the expected result.
+
+Want to request a new feature? Open an issue [here](https://github.com/NativeTranslate/frontend/issues/new) and outline
+the feature along with the desired outcome.
+
+## 📜 Credits
+
+A huge thanks to my collaborators for their contributions:
+
+- **Fedox**  
+  Email: f3dox@proton.me  
+  GitHub: [@Fedox-die-Ente](https://github.com/Fedox-die-Ente)
+
+- **Austria7 (Riechkolbinator 3000)**
+  GitHub: [@Austria7](https://github.com/Austria7)
+
+Special thanks to the creators of third-party assets used in this project. Attribution links can be found below.
+
+## 📞 Contact Us
+
+Stay connected with us on Discord:
+
+- ![DISCORD](https://img.shields.io/badge/DISCORD-fedox-white?labelColor=blue&style=for-the-badge)
+- ![DISCORD](https://img.shields.io/badge/DISCORD-austria7-white?labelColor=blue&style=for-the-badge)
+
+## 📋 License
+
+This project is licensed under the AGPL 3.0 License. See the [LICENSE](LICENSE) file for more details.
