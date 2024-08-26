@@ -24,7 +24,7 @@ const FeaturesSection = () => (
 					<Zap className="h-12 w-12 text-primary-500 mb-4"/>
 					<h2 className="text-2xl font-semibold text-light-900">Fast API Integration</h2>
 					<p className="text-base text-white-900">
-						Quickly integrate translations into your applications with our high-performance REST APIs.
+						Quickly integrate translations into your applications with our high-performance GraphQL APIs.
 					</p>
 				</div>
 				<div

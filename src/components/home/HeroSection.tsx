@@ -27,7 +27,7 @@ const HeroSection = () => {
 						</h1>
 						<p className="mx-auto max-w-[700px] text-gray-400 md:text-xl">
 							NativeTranslate provides a powerful dashboard for setting and managing your
-							translation strings, accessible via fast REST APIs.
+							translation strings, accessible via fast GraphQL APIs.
 						</p>
 					</div>
 					<div className="space-x-6">
