@@ -53,8 +53,10 @@ A huge thanks to my collaborators for their contributions:
   Email: f3dox@proton.me  
   GitHub: [@Fedox-die-Ente](https://github.com/Fedox-die-Ente)
 
-- **Austria7 (Riechkolbinator 3000)**
+- **Austria7 (Riechkolbinator)**  
+  Email: /  
   GitHub: [@Austria7](https://github.com/Austria7)
+
 
 Special thanks to the creators of third-party assets used in this project. Attribution links can be found below.
 
