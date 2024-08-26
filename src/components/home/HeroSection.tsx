@@ -3,10 +3,8 @@
 import {motion} from 'framer-motion';
 import {Button} from "@/components/ui/button.tsx";
 import {FlipWords} from "@/components/shared/flip-words.tsx";
-import {useNavigate} from "react-router-dom";
 
 const HeroSection = () => {
-	const navigate = useNavigate();
 	const words = ["Efficiency", "Precision", "Ease", "Speed", "Control", "Confidence", "Simplicity", "Accuracy", "Flexibility", "Power", "NativeTranslate!"];
 
 	return (
@@ -32,14 +30,18 @@ const HeroSection = () => {
 					</div>
 					<div className="space-x-6">
 						<Button
-							onClick={() => navigate('/dashboard')}
+							onClick={() => {
+								window.location.href = '/dashboard';
+							}}
 							className="bg-main-two hover:bg-main-one transition-transform transform hover:scale-105 rounded-lg shadow-md"
 							variant="default"
 						>
 							Go to Dashboard
 						</Button>
 						<Button
-							onClick={() => navigate('/api-docs')}
+							onClick={() => {
+								window.location.href = '/api-docs';
+							}}
 							className="bg-transparent border-2 border-primary-500 hover:border-main-one hover:bg-main-one hover:text-dark-300 transition-transform transform hover:scale-105 rounded-lg"
 							variant="default"
 						>
