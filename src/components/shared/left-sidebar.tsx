@@ -1,19 +1,8 @@
 import React, {useEffect} from 'react';
-import {CollapsibleTrigger, Collapsible, CollapsibleContent} from "@/components/ui/collapsible.tsx";
+import {Collapsible, CollapsibleContent, CollapsibleTrigger} from "@/components/ui/collapsible.tsx";
 import {Button} from "@/components/ui/button.tsx";
 import {cn} from "@/lib/utils.ts";
-import {
-	Bell,
-	Briefcase,
-	Calendar,
-	ChevronDown,
-	ChevronRight,
-	Home,
-	LogOut,
-	MessageSquare,
-	Shield,
-	ShoppingCart
-} from 'lucide-react';
+import {BriefcaseBusiness, ChevronDown, ChevronRight, Cog, Folder, Home, LogOut, User, Users} from 'lucide-react';
 import {Link, useNavigate} from "react-router-dom";
 
 
@@ -24,19 +13,17 @@ const MenuItem = ({icon, label, children, href}: {
 	href?: string
 }) => {
 	const [isOpen, setIsOpen] = React.useState(false);
-	const navigate = useNavigate();
 	const pathname = window.location.pathname;
 
 	useEffect(() => {
-		// Check if the current pathname matches the href or if the pathname is a subpath of the href
-		if (href && (pathname === href || pathname.startsWith(href))) {
+		if (href && (pathname === href)) {
 			setIsOpen(true);
 		}
 	}, [pathname, href]);
 
 	const handleClick = () => {
 		if (!children && href) {
-			navigate(href);
+			window.location.href = href;
 		}
 	};
 
@@ -47,7 +34,7 @@ const MenuItem = ({icon, label, children, href}: {
 					onClick={handleClick}
 					className={cn(
 						"w-full h-14 justify-between text-left text-gray-400 bg-transparent hover:bg-main-two hover:text-white-900",
-						isOpen && "bg-main-two text-white-900 hover:bg-main-one"
+						isOpen && "bg-main-two text-white-900 hover:bg-main-two"
 					)}
 				>
                     <span className="flex items-center gap-2 text-lg">
@@ -83,30 +70,23 @@ export default function LeftSidebar() {
 		<nav className={'bg-dark-300 p-8 m-7 rounded-3xl flex flex-col'}>
 			<Link to={'/'} className="flex items-center text-center space-x-2 mb-8">
 				<img src={'/assets/icons/logo.svg'} alt={'Logo'} width={100} height={100}
-					   className={'w-6 h-6'}/>
+					 className={'w-6 h-6'}/>
 				<span className="text-2xl font-semibold text-center text-primary-500">NativeTranslate</span>
 			</Link>
-			<div className={'text-left justify-start items-start flex-grow space-y-3 mt-8'}>
-				<MenuItem icon={<Home className="h-5 w-5"/>} label="Home" href="/"/>
-				<MenuItem icon={<Briefcase className="h-5 w-5"/>} label="Applications" href="/applications">
-					{/* Optional: Nested MenuItems */}
-				</MenuItem>
-				<MenuItem icon={<ShoppingCart className="h-5 w-5"/>} label="Ecommerce" href="/ecommerce">
-				</MenuItem>
-				<MenuItem icon={<Shield className="h-5 w-5"/>} label="Authentication" href="/authentication">
-					{/* Optional: Nested MenuItems */}
-				</MenuItem>
-				<MenuItem icon={<Bell className="h-5 w-5"/>} label="Notification" href="/notification">
-					{/* Optional: Nested MenuItems */}
-				</MenuItem>
-				<MenuItem icon={<Calendar className="h-5 w-5"/>} label="Calendar" href="/calendar">
-					{/* Optional: Nested MenuItems */}
-				</MenuItem>
-				<MenuItem icon={<MessageSquare className="h-5 w-5"/>} label="Message" href="/message">
-					{/* Optional: Nested MenuItems */}
-				</MenuItem>
+			<div className="text-left justify-start items-start flex-grow space-y-3 mt-8">
+				<MenuItem icon={<Home className="h-5 w-5"/>} label="Home" href="/dashboard"/>
+
+				<MenuItem icon={<Folder className="h-5 w-5"/>} label="Projects" href={'/dashboard/projects'}/>
+
+				<MenuItem icon={<BriefcaseBusiness className="h-5 w-5"/>} label="Organizations"
+						  href={'/organizations'}/>
+
+				<MenuItem icon={<Users className="h-5 w-5"/>} label="Users" href={'/users'}/>
 			</div>
-			<div>
+			<div className={'space-y-3'}>
+				<MenuItem icon={<User className="h-5 w-5"/>} label="Profile" href="/profile"/>
+				<MenuItem icon={<Cog className="h-5 w-5"/>} label="Settings" href="/settings"/>
+
 				<Button variant="ghost"
 						className="w-full hover:bg-transparent justify-start text-left gap-2 text-main-one hover:text-main-two border border-primary-500"
 						onClick={() => navigate('/login')}
