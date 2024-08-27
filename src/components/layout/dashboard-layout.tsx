@@ -7,16 +7,13 @@ interface LayoutProps {
 
 const Layout = ({children}: LayoutProps) => {
 	return (
-		<div className="relative bg-dark-200">
-
-			<div className={'flex'}>
-				<LeftSidebar/>
-				<section className="flex min-h-screen flex-1 flex-col px-6 max-md:pb-14 sm:px-5">
-					<div className="mx-auto w-full mt-10">
-						{children}
-					</div>
-				</section>
-			</div>
+		<div className="relative bg-dark-200 min-h-screen flex">
+			<LeftSidebar/>
+			<section className="flex flex-1 flex-col min-h-screen px-6 max-md:pb-14 sm:px-5">
+				<div className="flex-grow w-full h-full mt-10">
+					{children}
+				</div>
+			</section>
 		</div>
 	)
 }
