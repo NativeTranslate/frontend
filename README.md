@@ -21,9 +21,9 @@ A live demo is currently not available, but stay tuned for updates!
 
 Welcome to NativeTranslate! This ambitious tool offers accurate, context-aware translations in a single, streamlined platform. Here’s a brief overview:
 
- - **Motivation:** Providing precise translations that capture cultural nuances, making cross-language communication seamless.
+-   **Motivation:** Providing precise translations that capture cultural nuances, making cross-language communication seamless.
 
-- **Purpose:** To develop a versatile, multi-language translation system that adapts to various needs, offering a reliable and efficient platform for global users.
+-   **Purpose:** To develop a versatile, multi-language translation system that adapts to various needs, offering a reliable and efficient platform for global users.
 
 ## ⚒️ How to Contribute
 
@@ -49,14 +49,13 @@ the feature along with the desired outcome.
 
 A huge thanks to my collaborators for their contributions:
 
-- **Fedox**  
-  Email: f3dox@proton.me  
-  GitHub: [@Fedox-die-Ente](https://github.com/Fedox-die-Ente)
+-   **Fedox**  
+    Email: f3dox@proton.me  
+    GitHub: [@Fedox-die-Ente](https://github.com/Fedox-die-Ente)
 
-- **Austria7 (Riechkolbinator)**  
-  Email: /  
-  GitHub: [@Austria7](https://github.com/Austria7)
-
+-   **Austria7 (Riechkolbinator)**  
+    Email: /  
+    GitHub: [@Austria7](https://github.com/Austria7)
 
 Special thanks to the creators of third-party assets used in this project. Attribution links can be found below.
 
@@ -64,8 +63,8 @@ Special thanks to the creators of third-party assets used in this project. Attri
 
 Stay connected with us on Discord:
 
-- ![DISCORD](https://img.shields.io/badge/DISCORD-fedox-white?labelColor=blue&style=for-the-badge)
-- ![DISCORD](https://img.shields.io/badge/DISCORD-austria7-white?labelColor=blue&style=for-the-badge)
+-   ![DISCORD](https://img.shields.io/badge/DISCORD-fedox-white?labelColor=blue&style=for-the-badge)
+-   ![DISCORD](https://img.shields.io/badge/DISCORD-austria7-white?labelColor=blue&style=for-the-badge)
 
 ## 📋 License
 
