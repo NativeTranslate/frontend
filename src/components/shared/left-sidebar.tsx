@@ -1,30 +1,16 @@
 import React, { useEffect } from 'react';
-import {
-    Collapsible,
-    CollapsibleContent,
-    CollapsibleTrigger,
-} from '@/components/ui/collapsible.tsx';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible.tsx';
 import { Button } from '@/components/ui/button.tsx';
 import { cn } from '@/lib/utils.ts';
-import {
-    BriefcaseBusiness,
-    ChevronDown,
-    ChevronRight,
-    Cog,
-    Folder,
-    Home,
-    LogOut,
-    User,
-    Users,
-} from 'lucide-react';
+import { BriefcaseBusiness, ChevronDown, ChevronRight, Cog, Folder, Home, LogOut, User, Users } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 
 const MenuItem = ({
-    icon,
-    label,
-    children,
-    href,
-}: {
+                      icon,
+                      label,
+                      children,
+                      href
+                  }: {
     icon: React.ReactNode;
     label: string;
     children?: React.ReactNode;
@@ -53,7 +39,7 @@ const MenuItem = ({
                     className={cn(
                         'w-full h-14 justify-between text-left text-gray-400 bg-transparent hover:bg-main-two hover:text-white-900',
                         isOpen &&
-                            'bg-main-two text-white-900 hover:bg-main-two',
+                        'bg-main-two text-white-900 hover:bg-main-two'
                     )}
                 >
                     <span className="flex items-center gap-2 text-lg">
@@ -74,9 +60,9 @@ const MenuItem = ({
                         React.cloneElement(child as React.ReactElement<any>, {
                             className: cn(
                                 'w-full text-left text-gray-400 hover:bg-main-two hover:text-white-900',
-                                isOpen && 'bg-main-two text-white-900',
-                            ),
-                        }),
+                                isOpen && 'bg-main-two text-white-900'
+                            )
+                        })
                     )}
                 </CollapsibleContent>
             )}
