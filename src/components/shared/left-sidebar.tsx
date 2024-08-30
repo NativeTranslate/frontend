@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible.tsx';
 import { Button } from '@/components/ui/button.tsx';
 import { cn } from '@/lib/utils.ts';
-import { BriefcaseBusiness, ChevronDown, ChevronRight, Cog, Folder, Home, LogOut, User, Users } from 'lucide-react';
+import { ChevronDown, ChevronRight, LogOut } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
+import { bottomLinks, topLinks } from '@/lib/sidebar.tsx';
 
 const MenuItem = ({
                       icon,
@@ -74,7 +75,7 @@ export default function LeftSidebar() {
     const navigate = useNavigate();
 
     return (
-        <nav className={'bg-dark-300 p-8 m-7 rounded-3xl flex flex-col'}>
+        <nav className={'hidden lg:flex bg-dark-300 p-8 m-7 rounded-3xl flex-col min-h-screen'}>
             <Link
                 to={'/'}
                 className="flex items-center text-center space-x-2 mb-8"
@@ -91,41 +92,16 @@ export default function LeftSidebar() {
                 </span>
             </Link>
             <div className="text-left justify-start items-start flex-grow space-y-3 mt-8">
-                <MenuItem
-                    icon={<Home className="h-5 w-5" />}
-                    label="Home"
-                    href="/dashboard"
-                />
-
-                <MenuItem
-                    icon={<Folder className="h-5 w-5" />}
-                    label="Projects"
-                    href={'/dashboard/projects'}
-                />
-
-                <MenuItem
-                    icon={<BriefcaseBusiness className="h-5 w-5" />}
-                    label="Organizations"
-                    href={'/organizations'}
-                />
-
-                <MenuItem
-                    icon={<Users className="h-5 w-5" />}
-                    label="Users"
-                    href={'/dashboard/users'}
-                />
+                {topLinks.map(({ icon, label, href }) => (
+                    <MenuItem key={label} icon={icon} label={label} href={href}>
+                    </MenuItem>
+                ))}
             </div>
             <div className={'space-y-3'}>
-                <MenuItem
-                    icon={<User className="h-5 w-5" />}
-                    label="Profile"
-                    href="/profile"
-                />
-                <MenuItem
-                    icon={<Cog className="h-5 w-5" />}
-                    label="Settings"
-                    href="/settings"
-                />
+
+                {bottomLinks.map(({ icon, label, href }) => (
+                    <MenuItem key={label} icon={icon} label={label} href={href} />
+                ))}
 
                 <Button
                     variant="ghost"

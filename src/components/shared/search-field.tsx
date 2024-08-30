@@ -13,11 +13,11 @@ interface CustomInputProps {
 }
 
 const SearchField = ({
-                         route,
-                         iconPosition,
-                         placeholder,
-                         otherClasses
-                     }: CustomInputProps) => {
+    route,
+    iconPosition,
+    placeholder,
+    otherClasses,
+}: CustomInputProps) => {
     const navigate = useNavigate();
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);

@@ -10,10 +10,11 @@ const FeaturesSection = () => (
         className="w-full py-16 md:py-28 lg:py-36 bg-dark-300"
     >
         <div className="container px-6 md:px-8">
-            <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3 text-center">
-                <div className="flex flex-col items-center space-y-6 p-6 bg-dark-200 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                    <Settings className="h-12 w-12 text-primary-500 mb-4" />
-                    <h2 className="text-2xl font-semibold text-light-900">
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 text-center">
+                <div
+                    className="flex flex-col items-center space-y-4 p-6 bg-dark-200 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                    <Settings className="h-10 w-10 text-primary-500 mb-4" />
+                    <h2 className="text-xl font-semibold text-light-900">
                         Intuitive Dashboard
                     </h2>
                     <p className="text-base text-white-900">
@@ -21,9 +22,10 @@ const FeaturesSection = () => (
                         our user-friendly interface.
                     </p>
                 </div>
-                <div className="flex flex-col items-center space-y-6 p-6 bg-dark-200 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                    <Zap className="h-12 w-12 text-primary-500 mb-4" />
-                    <h2 className="text-2xl font-semibold text-light-900">
+                <div
+                    className="flex flex-col items-center space-y-4 p-6 bg-dark-200 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                    <Zap className="h-10 w-10 text-primary-500 mb-4" />
+                    <h2 className="text-xl font-semibold text-light-900">
                         Fast API Integration
                     </h2>
                     <p className="text-base text-white-900">
@@ -31,9 +33,10 @@ const FeaturesSection = () => (
                         with our high-performance GraphQL APIs.
                     </p>
                 </div>
-                <div className="flex flex-col items-center space-y-6 p-6 bg-dark-200 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                    <Code className="h-12 w-12 text-primary-500 mb-4" />
-                    <h2 className="text-2xl font-semibold text-light-900">
+                <div
+                    className="flex flex-col items-center space-y-4 p-6 bg-dark-200 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                    <Code className="h-10 w-10 text-primary-500 mb-4" />
+                    <h2 className="text-xl font-semibold text-light-900">
                         Developer-Friendly
                     </h2>
                     <p className="text-base text-white-900">

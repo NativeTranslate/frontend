@@ -1,8 +1,8 @@
 import DashboardLayout from '@/components/layout/dashboard-layout.tsx';
-import UserButton from '@/components/shared/user-button.tsx';
 import { BriefcaseBusiness, Folder, Languages, Users } from 'lucide-react';
 import { TranslationsChart } from '@/pages/dashboard/translations-chart.tsx';
 import { cn } from '@/lib/utils.ts';
+import DashboardHeader from '@/components/shared/dashboard-header.tsx';
 
 interface StatCardProps {
     title: string;
@@ -108,13 +108,7 @@ const Index = () => {
     return (
         <DashboardLayout>
             <div className="flex flex-col h-full">
-                <div className="flex flex-row items-center">
-                    <p className="text-2xl text-white-900 font-semibold">
-                        Overview
-                    </p>
-                    <div className="flex-grow" />
-                    <UserButton />
-                </div>
+                <DashboardHeader title="Overview" />
                 <div className="flex-grow w-full bg-dark-300 rounded-3xl overflow-y-auto my-10">
                     <div className={'flex flex-col mx-12 my-12'}>
                         <Stats />
