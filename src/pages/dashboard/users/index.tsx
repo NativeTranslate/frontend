@@ -197,10 +197,6 @@ const Index = () => {
                                             <Button className="w-full bg-main-two hover:bg-main-one transition-all">
                                                 Visit Profile
                                             </Button>
-                                            <div className="flex-grow" />
-                                            <Button className="w-full bg-dark-400 hover:bg-gray-400 transition-all">
-                                                Send Message
-                                            </Button>
                                         </div>
                                     </div>
                                 </div>

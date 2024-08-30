@@ -1,9 +1,9 @@
-import './tos.css';
+import './privacy.css';
 
 const PrivacyPolicy = () => {
     return (
-        <div className={'bg-dark-300 text-white w-full h-full py-5'}>
-            <div className="container mx-auto h-full p-8 bg-dark-200 text-white-900 rounded-lg shadow-lg">
+        <div className={'bg-dark-200 text-white w-full h-full py-5'}>
+            <div className="container mx-auto h-full p-8 bg-dark-300 text-white-900 rounded-lg shadow-lg">
                 <h1>Datenschutz&shy;erkl&auml;rung</h1>
                 <h2>1. Datenschutz auf einen Blick</h2>
                 <h3>Allgemeine Hinweise</h3>{' '}

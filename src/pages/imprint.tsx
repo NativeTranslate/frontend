@@ -4,8 +4,8 @@ const Impressum = () => {
     const { details, contact, otherInfo } = impressumData;
 
     return (
-        <div className="min-h-screen bg-dark-300 flex items-center justify-center">
-            <div className="container max-w-3xl mx-auto h-full p-8 bg-dark-200 text-white-900 rounded-lg shadow-lg">
+        <div className="min-h-screen bg-dark-200 flex items-center justify-center">
+            <div className="container max-w-3xl mx-auto h-full p-8 bg-dark-300 text-white-900 rounded-lg shadow-lg">
                 <h1 className="text-4xl font-bold text-primary-500 mb-8 text-center">
                     Imprint
                 </h1>
