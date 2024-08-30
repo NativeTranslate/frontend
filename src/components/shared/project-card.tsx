@@ -1,5 +1,9 @@
 import OverlappingAvatars from '@/components/shared/overlapping-avatars.tsx';
-import { LinkIcon } from 'lucide-react';
+
+interface Props {
+    item: any;
+    inverted?: boolean;
+}
 
 interface Props {
     item: any;
@@ -18,9 +22,10 @@ const ProjectCard = ({ item, inverted }: Props) => {
 
     return (
         <div className={`${bgColor} rounded-2xl shadow-lg shadow-dark-200 p-4`}>
-            <div className="flex flex-row">
+            <div
+                className="flex flex-col sm:flex-row items-center sm:items-start md:space-y-1 md:space-x-3 justify-center">
                 <div
-                    className={`${inverted ? 'bg-dark-200' : 'bg-dark-300'} min-w-20 min-h-20 flex items-center justify-center rounded-lg`}
+                    className={`${inverted ? 'bg-dark-200' : 'bg-dark-300'} min-w-20 min-h-20 flex items-center justify-center rounded-lg mb-4 sm:mb-0`}
                 >
                     <img
                         src={item.logo}
@@ -28,32 +33,26 @@ const ProjectCard = ({ item, inverted }: Props) => {
                         className="w-14 h-14 object-contain"
                     />
                 </div>
-                <div className="my-2 mx-4 w-full">
-                    <div className="flex items-center">
-                        <h1 className="text-white-900 text-lg">{item.name}</h1>
-
-                        <div className="flex-grow" />
-
-                        <button className="text-white-900 text-lg">
-                            <LinkIcon size={20} />
-                        </button>
-                    </div>
-                    <div className="bg-dark-500">
+                <div className="flex flex-col w-full">
+                    <h1 className="text-white-900 text-lg text-center sm:text-left">
+                        {item.name}
+                    </h1>
+                    <div className="bg-dark-500 hidden lg:block mt-2">
                         <OverlappingAvatars avatars={avatarUrls} />
                     </div>
                 </div>
             </div>
 
-            <div className="flex flex-col justify-between my-5 max-w-prose space-y-5 mx-1">
+            <div className="flex flex-col justify-between my-5 space-y-5 mx-1">
                 <div className="flex items-start">
-                    <p className="text-gray-400 line-clamp-3 font-regular text-lg text-wrap truncate max-w-[calc(100% - 2.5rem)]">
+                    <p className="text-gray-400 font-regular text-lg text-wrap truncate max-w-full text-center sm:text-left">
                         {item.description}
                     </p>
                 </div>
 
                 <div className="h-[1px] bg-dark-300" />
 
-                <div className="flex flex-row items-center justify-center">
+                <div className="flex flex-row items-center justify-between">
                     <div className="flex flex-col">
                         <p className="text-white-900 font-regular text-lg">
                             {item.participants}
@@ -62,8 +61,7 @@ const ProjectCard = ({ item, inverted }: Props) => {
                             Participants
                         </p>
                     </div>
-                    <div className="flex-grow" />
-                    <div className="flex flex-col">
+                    <div className="flex flex-col items-end">
                         <p className="text-white-900 font-regular text-lg">
                             8/27/2024
                         </p>
@@ -76,5 +74,6 @@ const ProjectCard = ({ item, inverted }: Props) => {
         </div>
     );
 };
+
 
 export default ProjectCard;

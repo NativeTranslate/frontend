@@ -1,6 +1,6 @@
 import React from 'react';
-import LeftSidebar from '@/components/shared/left-sidebar.tsx';
 import MobileSideBar from '@/components/shared/mobile-side-bar.tsx';
+import LeftSidebar from '@/components/shared/left-sidebar.tsx';
 
 interface LayoutProps {
     children: React.ReactNode;
@@ -19,7 +19,7 @@ const Layout = ({ children }: LayoutProps) => {
             </div>
 
             {/* Main Content */}
-            <section className="flex flex-1 flex-col min-h-screen px-6 max-md:pb-14 sm:px-5 pt-5">
+            <section className="flex flex-1 flex-col min-h-screen px-6 sm:px-5 pt-5  ">
                 <div className="flex-grow w-full h-full mt-10">{children}</div>
             </section>
         </div>
