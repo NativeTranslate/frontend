@@ -21,7 +21,7 @@ const SettingsLayout = ({ children }: LayoutProps) => {
     return (
         <div className="flex p-4 bg-dark-300">
             {/* Sidebar */}
-            <nav className="w-64 p-5 space-y-4 rounded-3xl bg-dark-200">
+            <nav className="w-72 p-5 space-y-4 rounded-3xl bg-dark-200 h-full">
                 <ul className="space-y-3">
                     {settingsCategories.map(category => (
                         <li key={category.key}>
@@ -47,7 +47,7 @@ const SettingsLayout = ({ children }: LayoutProps) => {
             </nav>
 
             {/* Content */}
-            <div className="flex-grow mx-12 my-2 bg-dark-300 overflow-y-auto rounded-3xl h-full">
+            <div className="flex-grow mx-6 my-2 bg-dark-300 overflow-y-auto rounded-3xl h-full">
                 {children}
             </div>
         </div>

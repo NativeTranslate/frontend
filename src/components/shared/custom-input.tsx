@@ -16,11 +16,11 @@ const InputWithIcon: React.FC<InputWithIconProps> = ({ id, placeholder, icon, on
                 type="text"
                 id={id}
                 placeholder={placeholder}
-                className="w-full bg-dark-300 text-white border-none rounded-full py-6 px-4 pr-12"
+                className="w-full bg-dark-300 text-gray-400 border-none rounded-full py-6 px-4 pr-12 placeholder:text-dark-400 placeholder:opacity-100"
                 onChange={onChange}
                 value={value}
             />
-            <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-[#4a5567]">
+            <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400">
                 {icon}
             </div>
         </div>
