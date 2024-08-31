@@ -1,8 +1,11 @@
 import DashboardLayout from '@/components/layout/dashboard-layout.tsx';
 import { BriefcaseBusiness, Folder, Languages, Users } from 'lucide-react';
 import { TranslationsChart } from '@/pages/dashboard/translations-chart.tsx';
-import { cn } from '@/lib/utils.ts';
+import { cn, FormatNumber, IncrementalCounter } from '@/lib/utils.ts';
 import DashboardHeader from '@/components/shared/dashboard-header.tsx';
+import { fakeProjects } from '@/lib/fake-data.ts';
+import ProjectCard from '@/components/shared/project-card.tsx';
+import { HorizontalSeparator } from '@/components/shared/separator.tsx';
 
 interface StatCardProps {
     title: string;
@@ -10,17 +13,6 @@ interface StatCardProps {
     color: string;
     icon: React.ReactNode;
 }
-
-const FormatNumber = (num: number) => {
-    if (num >= 1000000) {
-        return (num / 1000000).toFixed(1) + 'M';
-    }
-    if (num >= 1000) {
-        return (num / 1000).toFixed(1) + 'K';
-    }
-
-    return num;
-};
 
 const StatCard = (props: StatCardProps) => {
     return (
@@ -33,7 +25,7 @@ const StatCard = (props: StatCardProps) => {
                     {props.title}
                 </p>
                 <p className="text-gray-500 px-1">
-                    {FormatNumber(props.value)}
+                    {FormatNumber(IncrementalCounter(props.value, 500))}
                 </p>
             </div>
         </div>
@@ -51,25 +43,25 @@ const Stats = () => {
                 <StatCard
                     title={'Users'}
                     value={276}
-                    color={'bg-cyan-400'}
+                    color={'bg-green-400'}
                     icon={<Users />}
                 />
                 <StatCard
                     title={'Organizations'}
                     value={2}
-                    color={'bg-teal-400'}
+                    color={'bg-emerald-400'}
                     icon={<BriefcaseBusiness />}
                 />
                 <StatCard
                     title={'Projects'}
                     value={17}
-                    color={'bg-emerald-400'}
+                    color={'bg-teal-400'}
                     icon={<Folder />}
                 />
                 <StatCard
                     title={'Translations'}
                     value={12500}
-                    color={'bg-green-400'}
+                    color={'bg-sky-400'}
                     icon={<Languages />}
                 />
             </div>
@@ -87,17 +79,13 @@ const Stats = () => {
 const SuggestedProjects = () => {
     return (
         <div>
-            <h1 className="text-white-900 text-2xl font-semibold">
+            <h1 className="mt-2 text-white-900 text-2xl font-semibold">
                 Suggested Projects
             </h1>
 
             <div className="pt-5 grid grid-cols-3 gap-4 items-center justify-center">
-                {/* repeat 20 times a div */}
-                {[...Array(20)].map((_, i) => (
-                    <div
-                        key={i}
-                        className="p-2 h-52 bg-dark-200 rounded-2xl"
-                    ></div>
+                {fakeProjects.map((project, index) => (
+                    <ProjectCard item={project} key={index} />
                 ))}
             </div>
         </div>
@@ -112,7 +100,7 @@ const Index = () => {
                 <div className="flex-grow w-full bg-dark-300 rounded-3xl overflow-y-auto my-10">
                     <div className={'flex flex-col mx-12 my-12'}>
                         <Stats />
-                        <div className="bg-dark-400 rounded-3xl h-[2px] mt-6 mb-2 w-full" />
+                        <HorizontalSeparator />
                         <SuggestedProjects />
                     </div>
                 </div>
