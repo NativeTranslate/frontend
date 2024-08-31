@@ -1,12 +1,26 @@
 import DashboardLayout from '@/components/layout/dashboard-layout.tsx';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableHeadRow,
+    TableRow,
+} from '@/components/ui/table';
 import { useState } from 'react';
 import SearchField from '@/components/shared/search-field.tsx';
 import { XIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button.tsx';
-import { Dialog, DialogClose, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import {
+    Dialog,
+    DialogClose,
+    DialogContent,
+    DialogTrigger,
+} from '@/components/ui/dialog';
 import { users } from '@/lib/fake-data.ts';
 import DashboardHeader from '@/components/shared/dashboard-header.tsx';
+import { cn } from '@/lib/utils.ts';
 
 const Index = () => {
     const [selected, setSelected] = useState<{
@@ -44,20 +58,20 @@ const Index = () => {
                             </div>
                             <Table>
                                 <TableHeader>
-                                    <TableRow className="hover:bg-transparent">
-                                        <TableHead className="text-left text-primary-500 pr-10 md:pr-14">
+                                    <TableHeadRow>
+                                        <TableHead className="text-left pr-10 md:pr-14">
                                             ID
                                         </TableHead>
-                                        <TableHead className="text-left text-primary-500">
+                                        <TableHead className="text-left">
                                             Name
                                         </TableHead>
-                                        <TableHead className="text-center text-primary-500">
+                                        <TableHead className="text-center">
                                             Role
                                         </TableHead>
-                                        <TableHead className="text-right text-primary-500">
+                                        <TableHead className="text-right">
                                             Country
                                         </TableHead>
-                                    </TableRow>
+                                    </TableHeadRow>
                                 </TableHeader>
                                 <TableBody>
                                     {users.map(user => (
@@ -65,25 +79,20 @@ const Index = () => {
                                             key={user.id}
                                             onClick={() =>
                                                 setSelected(
-                                                    getSelectedUser(
-                                                        user.id
-                                                    )
+                                                    getSelectedUser(user.id),
                                                 )
                                             }
-                                            className={
-                                                selected?.id === user.id
-                                                    ? 'border-gray-400 bg-main-one bg-opacity-60 text-white-900 hover:bg-main-two'
-                                                    : 'text-gray-400 hover:bg-opacity-60 hover:bg-main-two hover:text-white-900 border-b border-gray-400'
-                                            }
+                                            className={cn(
+                                                selected?.id === user.id &&
+                                                    'border-gray-400 bg-main-one bg-opacity-60 text-white-900 hover:bg-main-two',
+                                            )}
                                         >
                                             <TableCell className="text-left">
                                                 {user.id}
                                             </TableCell>
                                             <TableCell className="text-left gap-2 flex items-center">
                                                 <img
-                                                    src={
-                                                        user.profilePicture
-                                                    }
+                                                    src={user.profilePicture}
                                                     className="w-6 h-6 md:w-7 md:h-7 rounded-full object-cover"
                                                     alt="Profile Picture"
                                                 />
@@ -102,14 +111,15 @@ const Index = () => {
                         </div>
                     </div>
 
-
                     {selected && (
-                        <Dialog open={!!selected} onOpenChange={(open) => !open && setSelected(null)}>
+                        <Dialog
+                            open={!!selected}
+                            onOpenChange={open => !open && setSelected(null)}
+                        >
                             <DialogTrigger asChild>
                                 <div className="md:hidden"></div>
                             </DialogTrigger>
-                            <DialogContent
-                                className="rounded-3xl p-6 bg-dark-300 border-transparent md:mx-auto md:my-auto max-w-md md:max-w-lg">
+                            <DialogContent className="rounded-3xl p-6 bg-dark-300 border-transparent md:mx-auto md:my-auto max-w-md md:max-w-lg">
                                 <div className="text-center">
                                     <p className="text-sm text-gray-400 opacity-50">
                                         ID: {selected.id}
@@ -194,8 +204,7 @@ const Index = () => {
                                         <div className="bg-dark-400 rounded-3xl mt-8 h-[2px] w-full" />
 
                                         <div className="flex gap-4 mx-12 mt-8">
-                                            <Button
-                                                className="w-full bg-main-two hover:bg-main-one transition-all focus:ring-0 focus:ring-offset-0">
+                                            <Button className="w-full bg-main-two hover:bg-main-one transition-all focus:ring-0 focus:ring-offset-0">
                                                 Visit Profile
                                             </Button>
                                         </div>

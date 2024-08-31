@@ -58,13 +58,29 @@ const TableRow = React.forwardRef<
     <tr
         ref={ref}
         className={cn(
-            'border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted',
+            'data-[state=selected]:bg-muted',
+            'transition-colors text-gray-400 hover:bg-opacity-60 hover:bg-main-two hover:text-white-900 border-b border-gray-400',
             className,
         )}
         {...props}
     />
 ));
 TableRow.displayName = 'TableRow';
+
+const TableHeadRow = React.forwardRef<
+    HTMLTableRowElement,
+    React.HTMLAttributes<HTMLTableRowElement>
+>(({ className, ...props }, ref) => (
+    <tr
+        ref={ref}
+        className={cn(
+            'border-b transition-colors data-[state=selected]:bg-muted',
+            className,
+        )}
+        {...props}
+    />
+));
+TableHeadRow.displayName = 'TableHeadRow';
 
 const TableHead = React.forwardRef<
     HTMLTableCellElement,
@@ -73,7 +89,7 @@ const TableHead = React.forwardRef<
     <th
         ref={ref}
         className={cn(
-            'h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0',
+            'h-12 px-4 text-left align-middle font-medium text-primary-500 [&:has([role=checkbox])]:pr-0',
             className,
         )}
         {...props}
@@ -88,7 +104,7 @@ const TableCell = React.forwardRef<
     <td
         ref={ref}
         className={cn(
-            'p-4 align-middle [&:has([role=checkbox])]:pr-0',
+            'text-white-900 p-4 align-middle [&:has([role=checkbox])]:pr-0',
             className,
         )}
         {...props}
@@ -115,6 +131,7 @@ export {
     TableFooter,
     TableHead,
     TableRow,
+    TableHeadRow,
     TableCell,
     TableCaption,
 };
