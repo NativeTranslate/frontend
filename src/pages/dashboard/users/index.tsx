@@ -194,13 +194,14 @@ const Index = () => {
                                         <div className="bg-dark-400 rounded-3xl mt-8 h-[2px] w-full" />
 
                                         <div className="flex gap-4 mx-12 mt-8">
-                                            <Button className="w-full bg-main-two hover:bg-main-one transition-all">
+                                            <Button
+                                                className="w-full bg-main-two hover:bg-main-one transition-all focus:ring-0 focus:ring-offset-0">
                                                 Visit Profile
                                             </Button>
                                         </div>
                                     </div>
                                 </div>
-                                <DialogClose className="absolute top-4 right-4">
+                                <DialogClose className="absolute top-4 right-4 bg-dark-200 p-2 rounded-3xl">
                                     <XIcon className="w-6 h-6 text-white-900" />
                                 </DialogClose>
                             </DialogContent>
