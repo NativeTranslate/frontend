@@ -7,12 +7,12 @@ import {
 } from '@/components/ui/chart';
 
 const chartData = [
-    { month: 'January', translations: 186 },
-    { month: 'February', translations: 305 },
-    { month: 'March', translations: 237 },
-    { month: 'April', translations: 73 },
-    { month: 'May', translations: 209 },
-    { month: 'June', translations: 214 },
+    { date: '22.08.2024', translations: 186 },
+    { date: '23.08.2024', translations: 305 },
+    { date: '24.08.2024', translations: 237 },
+    { date: '25.08.2024', translations: 73 },
+    { date: '26.08.2024', translations: 209 },
+    { date: '27.08.2024', translations: 214 },
 ];
 const chartConfig = {
     translations: {
@@ -35,11 +35,10 @@ export function TranslationsChart() {
                 >
                     <CartesianGrid vertical={false} />
                     <XAxis
-                        dataKey="month"
+                        dataKey="date"
                         tickLine={false}
                         axisLine={false}
                         tickMargin={8}
-                        tickFormatter={value => value.slice(0, 3)}
                     />
                     <ChartTooltip
                         cursor={false}
