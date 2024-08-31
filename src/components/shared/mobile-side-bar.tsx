@@ -18,9 +18,9 @@ const MobileSideBar = () => {
                 </Button>
             </DialogTrigger>
             <DialogContent
-                className="fixed right-0 h-full w-full shadow-x text-white-900 border-none p-5 bg-transparent">
-                <div className="flex h-full flex-col bg-dark-300">
-                    <div className="flex items-center justify-between border-b px-4 py-2">
+                className="fixed right-0 h-full w-full shadow-x text-white-900 border-none p-5 bg-transparent rounded-3xl">
+                <div className="flex h-full flex-col bg-dark-300 rounded-3xl">
+                    <div className="flex items-center justify-between border-b  border-dark-400 px-4 py-2">
                         <DialogHeader>
                             <DialogTitle className="text-lg font-semibold">Menu</DialogTitle>
                         </DialogHeader>
@@ -42,7 +42,7 @@ const MobileSideBar = () => {
                                 </a>
                             ))}
                         </nav>
-                        <div className="my-4 border-t" />
+                        <div className="my-4 border-t border-dark-400" />
                         <nav className="space-y-2 px-4">
                             {bottomLinks.map((link) => (
                                 <a
@@ -56,7 +56,7 @@ const MobileSideBar = () => {
                             ))}
                         </nav>
                     </div>
-                    <div className="border-t p-4">
+                    <div className="border-t p-4  border-dark-400">
                         <Button
                             variant="outline"
                             className="w-full justify-center bg-main-two border-none"

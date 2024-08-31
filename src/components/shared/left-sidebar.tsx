@@ -75,7 +75,7 @@ export default function LeftSidebar() {
     const navigate = useNavigate();
 
     return (
-        <nav className={'hidden lg:flex bg-dark-300 p-8 m-7 rounded-3xl flex-col'}>
+        <nav className={'hidden lg:flex bg-dark-300 p-8 m-7 rounded-3xl flex-col h-auto'}>
             <Link
                 to={'/'}
                 className="flex items-center text-center space-x-2 mb-8"
