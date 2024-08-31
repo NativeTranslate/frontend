@@ -14,7 +14,7 @@ export const topLinks = [
     {
         icon: <BriefcaseBusiness className="h-5 w-5" />,
         label: 'Organizations',
-        href: '/organizations'
+        href: '/dashboard/organizations'
     },
     {
         icon: <Users className="h-5 w-5" />,
@@ -27,11 +27,11 @@ export const bottomLinks = [
     {
         icon: <User className="h-5 w-5" />,
         label: 'Profile',
-        href: '/profile'
+        href: '/dashboard/profile/1'
     },
     {
         icon: <Cog className="h-5 w-5" />,
         label: 'Settings',
-        href: '/settings'
+        href: '/dashboard/settings'
     }
 ];

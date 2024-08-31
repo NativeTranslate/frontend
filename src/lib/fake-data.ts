@@ -3,7 +3,7 @@ function generateId() {
     let result = 'NT';
     for (let i = 0; i < 5; i++) {
         result += characters.charAt(
-            Math.floor(Math.random() * characters.length),
+            Math.floor(Math.random() * characters.length)
         );
     }
     return result;
@@ -20,7 +20,7 @@ export const users = [
         profilePicture:
             'https://lh4.googleusercontent.com/proxy/wHtlS6a-bjPq1V6VDAPMDmuDe5sLGrKfWFD9J23aUj2ZAdRQUen1ftzeEPTi3bkpsEiKWY5xOW41ArOxGGlSVeOwQZnB1ZSA1dU4',
         aboutMe:
-            'Tech enthusiast and avid gamer. Love exploring new technologies and coding in my free time.',
+            'Tech enthusiast and avid gamer. Love exploring new technologies and coding in my free time.'
     },
     {
         id: generateId(),
@@ -32,7 +32,7 @@ export const users = [
         profilePicture:
             'https://img.freepik.com/free-photo/portrait-young-beautiful-woman_23-2148161297.jpg',
         aboutMe:
-            'Passionate about web development and cybersecurity. Always eager to learn and share knowledge.',
+            'Passionate about web development and cybersecurity. Always eager to learn and share knowledge.'
     },
     {
         id: generateId(),
@@ -44,7 +44,7 @@ export const users = [
         profilePicture:
             'https://img.freepik.com/free-photo/portrait-happy-young-man_23-2148210560.jpg',
         aboutMe:
-            'Enjoys photography and traveling. Loves capturing moments and sharing stories through pictures.',
+            'Enjoys photography and traveling. Loves capturing moments and sharing stories through pictures.'
     },
     {
         id: generateId(),
@@ -56,7 +56,7 @@ export const users = [
         profilePicture:
             'https://img.freepik.com/free-photo/smiling-woman-wearing-glasses_23-2148201807.jpg',
         aboutMe:
-            'Bookworm and nature lover. Often found hiking or reading a good novel in a cozy corner.',
+            'Bookworm and nature lover. Often found hiking or reading a good novel in a cozy corner.'
     },
     {
         id: generateId(),
@@ -68,7 +68,7 @@ export const users = [
         profilePicture:
             'https://img.freepik.com/free-photo/portrait-happy-asian-man-wearing-glasses_23-2148412133.jpg',
         aboutMe:
-            'Foodie and music enthusiast. Enjoys trying out new recipes and playing the guitar in my free time.',
+            'Foodie and music enthusiast. Enjoys trying out new recipes and playing the guitar in my free time.'
     },
     {
         id: generateId(),
@@ -80,7 +80,7 @@ export const users = [
         profilePicture:
             'https://img.freepik.com/free-photo/smiling-arabic-woman-wearing-hijab_23-2148538048.jpg',
         aboutMe:
-            'Creative writer with a passion for poetry and storytelling. Loves expressing thoughts through words.',
+            'Creative writer with a passion for poetry and storytelling. Loves expressing thoughts through words.'
     },
     {
         id: generateId(),
@@ -92,7 +92,7 @@ export const users = [
         profilePicture:
             'https://img.freepik.com/free-photo/portrait-smiling-young-man_23-2148394447.jpg',
         aboutMe:
-            'Cycling enthusiast and coffee lover. Spends weekends exploring the countryside on my bike.',
+            'Cycling enthusiast and coffee lover. Spends weekends exploring the countryside on my bike.'
     },
     {
         id: generateId(),
@@ -104,7 +104,7 @@ export const users = [
         profilePicture:
             'https://img.freepik.com/free-photo/portrait-beautiful-young-woman_23-2148396221.jpg',
         aboutMe:
-            'Digital artist and designer. Passionate about creating visually appealing content and art.',
+            'Digital artist and designer. Passionate about creating visually appealing content and art.'
     },
     {
         id: generateId(),
@@ -116,7 +116,7 @@ export const users = [
         profilePicture:
             'https://img.freepik.com/free-photo/smiling-young-man-wearing-blue-shirt_23-2148204103.jpg',
         aboutMe:
-            'Sports fanatic and fitness enthusiast. Enjoys staying active and playing football with friends.',
+            'Sports fanatic and fitness enthusiast. Enjoys staying active and playing football with friends.'
     },
     {
         id: generateId(),
@@ -128,8 +128,8 @@ export const users = [
         profilePicture:
             'https://img.freepik.com/free-photo/portrait-beautiful-asian-woman_23-2148514627.jpg',
         aboutMe:
-            'Tech-savvy and passionate about AI. Loves exploring the latest trends in technology and innovation.',
-    },
+            'Tech-savvy and passionate about AI. Loves exploring the latest trends in technology and innovation.'
+    }
 ];
 
 export const fakeProjects = [
@@ -139,7 +139,7 @@ export const fakeProjects = [
         name: 'InnovateAI',
         description:
             'A cutting-edge project focused on developing advanced AI algorithms to solve real-world problems and improve automation in various industries.',
-        participants: 8,
+        participants: 8
     },
     {
         id: 2,
@@ -147,7 +147,7 @@ export const fakeProjects = [
         name: 'EcoWise',
         description:
             'An initiative aimed at creating sustainable solutions for waste management and recycling, promoting environmental awareness and eco-friendly practices.',
-        participants: 12,
+        participants: 12
     },
     {
         id: 3,
@@ -155,7 +155,7 @@ export const fakeProjects = [
         name: 'HealthTrack',
         description:
             'A health and wellness project that focuses on developing a comprehensive platform for tracking fitness, nutrition, and mental health to enhance overall well-being.',
-        participants: 15,
+        participants: 15
     },
     {
         id: 4,
@@ -163,7 +163,7 @@ export const fakeProjects = [
         name: 'EduTechHub',
         description:
             'An educational technology project aimed at creating innovative tools and platforms to enhance online learning experiences and make education more accessible.',
-        participants: 20,
+        participants: 20
     },
     {
         id: 5,
@@ -171,6 +171,51 @@ export const fakeProjects = [
         name: 'SmartHome Innovations',
         description:
             'A project dedicated to developing smart home technologies that integrate seamlessly into daily life, providing convenience, security, and energy efficiency.',
-        participants: 10,
+        participants: 10
+    }
+];
+
+export const fakeOrganizations = [
+    {
+        id: 'ORG001',
+        name: 'Tech Innovators',
+        logo: 'https://media.istockphoto.com/id/1412901513/vector/modern-hand-technology-logo-design.jpg?s=612x612&w=0&k=20&c=zZ4Kh-J2BV_oLfx8Tfd65aUFdTNlCvjmWxLOT4sEeVs=',
+        description: 'Pioneering innovation in the tech world.',
+        members: 120,
+        createdAt: '01/15/2023',
+        createdFrom: 'John Doe'
     },
+    {
+        id: 'ORG002',
+        name: 'Green Earth Initiative',
+        logo: 'https://img.freepik.com/free-vector/figure-folded-logo_1043-97.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1724976000&semt=ais_hybrid',
+        description: 'Fighting for a sustainable future.',
+        members: 80,
+        createdAt: '03/10/2022',
+        createdFrom: 'Jane Smith'
+    },
+    {
+        id: 'ORG003',
+        name: 'Health & Wellness Association',
+        logo: 'https://img.freepik.com/free-vector/business-logo_23-2147503133.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1724976000&semt=ais_hybrid',
+        description: 'Promoting health and well-being globally.',
+        members: 50,
+        createdAt: '11/24/2021'
+    },
+    {
+        id: 'ORG004',
+        name: 'EduCoders Society',
+        logo: 'https://img.freepik.com/free-vector/abstract-logo_23-2147502760.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1724976000&semt=ais_hybrid',
+        description: 'Empowering the next generation of coders.',
+        members: 100,
+        createdAt: '07/05/2021'
+    },
+    {
+        id: 'ORG005',
+        name: 'Artistic Creations Guild',
+        logo: 'https://img.freepik.com/free-vector/abstract-logo_23-2147502760.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1724976000&semt=ais_hybrid',
+        description: 'Celebrating creativity and imagination.',
+        members: 70,
+        createdAt: '05/18/2020'
+    }
 ];
