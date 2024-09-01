@@ -8,6 +8,7 @@ import {
     TableRow,
 } from '@/components/ui/table.tsx';
 import { Progress } from '@/components/ui/progress.tsx';
+import { cn } from '@/lib/utils.ts';
 
 const languages = [
     {
@@ -43,14 +44,22 @@ const ProjectPage = () => {
                                     <TableRow>
                                         <TableCell>
                                             <div className="flex flex-row gap-3 items-center">
-                                                <div className="p-2 bg-dark-200 rounded-md">
+                                                <div
+                                                    className={cn(
+                                                        'p-1.5 bg-dark-200 rounded-md',
+                                                        language.primary &&
+                                                            'border border-yellow-300',
+                                                    )}
+                                                >
                                                     <img
                                                         src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${language.flag}.svg`}
                                                         alt={language.name}
                                                         className="min-w-4 min-h-4 max-w-4 max-h-4"
                                                     />
                                                 </div>
-                                                <p>{language.name}</p>
+                                                <p className="font-medium">
+                                                    {language.name}
+                                                </p>
                                             </div>
                                         </TableCell>
                                         <TableCell>
