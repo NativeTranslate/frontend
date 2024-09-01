@@ -73,6 +73,28 @@
     }
 }
 
+@layer utilities {
+    ::-webkit-scrollbar {
+        @apply transition-colors bg-transparent w-1.5 border-l border-l-transparent p-[1px];
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply rounded-full bg-transparent transition-colors;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply rounded-full bg-main-two;
+    }
+
+    ::-webkit-scrollbar:horizontal {
+        @apply transition-colors bg-transparent h-1 border-t border-t-transparent p-[1px];
+    }
+
+    .hidden-scrollbar::-webkit-scrollbar {
+        @apply hidden;
+    }
+}
+
 .rdp-vhidden {
     @apply hidden;
 }
