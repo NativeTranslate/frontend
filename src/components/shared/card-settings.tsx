@@ -1,6 +1,11 @@
 import React from 'react';
 import { CardConfig } from '@/lib/config.ts';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card.tsx';
+import {
+    Card,
+    CardContent,
+    CardHeader,
+    CardTitle,
+} from '@/components/ui/card.tsx';
 import { Switch } from '@/components/ui/switch.tsx';
 
 interface CardSettingsProps {
@@ -19,7 +24,9 @@ const CardSettingsComponent: React.FC<CardSettingsProps> = ({ cardConfig }) => {
                         key={idx}
                         className="flex items-center justify-between "
                     >
-                        <span className="text-sm max-w-prose">{switchConfig.label}</span>
+                        <span className="text-sm max-w-prose">
+                            {switchConfig.label}
+                        </span>
                         <Switch defaultChecked={switchConfig.default} />
                     </div>
                 ))}

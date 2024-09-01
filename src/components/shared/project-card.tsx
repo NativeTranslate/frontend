@@ -15,15 +15,14 @@ const ProjectCard = ({ item, inverted }: Props) => {
         'https://images.unsplash.com/photo-1494790108377-be9c29b29330?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D',
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQEZrATmgHOi5ls0YCCQBTkocia_atSw0X-Q&s',
         'https://images.ctfassets.net/lh3zuq09vnm2/yBDals8aU8RWtb0xLnPkI/19b391bda8f43e16e64d40b55561e5cd/How_tracking_user_behavior_on_your_website_can_improve_customer_experience.png',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkAJEkJQ1WumU0hXNpXdgBt9NUKc0QDVIiaw&s'
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkAJEkJQ1WumU0hXNpXdgBt9NUKc0QDVIiaw&s',
     ];
 
     const bgColor = inverted ? 'bg-dark-300' : 'bg-dark-200';
 
     return (
         <div className={`${bgColor} rounded-2xl shadow-lg shadow-dark-200 p-4`}>
-            <div
-                className="flex flex-col sm:flex-row items-center sm:items-start md:space-y-1 md:space-x-3 justify-center">
+            <div className="flex flex-col sm:flex-row items-center sm:items-start md:space-y-1 md:space-x-3 justify-center">
                 <div
                     className={`${inverted ? 'bg-dark-200' : 'bg-dark-300'} min-w-20 min-h-20 flex items-center justify-center rounded-lg mb-4 sm:mb-0`}
                 >
@@ -74,6 +73,5 @@ const ProjectCard = ({ item, inverted }: Props) => {
         </div>
     );
 };
-
 
 export default ProjectCard;

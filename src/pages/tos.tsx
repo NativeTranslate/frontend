@@ -7,7 +7,7 @@ const TermsOfService = () => {
         limitations,
         illegalContent,
         legalActions,
-        modifications
+        modifications,
     } = termsOfServiceData;
 
     return (
@@ -77,9 +77,14 @@ const TermsOfService = () => {
                             General Provisions
                         </h2>
                         <div className="mt-4 space-y-2">
-                            <p>These terms constitute the entire agreement between you and us regarding the use of our
-                                service. If any provision of these terms is found to be invalid or unenforceable, the
-                                remaining provisions will remain in full force and effect.</p>
+                            <p>
+                                These terms constitute the entire agreement
+                                between you and us regarding the use of our
+                                service. If any provision of these terms is
+                                found to be invalid or unenforceable, the
+                                remaining provisions will remain in full force
+                                and effect.
+                            </p>
                         </div>
                     </div>
                 </div>

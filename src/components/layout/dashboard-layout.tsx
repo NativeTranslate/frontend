@@ -7,7 +7,6 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
-
     return (
         <div className="relative bg-dark-200 min-h-screen flex">
             {/* Desktop Sidebar */}

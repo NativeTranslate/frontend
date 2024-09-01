@@ -10,7 +10,9 @@ const TestSettings = () => {
                 <div className="flex-grow w-full rounded-3xl my-10 bg-dark-300 overflow-y-auto">
                     <SettingsLayout>
                         <div>
-                            <h1 className="text-white-900 text-2xl font-semibold mb-5">Test Settings</h1>
+                            <h1 className="text-white-900 text-2xl font-semibold mb-5">
+                                Test Settings
+                            </h1>
                         </div>
                     </SettingsLayout>
                 </div>

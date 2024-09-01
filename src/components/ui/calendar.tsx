@@ -3,14 +3,25 @@
 import * as React from 'react';
 import { buttonVariants } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from '@/components/ui/select';
 import { cn } from '@/lib/utils';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { DayPicker, DropdownProps } from 'react-day-picker';
 
-export type CalendarProps = React.ComponentProps<typeof DayPicker>
+export type CalendarProps = React.ComponentProps<typeof DayPicker>;
 
-function Calendar({ className, classNames, showOutsideDays = true, ...props }: CalendarProps) {
+function Calendar({
+    className,
+    classNames,
+    showOutsideDays = true,
+    ...props
+}: CalendarProps) {
     return (
         <DayPicker
             showOutsideDays={showOutsideDays}
@@ -24,54 +35,73 @@ function Calendar({ className, classNames, showOutsideDays = true, ...props }: C
                 nav: 'space-x-1 flex items-center',
                 nav_button: cn(
                     buttonVariants({ variant: 'outline' }),
-                    'h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100'
+                    'h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100',
                 ),
                 nav_button_previous: 'absolute left-1',
                 nav_button_next: 'absolute right-1',
                 table: 'w-full border-collapse space-y-1',
                 head_row: 'flex',
-                head_cell: 'text-muted-foreground rounded-md w-9 font-normal text-[0.8rem]',
+                head_cell:
+                    'text-muted-foreground rounded-md w-9 font-normal text-[0.8rem]',
                 row: 'flex w-full mt-2',
                 cell: 'text-center text-sm p-0 relative [&:has([aria-selected])]:bg-dark-200 rounded-3xl first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20',
-                day: cn(buttonVariants({ variant: 'ghost' }), 'h-9 w-9 p-0 font-normal aria-selected:opacity-100'),
+                day: cn(
+                    buttonVariants({ variant: 'ghost' }),
+                    'h-9 w-9 p-0 font-normal aria-selected:opacity-100',
+                ),
                 day_selected:
                     'bg-dark-200 text-primary-500 hover:bg-dark-300 hover:text-primary-500 focus:bg-dark-200 focus:text-primary-500',
                 day_today: 'bg-dark-200 text-main-one border border-main-two',
                 day_outside: 'text-muted-foreground opacity-50',
                 day_disabled: 'text-muted-foreground opacity-50',
-                day_range_middle: 'aria-selected:bg-dark-200 aria-selected:text-main-one',
+                day_range_middle:
+                    'aria-selected:bg-dark-200 aria-selected:text-main-one',
                 day_hidden: 'invisible',
-                ...classNames
+                ...classNames,
             }}
             components={{
                 Dropdown: ({ value, onChange, children }: DropdownProps) => {
-                    const options = React.Children.toArray(children) as React.ReactElement<React.HTMLProps<HTMLOptionElement>>[];
-                    const selected = options.find((child) => child.props.value === value);
+                    const options = React.Children.toArray(
+                        children,
+                    ) as React.ReactElement<
+                        React.HTMLProps<HTMLOptionElement>
+                    >[];
+                    const selected = options.find(
+                        child => child.props.value === value,
+                    );
                     const handleChange = (value: string) => {
                         const changeEvent = {
-                            target: { value }
+                            target: { value },
                         } as React.ChangeEvent<HTMLSelectElement>;
                         onChange?.(changeEvent);
                     };
                     return (
                         <Select
                             value={value?.toString()}
-                            onValueChange={(value) => {
+                            onValueChange={value => {
                                 handleChange(value);
                             }}
                         >
                             <SelectTrigger className="pr-1.5 focus:ring-0 bg-dark-200 border-dark-400">
-                                <SelectValue>{selected?.props?.children}</SelectValue>
+                                <SelectValue>
+                                    {selected?.props?.children}
+                                </SelectValue>
                             </SelectTrigger>
                             <SelectContent
-                                className={'border-transparent ring-offset-0 ring-offset-transparent'}
-                                position="popper">
-                                <ScrollArea
-                                    className="h-80 bg-dark-200 text-gray-400">
+                                className={
+                                    'border-transparent ring-offset-0 ring-offset-transparent'
+                                }
+                                position="popper"
+                            >
+                                <ScrollArea className="h-80 bg-dark-200 text-gray-400">
                                     {options.map((option, id: number) => (
                                         <SelectItem
                                             key={`${option.props.value}-${id}`}
-                                            value={option.props.value?.toString() ?? ''}>
+                                            value={
+                                                option.props.value?.toString() ??
+                                                ''
+                                            }
+                                        >
                                             {option.props.children}
                                         </SelectItem>
                                     ))}
@@ -81,7 +111,7 @@ function Calendar({ className, classNames, showOutsideDays = true, ...props }: C
                     );
                 },
                 IconLeft: ({}) => <ChevronLeft className="h-4 w-4" />,
-                IconRight: ({}) => <ChevronRight className="h-4 w-4" />
+                IconRight: ({}) => <ChevronRight className="h-4 w-4" />,
             }}
             {...props}
         />

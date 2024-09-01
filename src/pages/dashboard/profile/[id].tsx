@@ -2,7 +2,14 @@ import DashboardLayout from '@/components/layout/dashboard-layout';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Facebook, Instagram, Mail, MapPin, Phone, Twitter } from 'lucide-react';
+import {
+    Facebook,
+    Instagram,
+    Mail,
+    MapPin,
+    Phone,
+    Twitter,
+} from 'lucide-react';
 import { useParams } from 'react-router';
 import { users } from '@/lib/fake-data';
 import { settingsConfig } from '@/lib/config';
@@ -14,12 +21,7 @@ const Profile = () => {
     const { id } = useParams();
     const user = users.find(user => user.id === id);
 
-    const styles = [
-        'Modern',
-        'Scandinavian',
-        'Minimalist',
-        'Gothic'
-    ];
+    const styles = ['Modern', 'Scandinavian', 'Minimalist', 'Gothic'];
 
     return (
         <DashboardLayout>
@@ -70,7 +72,9 @@ const Profile = () => {
                                             value={'Not available'}
                                         />
                                         <InfoItem
-                                            icon={<MapPin className="w-5 h-5" />}
+                                            icon={
+                                                <MapPin className="w-5 h-5" />
+                                            }
                                             label="Location"
                                             value={'Not available'}
                                         />
@@ -86,24 +90,30 @@ const Profile = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {settingsConfig.map((cardConfig, index) => (
-                                <CardSettings key={index} cardConfig={cardConfig} />
+                                <CardSettings
+                                    key={index}
+                                    cardConfig={cardConfig}
+                                />
                             ))}
                         </div>
 
                         <Card className="bg-dark-200 border-transparent text-gray-100">
                             <CardHeader className="flex flex-row items-center justify-between">
-                                <CardTitle className="text-2xl">Projects</CardTitle>
+                                <CardTitle className="text-2xl">
+                                    Projects
+                                </CardTitle>
                                 <Button className="bg-main-two hover:bg-main-one transition-all rounded-full">
                                     Useless button
                                 </Button>
                             </CardHeader>
                             <CardContent>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
                                     {styles.map((style, index) => (
-                                        <ProjectCard style={style} image={avatarUrls[index]} />
+                                        <ProjectCard
+                                            style={style}
+                                            image={avatarUrls[index]}
+                                        />
                                     ))}
-
                                 </div>
                             </CardContent>
                         </Card>
@@ -115,10 +125,10 @@ const Profile = () => {
 };
 
 const InfoItem = ({
-                      icon,
-                      label,
-                      value
-                  }: {
+    icon,
+    label,
+    value,
+}: {
     icon: React.ReactNode;
     label: string;
     value: string;
@@ -134,7 +144,7 @@ const avatarUrls = [
     'https://images.unsplash.com/photo-1494790108377-be9c29b29330?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQEZrATmgHOi5ls0YCCQBTkocia_atSw0X-Q&s',
     'https://images.ctfassets.net/lh3zuq09vnm2/yBDals8aU8RWtb0xLnPkI/19b391bda8f43e16e64d40b55561e5cd/How_tracking_user_behavior_on_your_website_can_improve_customer_experience.png',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkAJEkJQ1WumU0hXNpXdgBt9NUKc0QDVIiaw&s'
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkAJEkJQ1WumU0hXNpXdgBt9NUKc0QDVIiaw&s',
 ];
 
 const ProjectCard = ({ style, image }: { style: string; image: string }) => (

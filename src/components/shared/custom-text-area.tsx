@@ -8,7 +8,12 @@ interface CustomTextareaProps {
     className?: string;
 }
 
-const CustomTextarea: React.FC<CustomTextareaProps> = ({ placeholder, value, onChange, className }) => {
+const CustomTextarea: React.FC<CustomTextareaProps> = ({
+    placeholder,
+    value,
+    onChange,
+    className,
+}) => {
     return (
         <Textarea
             placeholder={placeholder}

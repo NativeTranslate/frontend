@@ -10,7 +10,12 @@ interface Props {
     id?: string;
 }
 
-export default function Checkbox({ value = false, onChange, label, id }: Props) {
+export default function Checkbox({
+    value = false,
+    onChange,
+    label,
+    id,
+}: Props) {
     const [checked, setChecked] = useState(value);
 
     useEffect(() => {
@@ -37,7 +42,9 @@ export default function Checkbox({ value = false, onChange, label, id }: Props) 
                 role="checkbox"
                 id={id}
             >
-                {checked && <Check className="text-white-900 w-3 h-3 sm:w-4 sm:h-4" />}
+                {checked && (
+                    <Check className="text-white-900 w-3 h-3 sm:w-4 sm:h-4" />
+                )}
             </button>
             {label && (
                 <label

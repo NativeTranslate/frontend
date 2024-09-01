@@ -9,7 +9,13 @@ interface InputWithIconProps {
     value: string;
 }
 
-const InputWithIcon: React.FC<InputWithIconProps> = ({ id, placeholder, icon, onChange, value }) => {
+const InputWithIcon: React.FC<InputWithIconProps> = ({
+    id,
+    placeholder,
+    icon,
+    onChange,
+    value,
+}) => {
     return (
         <div className="relative">
             <Input

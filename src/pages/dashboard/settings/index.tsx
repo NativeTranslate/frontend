@@ -16,7 +16,7 @@ const passwordRequirements = [
     'At least one special character (e.g., !@#$%^&*)',
     'Minimum length of 6 characters',
     'At least one number (two or more recommended)',
-    'Change password regularly'
+    'Change password regularly',
 ];
 
 export default function ProfileSettings() {
@@ -31,8 +31,7 @@ export default function ProfileSettings() {
                     <SettingsLayout>
                         <div className="flex flex-col gap-4 sm:gap-5">
                             <div className="bg-dark-200 p-3 sm:p-4 rounded-3xl">
-                                <div
-                                    className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-5">
+                                <div className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-5">
                                     <img
                                         src={result?.profilePicture}
                                         alt="profile"
@@ -47,125 +46,148 @@ export default function ProfileSettings() {
                                         </p>
                                     </div>
                                     <div className="flex-grow" />
-                                    <div
-                                        className="flex flex-col gap-2 items-center bg-dark-300 p-3 sm:p-4 rounded-3xl">
-                                        <p className="text-center text-xs sm:text-sm text-gray-400">Switch to
-                                            Invisible</p>
+                                    <div className="flex flex-col gap-2 items-center bg-dark-300 p-3 sm:p-4 rounded-3xl">
+                                        <p className="text-center text-xs sm:text-sm text-gray-400">
+                                            Switch to Invisible
+                                        </p>
                                         <Switch />
                                     </div>
                                 </div>
                             </div>
                             <div className="bg-dark-200 p-3 sm:p-4 rounded-3xl">
-                                <h2 className="text-base sm:text-lg font-medium text-white-900">Basic Information</h2>
-                                <div
-                                    className="grid grid-cols-1 sm:grid-cols-2 mt-6 sm:mt-9 gap-4 sm:gap-x-12 sm:gap-y-5">
+                                <h2 className="text-base sm:text-lg font-medium text-white-900">
+                                    Basic Information
+                                </h2>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 mt-6 sm:mt-9 gap-4 sm:gap-x-12 sm:gap-y-5">
                                     <div className="space-y-2 sm:space-y-3">
-                                        <Label htmlFor="firstName" className="text-gray-400 text-xs sm:text-sm">
+                                        <Label
+                                            htmlFor="firstName"
+                                            className="text-gray-400 text-xs sm:text-sm"
+                                        >
                                             First Name
                                         </Label>
                                         <CustomInput
                                             id="firstName"
                                             placeholder="John"
                                             icon={<User size={20} />}
-                                            onChange={() => {
-                                            }}
+                                            onChange={() => {}}
                                             value=""
                                         />
                                     </div>
                                     <div className="space-y-2 sm:space-y-3">
-                                        <Label htmlFor="lastName" className="text-gray-400 text-xs sm:text-sm">
+                                        <Label
+                                            htmlFor="lastName"
+                                            className="text-gray-400 text-xs sm:text-sm"
+                                        >
                                             Last Name
                                         </Label>
                                         <CustomInput
                                             id="lastName"
                                             placeholder="Doe"
                                             icon={<User size={20} />}
-                                            onChange={() => {
-                                            }}
+                                            onChange={() => {}}
                                             value=""
                                         />
                                     </div>
                                     <div className="space-y-2 sm:space-y-3">
-                                        <Label htmlFor="gender" className="text-gray-400 text-xs sm:text-sm">
+                                        <Label
+                                            htmlFor="gender"
+                                            className="text-gray-400 text-xs sm:text-sm"
+                                        >
                                             Gender
                                         </Label>
                                         <CustomSelect
                                             id="gender"
-                                            options={['Male', 'Female', 'Other']}
+                                            options={[
+                                                'Male',
+                                                'Female',
+                                                'Other',
+                                            ]}
                                             placeholder={`${result?.gender}`}
-                                            onChange={() => {
-                                            }}
+                                            onChange={() => {}}
                                         />
                                     </div>
                                     <div className="space-y-2 sm:space-y-3 flex flex-col">
-                                        <Label htmlFor="dob" className="text-gray-400 text-xs sm:text-sm">
+                                        <Label
+                                            htmlFor="dob"
+                                            className="text-gray-400 text-xs sm:text-sm"
+                                        >
                                             Date of Birth
                                         </Label>
                                         <CustomDatePicker />
                                     </div>
                                     <div className="space-y-2 sm:space-y-3">
-                                        <Label htmlFor="email" className="text-gray-400 text-xs sm:text-sm">
+                                        <Label
+                                            htmlFor="email"
+                                            className="text-gray-400 text-xs sm:text-sm"
+                                        >
                                             Email
                                         </Label>
                                         <CustomInput
                                             id="email"
                                             placeholder="john.doe@doe.com"
                                             icon={<Mail size={20} />}
-                                            onChange={() => {
-                                            }}
+                                            onChange={() => {}}
                                             value=""
                                         />
                                     </div>
                                     <div className="space-y-2 sm:space-y-3">
-                                        <Label htmlFor="phone" className="text-gray-400 text-xs sm:text-sm">
+                                        <Label
+                                            htmlFor="phone"
+                                            className="text-gray-400 text-xs sm:text-sm"
+                                        >
                                             Phone
                                         </Label>
                                         <CustomInput
                                             id="phone"
                                             placeholder="+49 (0) 123 44 66 66"
                                             icon={<Phone size={20} />}
-                                            onChange={() => {
-                                            }}
+                                            onChange={() => {}}
                                             value=""
                                         />
                                     </div>
                                     <div className="space-y-2 sm:space-y-3 col-span-1 sm:col-span-2">
-                                        <Label htmlFor="location" className="text-gray-400 text-xs sm:text-sm">
+                                        <Label
+                                            htmlFor="location"
+                                            className="text-gray-400 text-xs sm:text-sm"
+                                        >
                                             Location
                                         </Label>
                                         <CustomInput
                                             id="location"
                                             placeholder="John Street 123"
                                             icon={<Pin size={20} />}
-                                            onChange={() => {
-                                            }}
+                                            onChange={() => {}}
                                             value=""
                                         />
                                     </div>
                                     <div className="space-y-2 sm:space-y-3 col-span-1 sm:col-span-2">
-                                        <Label htmlFor="aboutMe" className="text-gray-400 text-xs sm:text-sm">
+                                        <Label
+                                            htmlFor="aboutMe"
+                                            className="text-gray-400 text-xs sm:text-sm"
+                                        >
                                             About Me
                                         </Label>
                                         <CustomTextarea placeholder="Tell us something about yourself" />
                                     </div>
                                 </div>
                                 <div className="mt-4 sm:mt-5 flex justify-end">
-                                    <Button
-                                        className="bg-main-two rounded-3xl hover:bg-main-one transition-all text-sm sm:text-base">
+                                    <Button className="bg-main-two rounded-3xl hover:bg-main-one transition-all text-sm sm:text-base">
                                         Save Changes
                                     </Button>
                                 </div>
                             </div>
                             <div className="bg-dark-200 p-3 sm:p-4 rounded-3xl">
-                                <h2 className="text-base sm:text-lg font-medium text-white-900">Change Password</h2>
+                                <h2 className="text-base sm:text-lg font-medium text-white-900">
+                                    Change Password
+                                </h2>
                                 <div className="grid grid-cols-1 mt-6 sm:mt-9 gap-4 sm:gap-x-12 sm:gap-y-5">
                                     <div>
                                         <CustomInput
                                             placeholder="Enter current password"
                                             icon={<LockIcon size={20} />}
                                             id="currentPassword"
-                                            onChange={() => {
-                                            }}
+                                            onChange={() => {}}
                                             value=""
                                         />
                                     </div>
@@ -174,8 +196,7 @@ export default function ProfileSettings() {
                                             placeholder="Enter new password"
                                             icon={<LockIcon size={20} />}
                                             id="newPassword"
-                                            onChange={() => {
-                                            }}
+                                            onChange={() => {}}
                                             value=""
                                         />
                                     </div>
@@ -184,26 +205,31 @@ export default function ProfileSettings() {
                                             placeholder="Confirm new password"
                                             icon={<LockIcon size={20} />}
                                             id="confirmPassword"
-                                            onChange={() => {
-                                            }}
+                                            onChange={() => {}}
                                             value=""
                                         />
                                     </div>
                                     <div className="mt-2 flex flex-col gap-3 sm:gap-5">
                                         <div className="space-y-2">
-                                            <h3 className="text-white-900 font-medium text-sm sm:text-base">Password
-                                                Requirements</h3>
+                                            <h3 className="text-white-900 font-medium text-sm sm:text-base">
+                                                Password Requirements
+                                            </h3>
                                             <p className="text-xs sm:text-sm text-gray-400">
-                                                Please follow this guide for a strong password:
+                                                Please follow this guide for a
+                                                strong password:
                                             </p>
                                             <ul className="mx-2">
-                                                {passwordRequirements.map((requirement, index) => (
-                                                    <li key={index}
-                                                        className="text-xs sm:text-sm text-gray-400 flex items-center gap-1">
-                                                        <DotFilledIcon />
-                                                        {requirement}
-                                                    </li>
-                                                ))}
+                                                {passwordRequirements.map(
+                                                    (requirement, index) => (
+                                                        <li
+                                                            key={index}
+                                                            className="text-xs sm:text-sm text-gray-400 flex items-center gap-1"
+                                                        >
+                                                            <DotFilledIcon />
+                                                            {requirement}
+                                                        </li>
+                                                    ),
+                                                )}
                                             </ul>
                                         </div>
                                     </div>

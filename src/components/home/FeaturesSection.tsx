@@ -11,8 +11,7 @@ const FeaturesSection = () => (
     >
         <div className="container px-6 md:px-8">
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 text-center">
-                <div
-                    className="flex flex-col items-center space-y-4 p-6 bg-dark-200 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                <div className="flex flex-col items-center space-y-4 p-6 bg-dark-200 rounded-lg shadow-lg transition-transform transform hover:scale-105">
                     <Settings className="h-10 w-10 text-primary-500 mb-4" />
                     <h2 className="text-xl font-semibold text-light-900">
                         Intuitive Dashboard
@@ -22,8 +21,7 @@ const FeaturesSection = () => (
                         our user-friendly interface.
                     </p>
                 </div>
-                <div
-                    className="flex flex-col items-center space-y-4 p-6 bg-dark-200 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                <div className="flex flex-col items-center space-y-4 p-6 bg-dark-200 rounded-lg shadow-lg transition-transform transform hover:scale-105">
                     <Zap className="h-10 w-10 text-primary-500 mb-4" />
                     <h2 className="text-xl font-semibold text-light-900">
                         Fast API Integration
@@ -33,8 +31,7 @@ const FeaturesSection = () => (
                         with our high-performance GraphQL APIs.
                     </p>
                 </div>
-                <div
-                    className="flex flex-col items-center space-y-4 p-6 bg-dark-200 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                <div className="flex flex-col items-center space-y-4 p-6 bg-dark-200 rounded-lg shadow-lg transition-transform transform hover:scale-105">
                     <Code className="h-10 w-10 text-primary-500 mb-4" />
                     <h2 className="text-xl font-semibold text-light-900">
                         Developer-Friendly

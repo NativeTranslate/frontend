@@ -1,5 +1,9 @@
 import React, { useEffect } from 'react';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible.tsx';
+import {
+    Collapsible,
+    CollapsibleContent,
+    CollapsibleTrigger,
+} from '@/components/ui/collapsible.tsx';
 import { Button } from '@/components/ui/button.tsx';
 import { cn } from '@/lib/utils.ts';
 import { ChevronDown, ChevronRight, LogOut } from 'lucide-react';
@@ -7,11 +11,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { bottomLinks, topLinks } from '@/lib/sidebar.tsx';
 
 const MenuItem = ({
-                      icon,
-                      label,
-                      children,
-                      href
-                  }: {
+    icon,
+    label,
+    children,
+    href,
+}: {
     icon: React.ReactNode;
     label: string;
     children?: React.ReactNode;
@@ -40,7 +44,7 @@ const MenuItem = ({
                     className={cn(
                         'w-full h-14 justify-between text-left text-gray-400 bg-transparent hover:bg-main-two hover:text-white-900',
                         isOpen &&
-                        'bg-main-two text-white-900 hover:bg-main-two'
+                            'bg-main-two text-white-900 hover:bg-main-two',
                     )}
                 >
                     <span className="flex items-center gap-2 text-lg">
@@ -61,9 +65,9 @@ const MenuItem = ({
                         React.cloneElement(child as React.ReactElement<any>, {
                             className: cn(
                                 'w-full text-left text-gray-400 hover:bg-main-two hover:text-white-900',
-                                isOpen && 'bg-main-two text-white-900'
-                            )
-                        })
+                                isOpen && 'bg-main-two text-white-900',
+                            ),
+                        }),
                     )}
                 </CollapsibleContent>
             )}
@@ -75,7 +79,11 @@ export default function LeftSidebar() {
     const navigate = useNavigate();
 
     return (
-        <nav className={'hidden lg:flex bg-dark-300 p-8 m-7 rounded-3xl flex-col h-auto'}>
+        <nav
+            className={
+                'hidden lg:flex bg-dark-300 p-8 m-7 rounded-3xl flex-col h-auto'
+            }
+        >
             <Link
                 to={'/'}
                 className="flex items-center text-center space-x-2 mb-8"
@@ -93,14 +101,22 @@ export default function LeftSidebar() {
             </Link>
             <div className="text-left justify-start items-start flex-grow space-y-3 mt-8">
                 {topLinks.map(({ icon, label, href }) => (
-                    <MenuItem key={label} icon={icon} label={label} href={href}>
-                    </MenuItem>
+                    <MenuItem
+                        key={label}
+                        icon={icon}
+                        label={label}
+                        href={href}
+                    ></MenuItem>
                 ))}
             </div>
             <div className={'space-y-3'}>
-
                 {bottomLinks.map(({ icon, label, href }) => (
-                    <MenuItem key={label} icon={icon} label={label} href={href} />
+                    <MenuItem
+                        key={label}
+                        icon={icon}
+                        label={label}
+                        href={href}
+                    />
                 ))}
 
                 <Button

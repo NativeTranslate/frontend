@@ -5,7 +5,6 @@ import { useRoutes } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-
 import './globals.css';
 import Loading from '@/components/shared/loading.tsx';
 
@@ -34,5 +33,5 @@ createRoot(document.getElementById('root')!).render(
                 </motion.div>
             </Suspense>
         </BrowserRouter>
-    </StrictMode>
+    </StrictMode>,
 );
