@@ -81,7 +81,7 @@ export default function LeftSidebar() {
     return (
         <nav
             className={
-                'hidden lg:flex bg-dark-300 p-8 m-7 rounded-3xl flex-col h-auto'
+                'hidden lg:flex sticky bg-dark-300 p-8 m-7 rounded-3xl flex-col top-8 max-h-[92vh]'
             }
         >
             <Link
@@ -99,34 +99,37 @@ export default function LeftSidebar() {
                     NativeTranslate
                 </span>
             </Link>
-            <div className="text-left justify-start items-start flex-grow space-y-3 mt-8">
-                {topLinks.map(({ icon, label, href }) => (
-                    <MenuItem
-                        key={label}
-                        icon={icon}
-                        label={label}
-                        href={href}
-                    ></MenuItem>
-                ))}
-            </div>
-            <div className={'space-y-3'}>
-                {bottomLinks.map(({ icon, label, href }) => (
-                    <MenuItem
-                        key={label}
-                        icon={icon}
-                        label={label}
-                        href={href}
-                    />
-                ))}
 
-                <Button
-                    variant="ghost"
-                    className="w-full hover:bg-transparent justify-start text-left gap-2 text-main-one hover:text-main-two border border-primary-500"
-                    onClick={() => navigate('/login')}
-                >
-                    <LogOut className="h-5 w-5" />
-                    Logout
-                </Button>
+            <div className="overflow-y-auto hidden-scrollbar flex flex-col flex-grow">
+                <div className="text-left justify-start items-start flex-grow space-y-3 mt-8">
+                    {topLinks.map(({ icon, label, href }) => (
+                        <MenuItem
+                            key={label}
+                            icon={icon}
+                            label={label}
+                            href={href}
+                        ></MenuItem>
+                    ))}
+                </div>
+                <div className={'space-y-3'}>
+                    {bottomLinks.map(({ icon, label, href }) => (
+                        <MenuItem
+                            key={label}
+                            icon={icon}
+                            label={label}
+                            href={href}
+                        />
+                    ))}
+
+                    <Button
+                        variant="ghost"
+                        className="w-full hover:bg-transparent justify-start text-left gap-2 text-main-one hover:text-main-two border border-primary-500"
+                        onClick={() => navigate('/login')}
+                    >
+                        <LogOut className="h-5 w-5" />
+                        Logout
+                    </Button>
+                </div>
             </div>
         </nav>
     );
