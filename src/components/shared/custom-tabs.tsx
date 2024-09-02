@@ -1,6 +1,12 @@
 'use client';
 
-import React, { createContext, ReactNode, useContext, useState } from 'react';
+import React, {
+    createContext,
+    ReactNode,
+    useContext,
+    useEffect,
+    useState,
+} from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 interface TabContextType {
@@ -14,13 +20,25 @@ interface SetupTabsProps {
     children: ReactNode;
     defaultTab?: string;
     className?: string;
+    onChange?: (tabId: string) => void;
 }
 
-export function SetupTabs({ children, defaultTab, className }: SetupTabsProps) {
+export function SetupTabs({
+    children,
+    defaultTab,
+    className,
+    onChange,
+}: SetupTabsProps) {
     const [activeTab, setActiveTab] = useState(defaultTab || '');
     const [isDropdownOpen, setDropdownOpen] = useState(false);
 
     const toggleDropdown = () => setDropdownOpen(!isDropdownOpen);
+
+    useEffect(() => {
+        if (onChange) {
+            onChange(activeTab);
+        }
+    }, [activeTab, onChange]);
 
     return (
         <TabContext.Provider value={{ activeTab, setActiveTab }}>
