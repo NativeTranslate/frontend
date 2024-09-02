@@ -19,7 +19,8 @@ const Index = () => {
                             <div className="flex-grow" />
                             <Button
                                 onClick={() =>
-                                    (window.location.href = '/dashboard/create')
+                                    (window.location.href =
+                                        '/dashboard/projects/create')
                                 }
                                 className="gap-2 bg-main-two hover:bg-main-two/50 transition-all"
                             >

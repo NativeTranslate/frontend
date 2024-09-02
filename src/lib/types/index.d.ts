@@ -59,6 +59,10 @@ export interface Project {
     name: string;
     description: string;
     participants: number;
+    words?: number;
+    createdAt?: string;
+    lastActivity?: string;
+    managers?: User[];
 }
 
 export interface Organization {

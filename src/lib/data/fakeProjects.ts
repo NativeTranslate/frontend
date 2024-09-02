@@ -1,4 +1,5 @@
 import { Project } from '../types';
+import { users } from '@/lib/data/fakeUsers.ts';
 
 export const fakeProjects: Project[] = [
     {
@@ -8,6 +9,10 @@ export const fakeProjects: Project[] = [
         description:
             'A cutting-edge project focused on developing advanced AI algorithms to solve real-world problems and improve automation in various industries.',
         participants: 8,
+        words: 90828,
+        createdAt: '6 years ago',
+        lastActivity: '9 months ago',
+        managers: [users[0], users[1], users[2], users[3]],
     },
     {
         id: 2,
