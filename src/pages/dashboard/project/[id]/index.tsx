@@ -54,7 +54,7 @@ const languages = [
 const FilterField = () => {
     return (
         <Select defaultValue="alphabetical">
-            <SelectTriggerNoIcons className="h-10 bg-dark-200 border-0 text-white-900 rounded-3xl">
+            <SelectTriggerNoIcons className="h-10 bg-dark-200 border-0 text-white-900 rounded-md">
                 <TooltipProvider delayDuration={0}>
                     <Tooltip>
                         <TooltipTrigger>
@@ -76,7 +76,7 @@ const FilterField = () => {
 
 const ProjectInfoBox = ({ project }: { project: any }) => {
     return (
-        <div className="bg-dark-300 rounded-3xl p-6 w-full md:w-96 text-white h-auto">
+        <div className="bg-dark-300 rounded-md p-6 w-full md:w-96 text-white h-auto">
             <div className="flex justify-center mb-4">
                 <img
                     src={project.logo}
@@ -163,7 +163,7 @@ const ProjectPage = () => {
             <div className="flex flex-col h-full">
                 <DashboardHeader title={project.name} />
                 <div className="flex flex-col md:flex-row gap-6 my-10 h-full">
-                    <div className="flex-grow bg-dark-300 rounded-3xl overflow-y-auto ">
+                    <div className="flex-grow bg-dark-300 rounded-md overflow-y-auto ">
                         <SetupTabs
                             className={'bg-dark-300 p-4 rounded-lg'}
                             defaultTab="overview"
@@ -187,7 +187,7 @@ const ProjectPage = () => {
                                             <div className="flex flex-row gap-3 items-center w-full md:w-full">
                                                 <FilterField />
                                                 <div className="flex-grow" />
-                                                <Button className="bg-main-two hover:bg-main-one rounded-3xl w-full md:w-auto">
+                                                <Button className="bg-main-two hover:bg-main-one rounded-md w-full md:w-auto">
                                                     Open Editor
                                                 </Button>
                                             </div>

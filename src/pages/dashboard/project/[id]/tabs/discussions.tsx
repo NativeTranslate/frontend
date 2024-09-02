@@ -27,7 +27,7 @@ import ChatView from '@/components/shared/chat-view';
 const FilterField = () => {
     return (
         <Select defaultValue="newest">
-            <SelectTriggerNoIcons className="h-10 bg-main-two border-0 text-primary rounded-md">
+            <SelectTriggerNoIcons className="h-10 bg-dark-200 border-0 text-primary rounded-md">
                 <TooltipProvider delayDuration={0}>
                     <Tooltip>
                         <TooltipTrigger>

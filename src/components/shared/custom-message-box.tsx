@@ -22,15 +22,15 @@ export default function CustomMessageBox({
                 return (
                     <div
                         key={index}
-                        className="flex items-start space-x-2 mb-1"
+                        className="flex space-x-2 mb-1 items-center"
                     >
                         <div className="w-1 bg-muted-foreground h-6" />
-                        <p className="text-gray-400">{line.slice(2)}</p>
+                        <p className="text-gray-400 text-sm">{line.slice(2)}</p>
                     </div>
                 );
             }
             return (
-                <p key={index} className="text-white-900 mb-1">
+                <p key={index} className="text-white-900 text-sm mb-1">
                     {line}
                 </p>
             );

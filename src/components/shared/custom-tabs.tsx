@@ -8,6 +8,8 @@ import React, {
     useState,
 } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { cn } from '@/lib/utils';
+import { ChevronRight } from 'lucide-react';
 
 interface TabContextType {
     activeTab: string;
@@ -47,7 +49,7 @@ export function SetupTabs({
                     <div className="flex lg:hidden">
                         <button
                             onClick={toggleDropdown}
-                            className="px-4 py-2 text-sm font-medium text-white-900 bg-primary-500 rounded"
+                            className="px-4 py-2 text-sm font-medium text-white-900 bg-main-two rounded flex items-center"
                         >
                             {(
                                 React.Children.toArray(children).find(
@@ -57,7 +59,14 @@ export function SetupTabs({
                                         child.props.id === activeTab,
                                 ) as React.ReactElement
                             )?.props.children || 'Select'}
-                            <span className="ml-2">▼</span>
+                            <span className="ml-2">
+                                <ChevronRight
+                                    className={cn(
+                                        `${isDropdownOpen ? 'rotate-90' : 'rotate-0'}`,
+                                        'transition-all max-h-5 ',
+                                    )}
+                                />
+                            </span>
                         </button>
                     </div>
                     <div className="hidden lg:flex space-x-8">
@@ -130,7 +139,7 @@ export function TabHeader({ id, children }: TabHeaderProps) {
             {children}
             {activeTab === id && (
                 <motion.div
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-500"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-main-two"
                     layoutId="activeTab"
                     initial={false}
                     transition={{
