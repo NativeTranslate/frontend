@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Input } from '@/components/ui/input';
 
 interface ProjectAddressInputProps {
     baseUrl: string;
+    value?: string;
     onChange: (value: string) => void;
 }
 
 export default function ProjectAddressInput({
     baseUrl,
+    value,
     onChange,
 }: ProjectAddressInputProps) {
     const [identifier, setIdentifier] = useState('');
@@ -17,6 +19,10 @@ export default function ProjectAddressInput({
         setIdentifier(newValue);
         onChange(newValue);
     };
+
+    useEffect(() => {
+        setIdentifier(value || '');
+    }, []);
 
     return (
         <div className="space-y-2 w-full">

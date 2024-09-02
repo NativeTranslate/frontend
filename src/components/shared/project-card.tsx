@@ -21,7 +21,10 @@ const ProjectCard = ({ item, inverted }: Props) => {
     const bgColor = inverted ? 'bg-dark-300' : 'bg-dark-200';
 
     return (
-        <div className={`${bgColor} rounded-2xl shadow-lg shadow-dark-200 p-4`}>
+        <div
+            onClick={() => (window.location.href = `project/${item.id}`)}
+            className={`${bgColor} rounded-2xl shadow-lg shadow-dark-200 p-4 hover:shadow-lg hover:shadow-dark-300 transition-all duration-300 ease-in-out hover:scale-105 cursor-pointer`}
+        >
             <div className="flex flex-col sm:flex-row items-center sm:items-start md:space-y-1 md:space-x-3 justify-center">
                 <div
                     className={`${inverted ? 'bg-dark-200' : 'bg-dark-300'} min-w-20 min-h-20 flex items-center justify-center rounded-lg mb-4 sm:mb-0`}

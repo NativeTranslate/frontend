@@ -6,7 +6,12 @@ import CustomInput from '@/components/shared/custom-input.tsx';
 import Checkbox from './checkbox';
 import { fakeLanguages } from '@/lib/data/fakeLanguages.ts';
 
-export default function LanguageSelector() {
+interface Props {
+    value?: string[];
+    onChange?: (value: string[]) => void;
+}
+
+export default function LanguageSelector({ value }: Props) {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);
     const [isMobile, setIsMobile] = useState(false);
@@ -29,6 +34,12 @@ export default function LanguageSelector() {
                 : [...prev, lang],
         );
     };
+
+    useEffect(() => {
+        if (value) {
+            setSelectedLanguages(value);
+        }
+    }, []);
 
     return (
         <div className="bg-dark-200 text-gray-300 p-4 rounded-lg">
