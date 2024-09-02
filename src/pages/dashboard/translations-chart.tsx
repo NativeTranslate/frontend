@@ -6,14 +6,22 @@ import {
     ChartTooltipContent,
 } from '@/components/ui/chart';
 
-const chartData = [
-    { date: '22.08.2024', translations: 186 },
-    { date: '23.08.2024', translations: 305 },
-    { date: '24.08.2024', translations: 237 },
-    { date: '25.08.2024', translations: 73 },
-    { date: '26.08.2024', translations: 209 },
-    { date: '27.08.2024', translations: 214 },
-];
+function generateData() {
+    const data = [];
+    const startDate = new Date('2021-01-01');
+    for (let i = 0; i < 30; i++) {
+        const date = new Date(startDate);
+        date.setDate(date.getDate() + i);
+        data.push({
+            date: date.toISOString().slice(0, 10),
+            translations: Math.floor(Math.random() * 100),
+        });
+    }
+    return data;
+}
+
+const chartData = generateData();
+
 const chartConfig = {
     translations: {
         label: 'Translations',
