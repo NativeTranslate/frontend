@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 import { useLocation } from 'react-router';
 import { useNavigate } from 'react-router-dom';
-import { SearchIcon } from 'lucide-react'; // Reagiere entsprechend deiner Router-Konfiguration
+import { SearchIcon } from 'lucide-react';
 
 interface CustomInputProps {
     route: string;
@@ -45,7 +45,7 @@ const SearchField = ({
 
     return (
         <div
-            className={`relative flex min-h-[45px] grow items-center gap-4 rounded-full text-gray-400 px-4 ${otherClasses} bg-dark-200 shadow-lg`}
+            className={`relative flex min-h-10 grow items-center gap-4 rounded-full text-gray-400 px-4 ${otherClasses} bg-dark-200 shadow-lg`}
         >
             {iconPosition === 'left' && (
                 <SearchIcon size={24} className={'cursor-pointer'} />

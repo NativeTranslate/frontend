@@ -9,6 +9,23 @@ import {
 } from '@/components/ui/table.tsx';
 import { Progress } from '@/components/ui/progress.tsx';
 import { cn } from '@/lib/utils.ts';
+import SearchField from '@/components/shared/search-field.tsx';
+import { HorizontalSeparator } from '@/components/shared/separator.tsx';
+import { Button } from '@/components/ui/button.tsx';
+import {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectTriggerNoIcons,
+} from '@/components/ui/select.tsx';
+import { ArrowDownWideNarrowIcon } from 'lucide-react';
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from '@/components/ui/tooltip.tsx';
 
 const languages = [
     {
@@ -29,6 +46,29 @@ const languages = [
     },
 ];
 
+const FilterField = () => {
+    return (
+        <Select defaultValue="alphabetical">
+            <SelectTriggerNoIcons className="h-10 bg-dark-200 border-0 text-white-900 rounded-3xl">
+                <TooltipProvider delayDuration={0}>
+                    <Tooltip>
+                        <TooltipTrigger>
+                            <ArrowDownWideNarrowIcon className="w-4 h-4" />
+                        </TooltipTrigger>
+                        <TooltipContent>Sort by</TooltipContent>
+                    </Tooltip>
+                </TooltipProvider>
+            </SelectTriggerNoIcons>
+            <SelectContent position="popper">
+                <SelectGroup>
+                    <SelectItem value={'alphabetical'}>Alphabetical</SelectItem>
+                    <SelectItem value={'progress'}>Progress</SelectItem>
+                </SelectGroup>
+            </SelectContent>
+        </Select>
+    );
+};
+
 const ProjectPage = () => {
     const project = fakeProjects[0];
 
@@ -37,7 +77,21 @@ const ProjectPage = () => {
             <div className="flex flex-col h-full">
                 <DashboardHeader title={project.name} />
                 <div className="flex-grow w-full bg-dark-300 rounded-3xl overflow-y-auto my-10">
-                    <div className={'flex flex-col mx-12 my-12'}>
+                    <div className="flex flex-col mx-12 my-12 select-none">
+                        <div className="flex flex-row gap-3 items-center">
+                            <SearchField
+                                route="/dashboard/project"
+                                iconPosition="right"
+                                placeholder="Search..."
+                                otherClasses="max-w-96"
+                            />
+                            <FilterField />
+                            <div className="flex-grow" />
+                            <Button className="bg-main-two hover:bg-main-one rounded-3xl">
+                                Open Editor
+                            </Button>
+                        </div>
+                        <HorizontalSeparator />
                         <Table>
                             <TableBody>
                                 {languages.map((language: any) => (
@@ -48,7 +102,7 @@ const ProjectPage = () => {
                                                     className={cn(
                                                         'p-1.5 bg-dark-200 rounded-md',
                                                         language.primary &&
-                                                            'border border-yellow-300',
+                                                            'border border-primary-500',
                                                     )}
                                                 >
                                                     <img

@@ -30,6 +30,23 @@ const SelectTrigger = React.forwardRef<
 ));
 SelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
 
+const SelectTriggerNoIcons = React.forwardRef<
+    React.ElementRef<typeof SelectPrimitive.Trigger>,
+    React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
+>(({ className, children, ...props }, ref) => (
+    <SelectPrimitive.Trigger
+        ref={ref}
+        className={cn(
+            'flex items-center justify-between rounded-md border border-input dark:border-transparent bg-background dark:bg-input px-3 py-2 text-sm placeholder:text-muted-foreground focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1',
+            className,
+        )}
+        {...props}
+    >
+        {children}
+    </SelectPrimitive.Trigger>
+));
+SelectTriggerNoIcons.displayName = SelectPrimitive.Trigger.displayName;
+
 const SelectScrollUpButton = React.forwardRef<
     React.ElementRef<typeof SelectPrimitive.ScrollUpButton>,
     React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollUpButton>
@@ -116,7 +133,7 @@ const SelectItem = React.forwardRef<
     <SelectPrimitive.Item
         ref={ref}
         className={cn(
-            'relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-dark-200 focus:text-white-900 data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+            'relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-dark-200 text-gray-400 focus:text-white-900 data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
             className,
         )}
         {...props}
@@ -149,6 +166,7 @@ export {
     SelectGroup,
     SelectValue,
     SelectTrigger,
+    SelectTriggerNoIcons,
     SelectContent,
     SelectLabel,
     SelectItem,
