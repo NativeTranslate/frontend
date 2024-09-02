@@ -13,5 +13,5 @@ export const fakeLanguages: string[] = [
     'Arabic',
     'Hindi',
     'Bengali',
-    'Urdu'
+    'Urdu',
 ];

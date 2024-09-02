@@ -8,7 +8,7 @@ export const fakeOrganizations: Organization[] = [
         description: 'Pioneering innovation in the tech world.',
         members: 120,
         createdAt: '01/15/2023',
-        createdFrom: 'John Doe'
+        createdFrom: 'John Doe',
     },
     {
         id: 'ORG002',
@@ -17,7 +17,7 @@ export const fakeOrganizations: Organization[] = [
         description: 'Fighting for a sustainable future.',
         members: 80,
         createdAt: '03/10/2022',
-        createdFrom: 'Jane Smith'
+        createdFrom: 'Jane Smith',
     },
     {
         id: 'ORG003',
@@ -25,7 +25,7 @@ export const fakeOrganizations: Organization[] = [
         logo: 'https://img.freepik.com/free-vector/business-logo_23-2147503133.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1724976000&semt=ais_hybrid',
         description: 'Promoting health and well-being globally.',
         members: 50,
-        createdAt: '11/24/2021'
+        createdAt: '11/24/2021',
     },
     {
         id: 'ORG004',
@@ -33,7 +33,7 @@ export const fakeOrganizations: Organization[] = [
         logo: 'https://img.freepik.com/free-vector/abstract-logo_23-2147502760.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1724976000&semt=ais_hybrid',
         description: 'Empowering the next generation of coders.',
         members: 100,
-        createdAt: '07/05/2021'
+        createdAt: '07/05/2021',
     },
     {
         id: 'ORG005',
@@ -41,6 +41,6 @@ export const fakeOrganizations: Organization[] = [
         logo: 'https://img.freepik.com/free-vector/abstract-logo_23-2147502760.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1724976000&semt=ais_hybrid',
         description: 'Celebrating creativity and imagination.',
         members: 70,
-        createdAt: '05/18/2020'
-    }
+        createdAt: '05/18/2020',
+    },
 ];

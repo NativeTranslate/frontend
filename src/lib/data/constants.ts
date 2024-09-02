@@ -5,15 +5,15 @@ export const impressumData: ImpressumData = {
         name: 'Max Mustermann',
         street: 'Musterstraße 111',
         building: 'Gebäude 44',
-        city: '90210 Musterstadt'
+        city: '90210 Musterstadt',
     },
     contact: {
         phone: '+49 (0) 123 44 66 66',
-        email: 'mustermann@musterfirma.de'
+        email: 'mustermann@musterfirma.de',
     },
     otherInfo: {
-        note: 'The telephone number is NOT intended for support.'
-    }
+        note: 'The telephone number is NOT intended for support.',
+    },
 };
 
 export const termsOfServiceData: TermsOfServiceData = {
@@ -28,5 +28,5 @@ export const termsOfServiceData: TermsOfServiceData = {
     legalActions:
         'We take legal actions against any criminal activities or violations of these terms. Any illegal conduct will be reported to the appropriate authorities and may result in legal action against the responsible parties.',
     modifications:
-        'We reserve the right to modify these terms at any time. Changes will be posted on our website, and it is your responsibility to review these terms periodically. Continued use of our service constitutes acceptance of any changes made.'
+        'We reserve the right to modify these terms at any time. Changes will be posted on our website, and it is your responsibility to review these terms periodically. Continued use of our service constitutes acceptance of any changes made.',
 };

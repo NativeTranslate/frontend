@@ -2,7 +2,9 @@ const generateId = (): string => {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     let result = 'NT';
     for (let i = 0; i < 5; i++) {
-        result += characters.charAt(Math.floor(Math.random() * characters.length));
+        result += characters.charAt(
+            Math.floor(Math.random() * characters.length),
+        );
     }
     return result;
 };
@@ -18,7 +20,7 @@ export const users = [
         profilePicture:
             'https://lh4.googleusercontent.com/proxy/wHtlS6a-bjPq1V6VDAPMDmuDe5sLGrKfWFD9J23aUj2ZAdRQUen1ftzeEPTi3bkpsEiKWY5xOW41ArOxGGlSVeOwQZnB1ZSA1dU4',
         aboutMe:
-            'Tech enthusiast and avid gamer. Love exploring new technologies and coding in my free time.'
+            'Tech enthusiast and avid gamer. Love exploring new technologies and coding in my free time.',
     },
     {
         id: generateId(),
@@ -30,7 +32,7 @@ export const users = [
         profilePicture:
             'https://img.freepik.com/free-photo/portrait-young-beautiful-woman_23-2148161297.jpg',
         aboutMe:
-            'Passionate about web development and cybersecurity. Always eager to learn and share knowledge.'
+            'Passionate about web development and cybersecurity. Always eager to learn and share knowledge.',
     },
     {
         id: generateId(),
@@ -42,7 +44,7 @@ export const users = [
         profilePicture:
             'https://img.freepik.com/free-photo/portrait-happy-young-man_23-2148210560.jpg',
         aboutMe:
-            'Enjoys photography and traveling. Loves capturing moments and sharing stories through pictures.'
+            'Enjoys photography and traveling. Loves capturing moments and sharing stories through pictures.',
     },
     {
         id: generateId(),
@@ -54,7 +56,7 @@ export const users = [
         profilePicture:
             'https://img.freepik.com/free-photo/smiling-woman-wearing-glasses_23-2148201807.jpg',
         aboutMe:
-            'Bookworm and nature lover. Often found hiking or reading a good novel in a cozy corner.'
+            'Bookworm and nature lover. Often found hiking or reading a good novel in a cozy corner.',
     },
     {
         id: generateId(),
@@ -66,7 +68,7 @@ export const users = [
         profilePicture:
             'https://img.freepik.com/free-photo/portrait-happy-asian-man-wearing-glasses_23-2148412133.jpg',
         aboutMe:
-            'Foodie and music enthusiast. Enjoys trying out new recipes and playing the guitar in my free time.'
+            'Foodie and music enthusiast. Enjoys trying out new recipes and playing the guitar in my free time.',
     },
     {
         id: generateId(),
@@ -78,7 +80,7 @@ export const users = [
         profilePicture:
             'https://img.freepik.com/free-photo/smiling-arabic-woman-wearing-hijab_23-2148538048.jpg',
         aboutMe:
-            'Creative writer with a passion for poetry and storytelling. Loves expressing thoughts through words.'
+            'Creative writer with a passion for poetry and storytelling. Loves expressing thoughts through words.',
     },
     {
         id: generateId(),
@@ -90,7 +92,7 @@ export const users = [
         profilePicture:
             'https://img.freepik.com/free-photo/portrait-smiling-young-man_23-2148394447.jpg',
         aboutMe:
-            'Cycling enthusiast and coffee lover. Spends weekends exploring the countryside on my bike.'
+            'Cycling enthusiast and coffee lover. Spends weekends exploring the countryside on my bike.',
     },
     {
         id: generateId(),
@@ -102,7 +104,7 @@ export const users = [
         profilePicture:
             'https://img.freepik.com/free-photo/portrait-beautiful-young-woman_23-2148396221.jpg',
         aboutMe:
-            'Digital artist and designer. Passionate about creating visually appealing content and art.'
+            'Digital artist and designer. Passionate about creating visually appealing content and art.',
     },
     {
         id: generateId(),
@@ -114,7 +116,7 @@ export const users = [
         profilePicture:
             'https://img.freepik.com/free-photo/smiling-young-man-wearing-blue-shirt_23-2148204103.jpg',
         aboutMe:
-            'Sports fanatic and fitness enthusiast. Enjoys staying active and playing football with friends.'
+            'Sports fanatic and fitness enthusiast. Enjoys staying active and playing football with friends.',
     },
     {
         id: generateId(),
@@ -126,6 +128,6 @@ export const users = [
         profilePicture:
             'https://img.freepik.com/free-photo/portrait-beautiful-asian-woman_23-2148514627.jpg',
         aboutMe:
-            'Tech-savvy and passionate about AI. Loves exploring the latest trends in technology and innovation.'
-    }
+            'Tech-savvy and passionate about AI. Loves exploring the latest trends in technology and innovation.',
+    },
 ];

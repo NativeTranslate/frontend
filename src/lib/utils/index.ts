@@ -21,7 +21,11 @@ export function cn(...inputs: ClassValue[]) {
  * @param value - Value to set for the key.
  * @returns Formatted URL with query parameters.
  */
-export const formUrlQuery = (params: string, key: string, value: string | null): string => {
+export const formUrlQuery = (
+    params: string,
+    key: string,
+    value: string | null,
+): string => {
     const currentUrl = qs.parse(params);
     // @ts-ignore
     currentUrl[key] = value || undefined;
@@ -29,9 +33,9 @@ export const formUrlQuery = (params: string, key: string, value: string | null):
     return qs.stringifyUrl(
         {
             url: window.location.pathname,
-            query: currentUrl
+            query: currentUrl,
         },
-        { skipNull: true }
+        { skipNull: true },
     );
 };
 
@@ -41,19 +45,22 @@ export const formUrlQuery = (params: string, key: string, value: string | null):
  * @param keysToRemove - Array of keys to remove.
  * @returns Formatted URL with updated query parameters.
  */
-export const removeKeysFromQuery = (params: string, keysToRemove: string[]): string => {
+export const removeKeysFromQuery = (
+    params: string,
+    keysToRemove: string[],
+): string => {
     const currentUrl = qs.parse(params);
 
-    keysToRemove.forEach((key) => {
+    keysToRemove.forEach(key => {
         delete currentUrl[key];
     });
 
     return qs.stringifyUrl(
         {
             url: window.location.pathname,
-            query: currentUrl
+            query: currentUrl,
         },
-        { skipNull: true }
+        { skipNull: true },
     );
 };
 
@@ -74,13 +81,16 @@ export const formatNumber = (num: number): string => {
  * @param duration - Duration of the counting effect in milliseconds.
  * @returns Current count value.
  */
-export const useIncrementalCounter = (targetNumber: number, duration: number): number => {
+export const useIncrementalCounter = (
+    targetNumber: number,
+    duration: number,
+): number => {
     const [count, setCount] = useState(0);
 
     useEffect(() => {
         const increment = targetNumber / (duration / 10);
         const interval = setInterval(() => {
-            setCount((prev) => {
+            setCount(prev => {
                 if (prev + increment >= targetNumber) {
                     clearInterval(interval);
                     return targetNumber;

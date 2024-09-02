@@ -18,7 +18,7 @@ export function CustomDatePicker() {
                     variant={'outline'}
                     className={cn(
                         'w-full h-full hover:bg-dark-300 hover:text-gray-400 bg-dark-300 rounded-3xl border-transparent text-gray-400 justify-start text-left font-normal',
-                        !date && 'text-muted-foreground'
+                        !date && 'text-muted-foreground',
                     )}
                 >
                     {date ? (

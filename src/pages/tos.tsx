@@ -7,7 +7,7 @@ const TermsOfService = () => {
         limitations,
         illegalContent,
         legalActions,
-        modifications
+        modifications,
     } = termsOfServiceData;
 
     return (

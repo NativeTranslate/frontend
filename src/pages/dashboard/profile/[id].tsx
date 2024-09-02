@@ -2,7 +2,14 @@ import DashboardLayout from '@/components/layout/dashboard-layout';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Facebook, Instagram, Mail, MapPin, Phone, Twitter } from 'lucide-react';
+import {
+    Facebook,
+    Instagram,
+    Mail,
+    MapPin,
+    Phone,
+    Twitter,
+} from 'lucide-react';
 import { useParams } from 'react-router';
 import CardSettings from '@/components/shared/card-settings';
 import OverlappingAvatars from '@/components/shared/overlapping-avatars.tsx';
@@ -118,10 +125,10 @@ const Profile = () => {
 };
 
 const InfoItem = ({
-                      icon,
-                      label,
-                      value
-                  }: {
+    icon,
+    label,
+    value,
+}: {
     icon: React.ReactNode;
     label: string;
     value: string;
@@ -137,7 +144,7 @@ const avatarUrls = [
     'https://images.unsplash.com/photo-1494790108377-be9c29b29330?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQEZrATmgHOi5ls0YCCQBTkocia_atSw0X-Q&s',
     'https://images.ctfassets.net/lh3zuq09vnm2/yBDals8aU8RWtb0xLnPkI/19b391bda8f43e16e64d40b55561e5cd/How_tracking_user_behavior_on_your_website_can_improve_customer_experience.png',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkAJEkJQ1WumU0hXNpXdgBt9NUKc0QDVIiaw&s'
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkAJEkJQ1WumU0hXNpXdgBt9NUKc0QDVIiaw&s',
 ];
 
 const ProjectCard = ({ style, image }: { style: string; image: string }) => (

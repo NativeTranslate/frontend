@@ -19,12 +19,14 @@ export default function LanguageSelector() {
     }, []);
 
     const filteredLanguages = fakeLanguages.filter(lang =>
-        lang.toLowerCase().includes(searchTerm.toLowerCase())
+        lang.toLowerCase().includes(searchTerm.toLowerCase()),
     );
 
     const toggleLanguage = (lang: string) => {
         setSelectedLanguages(prev =>
-            prev.includes(lang) ? prev.filter(l => l !== lang) : [...prev, lang]
+            prev.includes(lang)
+                ? prev.filter(l => l !== lang)
+                : [...prev, lang],
         );
     };
 
@@ -34,18 +36,19 @@ export default function LanguageSelector() {
                 <div className="w-full md:w-1/2">
                     <div className="relative mb-4 border-b border-primary-500 pb-4">
                         <CustomInput
-
                             placeholder="Search languages"
                             value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
+                            onChange={e => setSearchTerm(e.target.value)}
                             icon={<Search className="text-gray-500" />}
                             id={'search-languages'}
-
                         />
                     </div>
                     <ScrollArea className="h-[300px]">
-                        {filteredLanguages.map((lang) => (
-                            <div key={lang} className="flex items-center space-x-2 py-2">
+                        {filteredLanguages.map(lang => (
+                            <div
+                                key={lang}
+                                className="flex items-center space-x-2 py-2"
+                            >
                                 <Checkbox
                                     id={lang}
                                     value={selectedLanguages.includes(lang)}
@@ -65,23 +68,41 @@ export default function LanguageSelector() {
                     <div className="w-full md:w-1/2 bg-dark-300 p-4 rounded-lg">
                         {selectedLanguages.length === 0 ? (
                             <div className="text-center text-gray-500">
-                                <p className={'font-bold text-2xl text-primary-500'}>No language selected</p>
-                                <p className="mt-4">Select project target languages from the left-hand list</p>
+                                <p
+                                    className={
+                                        'font-bold text-2xl text-primary-500'
+                                    }
+                                >
+                                    No language selected
+                                </p>
+                                <p className="mt-4">
+                                    Select project target languages from the
+                                    left-hand list
+                                </p>
                             </div>
                         ) : (
                             <>
                                 <div className="flex justify-between items-center mb-4">
-                                    <h3 className="font-semibold">Selected Languages</h3>
+                                    <h3 className="font-semibold">
+                                        Selected Languages
+                                    </h3>
                                 </div>
                                 <ScrollArea className="h-[300px]">
-                                    {selectedLanguages.map((lang) => (
-                                        <div key={lang} className="flex items-center justify-between py-2 pr-5">
+                                    {selectedLanguages.map(lang => (
+                                        <div
+                                            key={lang}
+                                            className="flex items-center justify-between py-2 pr-5"
+                                        >
                                             <span>{lang}</span>
                                             <Button
                                                 variant="ghost"
                                                 size="icon"
-                                                className={'bg-main-two hover:bg-main-two/50 hover:text-white-900'}
-                                                onClick={() => toggleLanguage(lang)}
+                                                className={
+                                                    'bg-main-two hover:bg-main-two/50 hover:text-white-900'
+                                                }
+                                                onClick={() =>
+                                                    toggleLanguage(lang)
+                                                }
                                             >
                                                 <Trash2 className="h-4 w-4" />
                                             </Button>

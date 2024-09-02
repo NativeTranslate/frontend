@@ -1,5 +1,11 @@
 import { useState } from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog.tsx';
+import {
+    Dialog,
+    DialogContent,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from '@/components/ui/dialog.tsx';
 import { Button } from '@/components/ui/button.tsx';
 import { LogOut, Menu as MenuIcon, X } from 'lucide-react';
 import { bottomLinks, topLinks } from '@/lib/configs/sidebarConfig.tsx';
@@ -17,8 +23,7 @@ const MobileSideBar = () => {
                     <MenuIcon className="w-6 h-6 text-primary-500" />
                 </Button>
             </DialogTrigger>
-            <DialogContent
-                className="fixed right-0 h-full w-full shadow-x text-white-900 border-none p-5 bg-transparent rounded-3xl">
+            <DialogContent className="fixed right-0 h-full w-full shadow-x text-white-900 border-none p-5 bg-transparent rounded-3xl">
                 <div className="flex h-full flex-col bg-dark-300 rounded-3xl">
                     <div className="flex items-center justify-between border-b  border-dark-400 px-4 py-2">
                         <DialogHeader>

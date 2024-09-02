@@ -7,7 +7,7 @@ export const fakeProjects: Project[] = [
         name: 'InnovateAI',
         description:
             'A cutting-edge project focused on developing advanced AI algorithms to solve real-world problems and improve automation in various industries.',
-        participants: 8
+        participants: 8,
     },
     {
         id: 2,
@@ -15,7 +15,7 @@ export const fakeProjects: Project[] = [
         name: 'EcoWise',
         description:
             'An initiative aimed at creating sustainable solutions for waste management and recycling, promoting environmental awareness and eco-friendly practices.',
-        participants: 12
+        participants: 12,
     },
     {
         id: 3,
@@ -23,7 +23,7 @@ export const fakeProjects: Project[] = [
         name: 'HealthTrack',
         description:
             'A health and wellness project that focuses on developing a comprehensive platform for tracking fitness, nutrition, and mental health to enhance overall well-being.',
-        participants: 15
+        participants: 15,
     },
     {
         id: 4,
@@ -31,7 +31,7 @@ export const fakeProjects: Project[] = [
         name: 'EduTechHub',
         description:
             'An educational technology project aimed at creating innovative tools and platforms to enhance online learning experiences and make education more accessible.',
-        participants: 20
+        participants: 20,
     },
     {
         id: 5,
@@ -39,6 +39,6 @@ export const fakeProjects: Project[] = [
         name: 'SmartHome Innovations',
         description:
             'A project dedicated to developing smart home technologies that integrate seamlessly into daily life, providing convenience, security, and energy efficiency.',
-        participants: 10
-    }
+        participants: 10,
+    },
 ];
