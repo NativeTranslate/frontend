@@ -1,4 +1,4 @@
-import { termsOfServiceData } from '@/lib/constants.ts';
+import { termsOfServiceData } from '@/lib/data/constants.ts';
 
 const TermsOfService = () => {
     const {
@@ -7,7 +7,7 @@ const TermsOfService = () => {
         limitations,
         illegalContent,
         legalActions,
-        modifications,
+        modifications
     } = termsOfServiceData;
 
     return (

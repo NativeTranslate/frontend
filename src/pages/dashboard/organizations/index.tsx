@@ -1,9 +1,9 @@
 import DashboardLayout from '@/components/layout/dashboard-layout.tsx';
 import OrganizationCard from '@/components/shared/organization-card.tsx';
 import DashboardHeader from '@/components/shared/dashboard-header.tsx';
-import { fakeOrganizations } from '@/lib/fake-data.ts';
 import { Button } from '@/components/ui/button.tsx';
 import { PlusIcon } from 'lucide-react';
+import { fakeOrganizations } from '@/lib/data/fakeOrganizations.ts';
 
 const Organizations = () => {
     return (
@@ -17,7 +17,8 @@ const Organizations = () => {
                                 Your organizations
                             </h1>
                             <div className="flex-grow" />
-                            <Button className="mt-4 sm:mt-0 bg-main-two text-white-900 hover:bg-main-one transition-colors gap-1">
+                            <Button
+                                className="mt-4 sm:mt-0 bg-main-two text-white-900 hover:bg-main-one transition-colors gap-1">
                                 <PlusIcon />
                                 Create new organization
                             </Button>
@@ -27,7 +28,8 @@ const Organizations = () => {
                             the impact they're making.
                         </p>
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-center justify-center mx-4 sm:mx-12">
+                    <div
+                        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-center justify-center mx-4 sm:mx-12">
                         {fakeOrganizations.map((organization, index) => (
                             <OrganizationCard
                                 organization={organization}

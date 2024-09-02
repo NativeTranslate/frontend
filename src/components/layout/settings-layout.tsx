@@ -1,10 +1,10 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { settingsCategories } from '@/lib/settings';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { MenuIcon, XIcon } from 'lucide-react';
+import { settingsCategories } from '@/lib/configs/settingsCategories.tsx';
 
 interface LayoutProps {
     children: React.ReactNode;
@@ -13,7 +13,7 @@ interface LayoutProps {
 export default function SettingsLayout({ children }: LayoutProps) {
     const location = useLocation();
     const [activeCategory, setActiveCategory] = useState(
-        settingsCategories[0].key,
+        settingsCategories[0].key
     );
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -21,7 +21,7 @@ export default function SettingsLayout({ children }: LayoutProps) {
         const currentCategory = location.pathname.split('/').pop();
         if (
             settingsCategories.some(
-                category => category.key === currentCategory,
+                category => category.key === currentCategory
             )
         ) {
             setActiveCategory(currentCategory as string);
@@ -66,7 +66,7 @@ export default function SettingsLayout({ children }: LayoutProps) {
                                 >
                                     {category.icon &&
                                         React.cloneElement(category.icon, {
-                                            className: 'h-5 w-5 mr-2',
+                                            className: 'h-5 w-5 mr-2'
                                         })}
                                     {category.label}
                                 </span>

@@ -15,7 +15,8 @@ import CustomInput from '@/components/shared/custom-input.tsx';
 import CustomTextarea from '@/components/shared/custom-text-area.tsx';
 import { Card, CardContent } from '@/components/ui/card.tsx';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
-import { fakeLanguages } from '@/lib/fake-data.ts';
+import { fakeLanguages } from '@/lib/data/fakeLanguages.ts';
+
 
 const projectTypes = [
     {

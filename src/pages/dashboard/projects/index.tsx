@@ -1,8 +1,8 @@
 import DashboardLayout from '@/components/layout/dashboard-layout.tsx';
 import ProjectCard from '@/components/shared/project-card.tsx';
-import { fakeProjects } from '@/lib/fake-data.ts';
 import DashboardHeader from '@/components/shared/dashboard-header.tsx';
 import CreateProject from '@/components/dialog/create-project.tsx';
+import { fakeProjects } from '@/lib/data/fakeProjects.ts';
 
 const Index = () => {
     return (

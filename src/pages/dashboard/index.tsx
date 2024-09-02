@@ -1,11 +1,11 @@
 import DashboardLayout from '@/components/layout/dashboard-layout.tsx';
 import { BriefcaseBusiness, Folder, Languages, Users } from 'lucide-react';
 import { TranslationsChart } from '@/pages/dashboard/translations-chart.tsx';
-import { cn, FormatNumber, IncrementalCounter } from '@/lib/utils.ts';
 import DashboardHeader from '@/components/shared/dashboard-header.tsx';
-import { fakeProjects } from '@/lib/fake-data.ts';
 import ProjectCard from '@/components/shared/project-card.tsx';
 import { HorizontalSeparator } from '@/components/shared/separator.tsx';
+import { cn, formatNumber, useIncrementalCounter } from '@/lib/utils';
+import { fakeProjects } from '@/lib/data/fakeProjects.ts';
 
 interface StatCardProps {
     title: string;
@@ -25,7 +25,7 @@ const StatCard = (props: StatCardProps) => {
                     {props.title}
                 </p>
                 <p className="text-gray-500 px-1">
-                    {FormatNumber(IncrementalCounter(props.value, 500))}
+                    {formatNumber(useIncrementalCounter(props.value, 500))}
                 </p>
             </div>
         </div>

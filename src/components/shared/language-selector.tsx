@@ -4,7 +4,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Search, Trash2 } from 'lucide-react';
 import CustomInput from '@/components/shared/custom-input.tsx';
 import Checkbox from './checkbox';
-import { fakeLanguages } from '@/lib/fake-data.ts';
+import { fakeLanguages } from '@/lib/data/fakeLanguages.ts';
 
 export default function LanguageSelector() {
     const [searchTerm, setSearchTerm] = useState('');

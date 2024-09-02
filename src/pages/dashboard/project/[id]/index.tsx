@@ -1,49 +1,33 @@
 import DashboardLayout from '@/components/layout/dashboard-layout.tsx';
 import DashboardHeader from '@/components/shared/dashboard-header.tsx';
-import { fakeProjects } from '@/lib/fake-data.ts';
-import {
-    Table,
-    TableBody,
-    TableCell,
-    TableRow,
-} from '@/components/ui/table.tsx';
+import { Table, TableBody, TableCell, TableRow } from '@/components/ui/table.tsx';
 import { Progress } from '@/components/ui/progress.tsx';
-import { cn } from '@/lib/utils.ts';
 import SearchField from '@/components/shared/search-field.tsx';
 import { HorizontalSeparator } from '@/components/shared/separator.tsx';
 import { Button } from '@/components/ui/button.tsx';
-import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectTriggerNoIcons,
-} from '@/components/ui/select.tsx';
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTriggerNoIcons } from '@/components/ui/select.tsx';
 import { ArrowDownWideNarrowIcon } from 'lucide-react';
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-} from '@/components/ui/tooltip.tsx';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip.tsx';
+import { fakeProjects } from '@/lib/data/fakeProjects.ts';
+import { cn } from '@/lib/utils';
 
 const languages = [
     {
         primary: true,
         name: 'German',
         progress: 75,
-        flag: 'DE',
+        flag: 'DE'
     },
     {
         name: 'Spanish',
         progress: 50,
-        flag: 'ES',
+        flag: 'ES'
     },
     {
         name: 'French',
         progress: 25,
-        flag: 'FR',
-    },
+        flag: 'FR'
+    }
 ];
 
 const FilterField = () => {
@@ -102,7 +86,7 @@ const ProjectPage = () => {
                                                     className={cn(
                                                         'p-1.5 bg-dark-200 rounded-md',
                                                         language.primary &&
-                                                            'border border-primary-500',
+                                                        'border border-primary-500'
                                                     )}
                                                 >
                                                     <img

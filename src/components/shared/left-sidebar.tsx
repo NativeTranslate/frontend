@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible.tsx';
 import { Button } from '@/components/ui/button.tsx';
-import { cn } from '@/lib/utils.ts';
 import { ChevronDown, ChevronRight, LogOut } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
-import { bottomLinks, topLinks } from '@/lib/sidebar.tsx';
+import { cn } from '@/lib/utils';
+import { bottomLinks, topLinks } from '@/lib/configs/sidebarConfig.tsx';
 
 const MenuItem = ({
                       icon,

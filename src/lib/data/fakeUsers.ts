@@ -1,13 +1,11 @@
-function generateId() {
+const generateId = (): string => {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     let result = 'NT';
     for (let i = 0; i < 5; i++) {
-        result += characters.charAt(
-            Math.floor(Math.random() * characters.length)
-        );
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
     }
     return result;
-}
+};
 
 export const users = [
     {
@@ -130,110 +128,4 @@ export const users = [
         aboutMe:
             'Tech-savvy and passionate about AI. Loves exploring the latest trends in technology and innovation.'
     }
-];
-
-export const fakeProjects = [
-    {
-        id: 1,
-        logo: 'https://i.imgur.com/7t76jSw.png',
-        name: 'InnovateAI',
-        description:
-            'A cutting-edge project focused on developing advanced AI algorithms to solve real-world problems and improve automation in various industries.',
-        participants: 8
-    },
-    {
-        id: 2,
-        logo: 'https://i.imgur.com/gHX5XTb.png',
-        name: 'EcoWise',
-        description:
-            'An initiative aimed at creating sustainable solutions for waste management and recycling, promoting environmental awareness and eco-friendly practices.',
-        participants: 12
-    },
-    {
-        id: 3,
-        logo: 'https://i.imgur.com/8xFoY61.png',
-        name: 'HealthTrack',
-        description:
-            'A health and wellness project that focuses on developing a comprehensive platform for tracking fitness, nutrition, and mental health to enhance overall well-being.',
-        participants: 15
-    },
-    {
-        id: 4,
-        logo: 'https://i.imgur.com/Dmw566e.png',
-        name: 'EduTechHub',
-        description:
-            'An educational technology project aimed at creating innovative tools and platforms to enhance online learning experiences and make education more accessible.',
-        participants: 20
-    },
-    {
-        id: 5,
-        logo: 'https://i.imgur.com/7LPuHru.png',
-        name: 'SmartHome Innovations',
-        description:
-            'A project dedicated to developing smart home technologies that integrate seamlessly into daily life, providing convenience, security, and energy efficiency.',
-        participants: 10
-    }
-];
-
-export const fakeOrganizations = [
-    {
-        id: 'ORG001',
-        name: 'Tech Innovators',
-        logo: 'https://media.istockphoto.com/id/1412901513/vector/modern-hand-technology-logo-design.jpg?s=612x612&w=0&k=20&c=zZ4Kh-J2BV_oLfx8Tfd65aUFdTNlCvjmWxLOT4sEeVs=',
-        description: 'Pioneering innovation in the tech world.',
-        members: 120,
-        createdAt: '01/15/2023',
-        createdFrom: 'John Doe'
-    },
-    {
-        id: 'ORG002',
-        name: 'Green Earth Initiative',
-        logo: 'https://img.freepik.com/free-vector/figure-folded-logo_1043-97.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1724976000&semt=ais_hybrid',
-        description: 'Fighting for a sustainable future.',
-        members: 80,
-        createdAt: '03/10/2022',
-        createdFrom: 'Jane Smith'
-    },
-    {
-        id: 'ORG003',
-        name: 'Health & Wellness Association',
-        logo: 'https://img.freepik.com/free-vector/business-logo_23-2147503133.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1724976000&semt=ais_hybrid',
-        description: 'Promoting health and well-being globally.',
-        members: 50,
-        createdAt: '11/24/2021'
-    },
-    {
-        id: 'ORG004',
-        name: 'EduCoders Society',
-        logo: 'https://img.freepik.com/free-vector/abstract-logo_23-2147502760.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1724976000&semt=ais_hybrid',
-        description: 'Empowering the next generation of coders.',
-        members: 100,
-        createdAt: '07/05/2021'
-    },
-    {
-        id: 'ORG005',
-        name: 'Artistic Creations Guild',
-        logo: 'https://img.freepik.com/free-vector/abstract-logo_23-2147502760.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1724976000&semt=ais_hybrid',
-        description: 'Celebrating creativity and imagination.',
-        members: 70,
-        createdAt: '05/18/2020'
-    }
-];
-
-export const fakeLanguages = [
-    'German',
-    'English',
-    'Spanish',
-    'French',
-    'Italian',
-    'Dutch',
-    'Portuguese',
-    'Russian',
-    'Chinese',
-    'Japanese',
-    'Korean',
-    'Arabic',
-    'Hindi',
-    'Bengali',
-    'Urdu'
 ];

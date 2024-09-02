@@ -1,7 +1,7 @@
 import { Button } from './button';
 import { Popover, PopoverContent, PopoverTrigger } from './popover';
 import { CalendarIcon } from 'lucide-react';
-import { cn } from '@/lib/utils.ts';
+import { cn } from '@/lib/utils';
 import { format } from 'date-fns';
 import { Calendar } from '@/components/ui/calendar.tsx';
 import React from 'react';
@@ -18,7 +18,7 @@ export function CustomDatePicker() {
                     variant={'outline'}
                     className={cn(
                         'w-full h-full hover:bg-dark-300 hover:text-gray-400 bg-dark-300 rounded-3xl border-transparent text-gray-400 justify-start text-left font-normal',
-                        !date && 'text-muted-foreground',
+                        !date && 'text-muted-foreground'
                     )}
                 >
                     {date ? (

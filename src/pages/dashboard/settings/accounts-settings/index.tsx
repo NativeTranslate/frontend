@@ -4,17 +4,11 @@ import React from 'react';
 import SettingsLayout from '@/components/layout/settings-layout';
 import DashboardLayout from '@/components/layout/dashboard-layout';
 import DashboardHeader from '@/components/shared/dashboard-header';
-import { availableIntegrations } from '@/lib/settings';
 import { Switch } from '@/components/ui/switch';
 import { Button } from '@/components/ui/button';
-import {
-    Dialog,
-    DialogContent,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
+import { availableIntegrations } from '@/lib/configs/settingsCategories.tsx';
 
 export default function TestSettings() {
     return (
@@ -44,8 +38,8 @@ export default function TestSettings() {
                                                     integration.logo,
                                                     {
                                                         className:
-                                                            'w-5 h-5 sm:w-6 sm:h-6 text-white-900',
-                                                    },
+                                                            'w-5 h-5 sm:w-6 sm:h-6 text-white-900'
+                                                    }
                                                 )}
                                             </div>
                                             <div>
@@ -57,7 +51,8 @@ export default function TestSettings() {
                                                 </p>
                                             </div>
                                         </div>
-                                        <div className="flex items-center justify-between sm:justify-end gap-2 sm:gap-4">
+                                        <div
+                                            className="flex items-center justify-between sm:justify-end gap-2 sm:gap-4">
                                             <Dialog>
                                                 <DialogTrigger asChild>
                                                     <Button
@@ -67,7 +62,8 @@ export default function TestSettings() {
                                                         Configure
                                                     </Button>
                                                 </DialogTrigger>
-                                                <DialogContent className="bg-dark-300 border-transparent text-white gap-y-4 sm:gap-y-5 p-4 sm:p-6">
+                                                <DialogContent
+                                                    className="bg-dark-300 border-transparent text-white gap-y-4 sm:gap-y-5 p-4 sm:p-6">
                                                     <DialogHeader>
                                                         <DialogTitle className="text-white-900 text-lg sm:text-xl">
                                                             Configure{' '}
@@ -78,7 +74,8 @@ export default function TestSettings() {
                                                         placeholder="Enter integration link"
                                                         className="bg-dark-200 border-none text-gray-400 text-sm sm:text-base"
                                                     />
-                                                    <Button className="rounded-lg bg-main-two hover:rounded-3xl transition-all hover:bg-main-two text-sm sm:text-base">
+                                                    <Button
+                                                        className="rounded-lg bg-main-two hover:rounded-3xl transition-all hover:bg-main-two text-sm sm:text-base">
                                                         Save
                                                     </Button>
                                                 </DialogContent>

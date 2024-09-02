@@ -7,11 +7,11 @@ import CustomTextarea from '@/components/shared/custom-text-area.tsx';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group.tsx';
 import { Card, CardContent } from '@/components/ui/card.tsx';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select.tsx';
-import { fakeLanguages } from '@/lib/fake-data.ts';
 import LanguageSelector from '@/components/shared/language-selector.tsx';
 import { Button } from '@/components/ui/button.tsx';
 import ProjectAddressInput from '@/components/shared/project-address-input.tsx';
 import { useState } from 'react';
+import { fakeLanguages } from '@/lib/data/fakeLanguages.ts';
 
 const projectTypes = [
     {

@@ -1,12 +1,7 @@
 import React from 'react';
-import { CardConfig } from '@/lib/config.ts';
-import {
-    Card,
-    CardContent,
-    CardHeader,
-    CardTitle,
-} from '@/components/ui/card.tsx';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card.tsx';
 import { Switch } from '@/components/ui/switch.tsx';
+import { CardConfig } from '@/lib/types';
 
 interface CardSettingsProps {
     cardConfig: CardConfig;

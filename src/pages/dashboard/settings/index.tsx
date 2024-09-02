@@ -1,7 +1,6 @@
 import SettingsLayout from '@/components/layout/settings-layout';
 import DashboardLayout from '@/components/layout/dashboard-layout';
 import DashboardHeader from '@/components/shared/dashboard-header';
-import { users } from '@/lib/fake-data';
 import { Switch } from '@/components/ui/switch';
 import { LockIcon, Mail, Phone, Pin, User } from 'lucide-react';
 import { Label } from '@/components/ui/label';
@@ -11,12 +10,13 @@ import { CustomDatePicker } from '@/components/ui/date-picker';
 import { Button } from '@/components/ui/button';
 import CustomTextarea from '@/components/shared/custom-text-area';
 import { DotFilledIcon } from '@radix-ui/react-icons';
+import { users } from '@/lib/data/fakeUsers.ts';
 
 const passwordRequirements = [
     'At least one special character (e.g., !@#$%^&*)',
     'Minimum length of 6 characters',
     'At least one number (two or more recommended)',
-    'Change password regularly',
+    'Change password regularly'
 ];
 
 export default function ProfileSettings() {
@@ -31,7 +31,8 @@ export default function ProfileSettings() {
                     <SettingsLayout>
                         <div className="flex flex-col gap-4 sm:gap-5">
                             <div className="bg-dark-200 p-3 sm:p-4 rounded-3xl">
-                                <div className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-5">
+                                <div
+                                    className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-5">
                                     <img
                                         src={result?.profilePicture}
                                         alt="profile"
@@ -46,7 +47,8 @@ export default function ProfileSettings() {
                                         </p>
                                     </div>
                                     <div className="flex-grow" />
-                                    <div className="flex flex-col gap-2 items-center bg-dark-300 p-3 sm:p-4 rounded-3xl">
+                                    <div
+                                        className="flex flex-col gap-2 items-center bg-dark-300 p-3 sm:p-4 rounded-3xl">
                                         <p className="text-center text-xs sm:text-sm text-gray-400">
                                             Switch to Invisible
                                         </p>
@@ -58,7 +60,8 @@ export default function ProfileSettings() {
                                 <h2 className="text-base sm:text-lg font-medium text-white-900">
                                     Basic Information
                                 </h2>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 mt-6 sm:mt-9 gap-4 sm:gap-x-12 sm:gap-y-5">
+                                <div
+                                    className="grid grid-cols-1 sm:grid-cols-2 mt-6 sm:mt-9 gap-4 sm:gap-x-12 sm:gap-y-5">
                                     <div className="space-y-2 sm:space-y-3">
                                         <Label
                                             htmlFor="firstName"
@@ -70,7 +73,8 @@ export default function ProfileSettings() {
                                             id="firstName"
                                             placeholder="John"
                                             icon={<User size={20} />}
-                                            onChange={() => {}}
+                                            onChange={() => {
+                                            }}
                                             value=""
                                         />
                                     </div>
@@ -85,7 +89,8 @@ export default function ProfileSettings() {
                                             id="lastName"
                                             placeholder="Doe"
                                             icon={<User size={20} />}
-                                            onChange={() => {}}
+                                            onChange={() => {
+                                            }}
                                             value=""
                                         />
                                     </div>
@@ -101,10 +106,11 @@ export default function ProfileSettings() {
                                             options={[
                                                 'Male',
                                                 'Female',
-                                                'Other',
+                                                'Other'
                                             ]}
                                             placeholder={`${result?.gender}`}
-                                            onChange={() => {}}
+                                            onChange={() => {
+                                            }}
                                         />
                                     </div>
                                     <div className="space-y-2 sm:space-y-3 flex flex-col">
@@ -127,7 +133,8 @@ export default function ProfileSettings() {
                                             id="email"
                                             placeholder="john.doe@doe.com"
                                             icon={<Mail size={20} />}
-                                            onChange={() => {}}
+                                            onChange={() => {
+                                            }}
                                             value=""
                                         />
                                     </div>
@@ -142,7 +149,8 @@ export default function ProfileSettings() {
                                             id="phone"
                                             placeholder="+49 (0) 123 44 66 66"
                                             icon={<Phone size={20} />}
-                                            onChange={() => {}}
+                                            onChange={() => {
+                                            }}
                                             value=""
                                         />
                                     </div>
@@ -157,7 +165,8 @@ export default function ProfileSettings() {
                                             id="location"
                                             placeholder="John Street 123"
                                             icon={<Pin size={20} />}
-                                            onChange={() => {}}
+                                            onChange={() => {
+                                            }}
                                             value=""
                                         />
                                     </div>
@@ -172,7 +181,8 @@ export default function ProfileSettings() {
                                     </div>
                                 </div>
                                 <div className="mt-4 sm:mt-5 flex justify-end">
-                                    <Button className="bg-main-two rounded-3xl hover:bg-main-one transition-all text-sm sm:text-base">
+                                    <Button
+                                        className="bg-main-two rounded-3xl hover:bg-main-one transition-all text-sm sm:text-base">
                                         Save Changes
                                     </Button>
                                 </div>
@@ -187,7 +197,8 @@ export default function ProfileSettings() {
                                             placeholder="Enter current password"
                                             icon={<LockIcon size={20} />}
                                             id="currentPassword"
-                                            onChange={() => {}}
+                                            onChange={() => {
+                                            }}
                                             value=""
                                         />
                                     </div>
@@ -196,7 +207,8 @@ export default function ProfileSettings() {
                                             placeholder="Enter new password"
                                             icon={<LockIcon size={20} />}
                                             id="newPassword"
-                                            onChange={() => {}}
+                                            onChange={() => {
+                                            }}
                                             value=""
                                         />
                                     </div>
@@ -205,7 +217,8 @@ export default function ProfileSettings() {
                                             placeholder="Confirm new password"
                                             icon={<LockIcon size={20} />}
                                             id="confirmPassword"
-                                            onChange={() => {}}
+                                            onChange={() => {
+                                            }}
                                             value=""
                                         />
                                     </div>
@@ -228,7 +241,7 @@ export default function ProfileSettings() {
                                                             <DotFilledIcon />
                                                             {requirement}
                                                         </li>
-                                                    ),
+                                                    )
                                                 )}
                                             </ul>
                                         </div>

@@ -1,4 +1,4 @@
-import { impressumData } from '@/lib/constants.ts';
+import { impressumData } from '@/lib/data/constants';
 
 const Impressum = () => {
     const { details, contact, otherInfo } = impressumData;
