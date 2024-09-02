@@ -86,4 +86,5 @@ export interface SidebarLink {
     icon: JSX.Element;
     label: string;
     href: string;
+    children?: SidebarLink[];
 }

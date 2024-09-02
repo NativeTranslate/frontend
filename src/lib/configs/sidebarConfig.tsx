@@ -1,4 +1,12 @@
-import { Briefcase, Folder, Home, Settings, User, Users } from 'lucide-react';
+import {
+    Briefcase,
+    Folder,
+    Home,
+    PlusIcon,
+    Settings,
+    User,
+    Users,
+} from 'lucide-react';
 import { SidebarLink } from '../types';
 
 export const topLinks: SidebarLink[] = [
@@ -7,6 +15,18 @@ export const topLinks: SidebarLink[] = [
         icon: <Folder className="h-5 w-5" />,
         label: 'Projects',
         href: '/dashboard/projects',
+        children: [
+            {
+                icon: <Folder className="h-4 w-4" />,
+                label: 'Overview',
+                href: '/dashboard/projects',
+            },
+            {
+                icon: <PlusIcon className="h-4 w-4" />,
+                label: 'Create',
+                href: '/dashboard/create',
+            },
+        ],
     },
     {
         icon: <Briefcase className="h-5 w-5" />,

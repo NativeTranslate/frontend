@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import {
     Collapsible,
-    CollapsibleContent,
     CollapsibleTrigger,
 } from '@/components/ui/collapsible.tsx';
 import { Button } from '@/components/ui/button.tsx';
@@ -9,18 +8,10 @@ import { ChevronDown, ChevronRight, LogOut } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { bottomLinks, topLinks } from '@/lib/configs/sidebarConfig.tsx';
+import { SidebarLink } from '@/lib/types';
+import { AnimatePresence, motion } from 'framer-motion';
 
-const MenuItem = ({
-    icon,
-    label,
-    children,
-    href,
-}: {
-    icon: React.ReactNode;
-    label: string;
-    children?: React.ReactNode;
-    href?: string;
-}) => {
+const MenuItem = ({ icon, label, children, href }: SidebarLink) => {
     const [isOpen, setIsOpen] = React.useState(false);
     const pathname = window.location.pathname;
 
@@ -42,7 +33,7 @@ const MenuItem = ({
                 <Button
                     onClick={handleClick}
                     className={cn(
-                        'w-full h-14 justify-between text-left text-gray-400 bg-transparent hover:bg-main-two hover:text-white-900',
+                        'w-full h-14 justify-between text-left text-gray-400 bg-transparent hover:bg-main-two hover:text-white-900 mt-1',
                         isOpen &&
                             'bg-main-two text-white-900 hover:bg-main-two',
                     )}
@@ -60,16 +51,21 @@ const MenuItem = ({
                 </Button>
             </CollapsibleTrigger>
             {children && (
-                <CollapsibleContent className="pl-6 pt-1">
-                    {React.Children.map(children, child =>
-                        React.cloneElement(child as React.ReactElement<any>, {
-                            className: cn(
-                                'w-full text-left text-gray-400 hover:bg-main-two hover:text-white-900',
-                                isOpen && 'bg-main-two text-white-900',
-                            ),
-                        }),
+                <AnimatePresence initial={false}>
+                    {isOpen && children && (
+                        <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3, ease: 'easeInOut' }}
+                            className="pl-6 pt-1 overflow-hidden"
+                        >
+                            {children.map(child => (
+                                <MenuItem key={child.label} {...child} />
+                            ))}
+                        </motion.div>
                     )}
-                </CollapsibleContent>
+                </AnimatePresence>
             )}
         </Collapsible>
     );
@@ -102,23 +98,13 @@ export default function LeftSidebar() {
 
             <div className="overflow-y-auto hidden-scrollbar flex flex-col flex-grow">
                 <div className="text-left justify-start items-start flex-grow space-y-3 mt-8">
-                    {topLinks.map(({ icon, label, href }) => (
-                        <MenuItem
-                            key={label}
-                            icon={icon}
-                            label={label}
-                            href={href}
-                        ></MenuItem>
+                    {topLinks.map(link => (
+                        <MenuItem key={link.label} {...link} />
                     ))}
                 </div>
                 <div className={'space-y-3'}>
-                    {bottomLinks.map(({ icon, label, href }) => (
-                        <MenuItem
-                            key={label}
-                            icon={icon}
-                            label={label}
-                            href={href}
-                        />
+                    {bottomLinks.map(link => (
+                        <MenuItem key={link.label} {...link} />
                     ))}
 
                     <Button

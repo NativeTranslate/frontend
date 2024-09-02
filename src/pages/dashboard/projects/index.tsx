@@ -1,8 +1,9 @@
 import DashboardLayout from '@/components/layout/dashboard-layout.tsx';
 import ProjectCard from '@/components/shared/project-card.tsx';
 import DashboardHeader from '@/components/shared/dashboard-header.tsx';
-import CreateProject from '@/components/dialog/create-project.tsx';
 import { fakeProjects } from '@/lib/data/fakeProjects.ts';
+import { PlusIcon } from 'lucide-react';
+import { Button } from '@/components/ui/button.tsx';
 
 const Index = () => {
     return (
@@ -16,7 +17,15 @@ const Index = () => {
                                 Your projects
                             </h1>
                             <div className="flex-grow" />
-                            <CreateProject />
+                            <Button
+                                onClick={() =>
+                                    (window.location.href = '/dashboard/create')
+                                }
+                                className="gap-2 bg-main-two hover:bg-main-two/50 transition-all"
+                            >
+                                <PlusIcon className="w-4 h-4" />
+                                Create new project
+                            </Button>
                         </div>
                         <p className="text-wrap max-w-prose text-gray-400 mt-4">
                             Manage and track your projects with ease. Stay
