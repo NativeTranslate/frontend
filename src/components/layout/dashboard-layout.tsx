@@ -19,7 +19,7 @@ const Layout = ({ children }: LayoutProps) => {
 
             {/* Main Content */}
             <section className="flex flex-1 flex-col min-h-screen px-6 sm:px-5 pt-5  ">
-                <div className="flex-grow w-full h-full mt-10 ">{children}</div>
+                <div className="flex-grow w-full h-full mt-4 ">{children}</div>
             </section>
         </div>
     );

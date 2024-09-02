@@ -1,9 +1,8 @@
 import DashboardLayout from '@/components/layout/dashboard-layout.tsx';
-import { Button } from '@/components/ui/button.tsx';
 import ProjectCard from '@/components/shared/project-card.tsx';
-import { PlusIcon } from 'lucide-react';
 import { fakeProjects } from '@/lib/fake-data.ts';
 import DashboardHeader from '@/components/shared/dashboard-header.tsx';
+import CreateProject from '@/components/dialog/create-project.tsx';
 
 const Index = () => {
     return (
@@ -17,17 +16,15 @@ const Index = () => {
                                 Your projects
                             </h1>
                             <div className="flex-grow" />
-                            <Button className="mt-4 sm:mt-0 bg-main-two text-white-900 hover:bg-main-one transition-colors gap-1">
-                                <PlusIcon />
-                                Create new project
-                            </Button>
+                            <CreateProject />
                         </div>
                         <p className="text-wrap max-w-prose text-gray-400 mt-4">
                             Manage and track your projects with ease. Stay
                             organized and collaborate effectively.
                         </p>
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-center justify-center mx-4 sm:mx-12">
+                    <div
+                        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-center justify-center mx-4 sm:mx-12">
                         {fakeProjects.map((project, index) => (
                             <ProjectCard item={project} key={index} />
                         ))}
