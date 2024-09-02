@@ -24,7 +24,7 @@ export const topLinks: SidebarLink[] = [
             {
                 icon: <PlusIcon className="h-4 w-4" />,
                 label: 'Create',
-                href: '/dashboard/create',
+                href: '/dashboard/projects/create',
             },
         ],
     },

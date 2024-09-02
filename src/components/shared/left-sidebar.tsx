@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     Collapsible,
     CollapsibleTrigger,
@@ -13,11 +13,20 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 const MenuItem = ({ icon, label, children, href }: SidebarLink) => {
     const [isOpen, setIsOpen] = React.useState(false);
+    const [isSelected, setIsSelected] = useState(false);
     const pathname = window.location.pathname;
 
+    const hasChildren = children && children.length > 0;
+
     useEffect(() => {
-        if (href && pathname === href) {
+        if (href && pathname.startsWith(href)) {
             setIsOpen(true);
+        }
+    }, [pathname, href]);
+
+    useEffect(() => {
+        if (href && pathname === href && !hasChildren) {
+            setIsSelected(true);
         }
     }, [pathname, href]);
 
@@ -34,7 +43,7 @@ const MenuItem = ({ icon, label, children, href }: SidebarLink) => {
                     onClick={handleClick}
                     className={cn(
                         'w-full h-14 justify-between text-left text-gray-400 bg-transparent hover:bg-main-two hover:text-white-900 mt-1',
-                        isOpen &&
+                        isSelected &&
                             'bg-main-two text-white-900 hover:bg-main-two',
                     )}
                 >

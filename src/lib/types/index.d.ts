@@ -85,6 +85,6 @@ export interface SettingsCategory {
 export interface SidebarLink {
     icon: JSX.Element;
     label: string;
-    href: string;
+    href?: string;
     children?: SidebarLink[];
 }
