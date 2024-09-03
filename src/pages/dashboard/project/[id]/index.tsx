@@ -31,6 +31,7 @@ import {
 } from '@/components/shared/custom-tabs.tsx';
 import Basic from '@/pages/dashboard/project/[id]/tabs/basic.tsx';
 import Discussions from '@/pages/dashboard/project/[id]/tabs/discussions.tsx';
+import Members from '@/pages/dashboard/project/[id]/tabs/members.tsx';
 
 const languages = [
     {
@@ -257,6 +258,11 @@ const ProjectPage = () => {
                             <TabContent id={'discussions'}>
                                 <div className={'text-white-900'}>
                                     <Discussions />
+                                </div>
+                            </TabContent>
+                            <TabContent id={'members'}>
+                                <div className={'text-white-900'}>
+                                    <Members />
                                 </div>
                             </TabContent>
                         </SetupTabs>
