@@ -26,8 +26,8 @@ export default function ProjectAddressInput({
 
     return (
         <div className="space-y-2 w-full">
-            <div className="flex flex-col sm:flex-row rounded-md overflow-hidden bg-dark-200">
-                <div className="flex-shrink-0 bg-dark-200 px-3 py-2 text-xs sm:text-sm text-gray-400 border-b sm:border-b-0 sm:border-r border-primary-500">
+            <div className="flex flex-col items-center sm:flex-row rounded-md overflow-hidden bg-dark-200">
+                <div className="flex-shrink-0 bg-dark-200 py-2.5 px-3 text-xs sm:text-sm text-gray-400 border-b sm:border-b-0 sm:border-r border-primary-500">
                     {baseUrl}
                 </div>
                 <Input
