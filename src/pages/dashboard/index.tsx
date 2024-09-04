@@ -4,8 +4,8 @@ import { TranslationsChart } from '@/pages/dashboard/translations-chart.tsx';
 import DashboardHeader from '@/components/shared/dashboard-header.tsx';
 import ProjectCard from '@/components/shared/project-card.tsx';
 import { HorizontalSeparator } from '@/components/shared/separator.tsx';
-import { cn, formatNumber, useIncrementalCounter } from '@/lib/utils';
 import { fakeProjects } from '@/lib/data/fakeProjects.ts';
+import { cn, formatNumber, useIncrementalCounter } from '@/lib/utils';
 
 interface StatCardProps {
     title: string;
