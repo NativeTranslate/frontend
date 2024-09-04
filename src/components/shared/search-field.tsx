@@ -45,7 +45,7 @@ const SearchField = ({
 
     return (
         <div
-            className={`relative flex min-h-10 grow items-center gap-4 rounded-full text-gray-400 px-4 ${otherClasses} bg-dark-200 shadow-lg`}
+            className={`relative flex min-h-10 grow items-center gap-4 rounded-md text-gray-400 px-4 ${otherClasses} bg-dark-200 shadow-lg`}
         >
             {iconPosition === 'left' && (
                 <SearchIcon size={24} className={'cursor-pointer'} />
