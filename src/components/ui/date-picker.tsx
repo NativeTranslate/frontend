@@ -17,7 +17,7 @@ export function CustomDatePicker() {
                 <Button
                     variant={'outline'}
                     className={cn(
-                        'w-full h-full hover:bg-dark-300 hover:text-gray-400 bg-dark-300 rounded-3xl border-transparent text-gray-400 justify-start text-left font-normal',
+                        'w-full hover:bg-dark-300 hover:text-gray-400 bg-dark-300 rounded-md border-transparent text-gray-400 justify-start text-left font-normal',
                         !date && 'text-muted-foreground',
                     )}
                 >
