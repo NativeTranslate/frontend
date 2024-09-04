@@ -24,7 +24,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
         <Select onValueChange={onChange}>
             <SelectTrigger
                 id={id}
-                className="w-full bg-dark-300 text-gray-400 rounded-3xl border-none py-6 px-4"
+                className="w-full bg-dark-300 text-gray-400 rounded-md border-none px-4"
             >
                 <SelectValue
                     className="text-gray-400"
