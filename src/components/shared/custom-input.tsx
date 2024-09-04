@@ -24,7 +24,7 @@ const InputWithIcon: React.FC<InputWithIconProps> = ({
                 type="text"
                 id={id}
                 placeholder={placeholder}
-                className={`w-full bg-dark-300 text-gray-400 border-none rounded-md py-6 px-4 pr-12 placeholder:text-dark-400 placeholder:opacity-100 ${className}`}
+                className={`w-full bg-dark-300 text-gray-400 border-none rounded-md px-4 pr-12 placeholder:text-dark-400 placeholder:opacity-100 ${className}`}
                 onChange={onChange}
                 value={value}
             />
