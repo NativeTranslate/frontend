@@ -86,7 +86,7 @@ export default function LeftSidebar() {
     return (
         <nav
             className={
-                'hidden lg:flex sticky bg-dark-300 p-8 m-7 rounded-3xl flex-col top-8 max-h-[95vh]'
+                'hidden lg:flex sticky bg-dark-300 p-8 m-7 rounded-3xl flex-col top-7 min-h-[95vh] max-h-[95vh]'
             }
         >
             <Link
