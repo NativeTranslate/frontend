@@ -10,7 +10,7 @@ import { SettingsCategory } from '../types';
 
 export const settingsCategories: SettingsCategory[] = [
     {
-        key: 'profile-security',
+        key: '',
         label: 'Profile & Security',
         icon: <UserIcon />,
     },
