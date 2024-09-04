@@ -58,7 +58,7 @@ export default function ProfileSettings() {
                                 <h2 className="text-base sm:text-lg font-medium text-white-900">
                                     Basic Information
                                 </h2>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 mt-6 sm:mt-9 gap-4 sm:gap-x-12 sm:gap-y-5">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 mt-6 sm:mt-9 gap-4 items-center sm:gap-x-12 sm:gap-y-5">
                                     <div className="space-y-2 sm:space-y-3">
                                         <Label
                                             htmlFor="firstName"
@@ -107,7 +107,7 @@ export default function ProfileSettings() {
                                             onChange={() => {}}
                                         />
                                     </div>
-                                    <div className="space-y-2 sm:space-y-3 flex flex-col">
+                                    <div className="space-y-2 sm:space-y-3">
                                         <Label
                                             htmlFor="dob"
                                             className="text-gray-400 text-xs sm:text-sm"
