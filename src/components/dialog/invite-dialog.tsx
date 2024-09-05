@@ -8,7 +8,6 @@ import {
     DialogTrigger,
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { Textarea } from '@/components/ui/textarea';
 import {
     Select,
     SelectContent,
@@ -17,6 +16,8 @@ import {
     SelectValue,
 } from '@/components/ui/select';
 import CustomTextarea from '@/components/shared/custom-text-area.tsx';
+import UserFinder from '@/components/shared/user-finder.tsx';
+import InputLabel from '@/components/shared/input-label.tsx';
 
 const roleExplanations: { [key: string]: string } = {
     manager: 'Has unlimited control over the entire project',
@@ -40,7 +41,11 @@ export default function InviteDialog() {
                     Invite
                 </Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px] bg-dark-300 border-transparent">
+            <DialogContent
+                aria-describedby={'Invite people'}
+                aria-description={'Invite people to the project'}
+                className="sm:max-w-[425px] bg-dark-300 border-transparent"
+            >
                 <DialogHeader>
                     <DialogTitle className={'text-white-900'}>
                         Invite People
@@ -49,12 +54,11 @@ export default function InviteDialog() {
                 <div className="grid gap-4">
                     <div className="grid gap-4 py-2">
                         <div className="grid gap-2">
-                            <label
-                                htmlFor="role"
-                                className="text-sm font-medium text-gray-400"
-                            >
-                                Select role
-                            </label>
+                            <InputLabel
+                                text={'Select role'}
+                                htmlFor={'role'}
+                                required
+                            />
                             <Select onValueChange={setSelectedRole}>
                                 <SelectTrigger
                                     className={
@@ -78,25 +82,19 @@ export default function InviteDialog() {
                             </p>
                         </div>
                         <div className="grid gap-2">
-                            <label
-                                htmlFor="emails"
-                                className="text-sm font-medium text-gray-400"
-                            >
-                                Emails or usernames
-                            </label>
-                            <Textarea
-                                id="emails"
-                                placeholder="james, joe@example.net, jane@example.com"
-                                className="min-h-[80px]"
+                            <InputLabel
+                                text={'Email addresses'}
+                                htmlFor={'emails'}
+                                required
                             />
+                            <UserFinder />
                         </div>
                         <div className="grid gap-2">
-                            <label
-                                htmlFor="message"
-                                className="text-sm font-medium text-gray-400"
-                            >
-                                Message
-                            </label>
+                            <InputLabel
+                                text={'Message'}
+                                htmlFor={'message'}
+                                required
+                            />
                             <CustomTextarea
                                 placeholder="You're invited to join the project AMPBot."
                                 className="min-h-[80px] bg-dark-200"

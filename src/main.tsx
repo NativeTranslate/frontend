@@ -14,8 +14,8 @@ import Loading from '@/components/shared/loading.tsx';
  *
  * @returns {JSX.Element} The rendered routes.
  */
-const App = () => {
-    return useRoutes(routes);
+const App = (): JSX.Element => {
+    return useRoutes(routes) as JSX.Element;
 };
 
 // Create a root element and render the application within it.

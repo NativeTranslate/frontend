@@ -8,11 +8,11 @@ import {
     DialogTrigger,
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label.tsx';
 import CustomInput from '@/components/shared/custom-input.tsx';
 import CustomTextarea from '@/components/shared/custom-text-area.tsx';
 import { useState } from 'react';
 import { Loader2 } from 'lucide-react';
+import InputLabel from '@/components/shared/input-label.tsx';
 
 const CreateTopic = () => {
     const [isSubmitting] = useState(false);
@@ -35,12 +35,7 @@ const CreateTopic = () => {
                 </DialogHeader>
                 <div className="grid gap-4 py-4">
                     <div className="flex flex-col space-y-3">
-                        <Label
-                            htmlFor="name"
-                            className="text-left text-gray-400"
-                        >
-                            Name
-                        </Label>
+                        <InputLabel text={'Topic Name'} required={true} />
                         <CustomInput
                             id="name"
                             placeholder="I like ducks because.."
@@ -52,12 +47,7 @@ const CreateTopic = () => {
                         />
                     </div>
                     <div className="flex flex-col space-y-3">
-                        <Label
-                            htmlFor="username"
-                            className="text-left text-gray-400"
-                        >
-                            Content
-                        </Label>
+                        <InputLabel text={'Content'} required={true} />
                         <CustomTextarea
                             className="bg-dark-200"
                             placeholder={'Hello World!'}
