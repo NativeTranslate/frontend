@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 
 import './globals.css';
 import Loading from '@/components/shared/loading.tsx';
+import PageWrapper from '@/components/shared/page-wrapper.tsx';
 
 /**
  * The main application component.
@@ -29,7 +30,9 @@ createRoot(document.getElementById('root')!).render(
                     transition={{ duration: 0.4, ease: 'easeIn' }}
                     className="relative"
                 >
-                    <App />
+                    <PageWrapper>
+                        <App />
+                    </PageWrapper>
                 </motion.div>
             </Suspense>
         </BrowserRouter>

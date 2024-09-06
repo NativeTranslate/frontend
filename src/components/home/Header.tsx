@@ -10,7 +10,7 @@ const Header = () => {
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="px-4 lg:px-6 h-16 flex items-center border-b border-primary-500 bg-gradient-to-r from-dark-200 to-dark-300 shadow-lg relative"
+            className="px-4 lg:px-6 h-16 flex items-center border-b border-dark-400 bg-gradient-to-r from-dark-200 to-dark-300 shadow-lg relative"
         >
             <Link className="flex items-center justify-center" to="#">
                 <img
