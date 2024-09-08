@@ -75,6 +75,13 @@ export interface Organization {
     createdFrom?: string;
 }
 
+export interface String {
+    id: string;
+    source: string;
+    context: string;
+    key: string;
+}
+
 export interface Integration {
     name: string;
     logo: JSX.Element;

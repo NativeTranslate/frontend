@@ -2,7 +2,6 @@ import {
     Briefcase,
     Folder,
     Home,
-    MessageSquareIcon,
     PlusIcon,
     Settings,
     User,
@@ -42,11 +41,11 @@ export const topLinks: SidebarLink[] = [
 ];
 
 export const bottomLinks: SidebarLink[] = [
-    {
-        icon: <MessageSquareIcon className="h-5 w-5" />,
-        label: 'Conversations',
-        href: '/dashboard/conversations',
-    },
+    // {
+    //     icon: <MessageSquareIcon className="h-5 w-5" />,
+    //     label: 'Conversations',
+    //     href: '/dashboard/conversations',
+    // },
     {
         icon: <User className="h-5 w-5" />,
         label: 'Profile',
