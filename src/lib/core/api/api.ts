@@ -5,4 +5,8 @@ export class API {
         console.log('API: getStats');
         return undefined as any;
     }
+
+    async auth(_email: string, _password: string): Promise<void> {
+        console.log('API: auth');
+    }
 }

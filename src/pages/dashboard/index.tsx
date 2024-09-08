@@ -6,6 +6,8 @@ import ProjectCard from '@/components/shared/project-card.tsx';
 import { HorizontalSeparator } from '@/components/shared/separator.tsx';
 import { fakeProjects } from '@/lib/data/fakeProjects.ts';
 import { cn, formatNumber, useIncrementalCounter } from '@/lib/utils';
+import { useEffect, useState } from 'react';
+import { NativeTranslate } from '@/lib/core/nativetranslate.ts';
 
 interface StatCardProps {
     title: string;
@@ -33,6 +35,21 @@ const StatCard = (props: StatCardProps) => {
 };
 
 const Stats = () => {
+    const [stats, setStats] = useState({
+        users: 0,
+        organizations: 0,
+        projects: 0,
+        translations: 0,
+    }) as any;
+
+    useEffect(() => {
+        NativeTranslate.getAPI()
+            .getStats()
+            .then(res => {
+                setStats(res);
+            });
+    }, []);
+
     return (
         <div className="flex flex-col gap-5">
             <h1 className="text-white-900 text-2xl font-semibold">
@@ -42,25 +59,25 @@ const Stats = () => {
             <div className="flex flex-wrap gap-5">
                 <StatCard
                     title={'Users'}
-                    value={276}
+                    value={stats.users}
                     color={'bg-green-400'}
                     icon={<Users />}
                 />
                 <StatCard
                     title={'Organizations'}
-                    value={2}
+                    value={stats.organizations}
                     color={'bg-emerald-400'}
                     icon={<BriefcaseBusiness />}
                 />
                 <StatCard
                     title={'Projects'}
-                    value={17}
+                    value={stats.projects}
                     color={'bg-teal-400'}
                     icon={<Folder />}
                 />
                 <StatCard
                     title={'Translations'}
-                    value={12500}
+                    value={stats.translations}
                     color={'bg-sky-400'}
                     icon={<Languages />}
                 />

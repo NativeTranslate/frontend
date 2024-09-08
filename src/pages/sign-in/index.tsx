@@ -4,10 +4,14 @@ import { Loader2Icon, LockIcon, Mail } from 'lucide-react';
 import { useState } from 'react';
 import FormCard from '@/components/shared/form-card.tsx';
 import ResetPassword from '@/components/dialog/reset-password.tsx';
+import { NativeTranslate } from '@/lib/core/nativetranslate.ts';
 
 const Page = () => {
     const [error] = useState(null);
     const [isLoading] = useState(false);
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     return (
         <div className="bg-dark-200 min-h-screen flex items-center justify-center p-4">
@@ -28,7 +32,7 @@ const Page = () => {
                     <h2 className="text-2xl text-white-900 font-bold mb-6">
                         Sign In
                     </h2>
-                    <form className="space-y-4">
+                    <div className="space-y-4">
                         <div>
                             <label
                                 htmlFor="email"
@@ -43,6 +47,7 @@ const Page = () => {
                                     type="email"
                                     placeholder="Enter your email"
                                     className="bg-dark-200 border-dark-300 pr-10 w-full text-white-800"
+                                    onChange={e => setEmail(e.target.value)}
                                 />
                                 <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                                     <Mail className="h-5 w-5 text-gray-400" />
@@ -63,6 +68,7 @@ const Page = () => {
                                     type="password"
                                     placeholder="••••••••"
                                     className="bg-dark-200 border-dark-300 pr-10 w-full text-white-800"
+                                    onChange={e => setPassword(e.target.value)}
                                 />
                                 <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                                     <LockIcon className="h-5 w-5 text-gray-400" />
@@ -77,15 +83,17 @@ const Page = () => {
                         )}
                         <Button
                             disabled={isLoading}
-                            type="submit"
                             className="w-full bg-main-two hover:bg-main-one text-white-800 gap-2"
+                            onClick={() => {
+                                NativeTranslate.getAPI().auth(email, password);
+                            }}
                         >
                             {isLoading ? 'Logging in..' : 'Log in'}
                             {isLoading && (
                                 <Loader2Icon className="animate-spin w-5 h-5" />
                             )}
                         </Button>
-                    </form>
+                    </div>
                     <p className="mt-6 text-sm text-center text-gray-400">
                         {'New to our platform? '}
                         <a

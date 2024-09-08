@@ -1,7 +1,7 @@
 import { API } from '@/lib/core/api/api.ts';
-import { GraphQLAPI } from '@/lib/core/api/graphql.ts';
+import { RestAPI } from '@/lib/core/api/restapi.ts';
 
-const api: API = new GraphQLAPI();
+const api: API = new RestAPI();
 
 export class NativeTranslate {
     static getAPI(): API {
