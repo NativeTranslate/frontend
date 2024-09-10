@@ -1,8 +1,13 @@
-import { APIStats } from '@/lib/core/api/types';
+import { APIProject, APIStats } from '@/lib/core/api/types';
 
 export class API {
     async getStats(): Promise<APIStats> {
         console.log('API: getStats');
+        return undefined as any;
+    }
+
+    async getProjects(): Promise<APIProject> {
+        console.log('API: getProjects');
         return undefined as any;
     }
 
