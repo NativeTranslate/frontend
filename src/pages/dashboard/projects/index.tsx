@@ -1,11 +1,21 @@
 import DashboardLayout from '@/components/layout/dashboard-layout.tsx';
 import ProjectCard from '@/components/shared/project-card.tsx';
 import DashboardHeader from '@/components/shared/dashboard-header.tsx';
-import { fakeProjects } from '@/lib/data/fakeProjects.ts';
 import { PlusIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button.tsx';
+import { useEffect, useState } from 'react';
+import { NativeTranslate } from '@/lib/core/nativetranslate.ts';
 
 const Index = () => {
+    const [projects, setProjects] = useState([]) as any;
+    useEffect(() => {
+        NativeTranslate.getAPI()
+            .getProjects()
+            .then(data => {
+                setProjects(data);
+            });
+    }, []);
+
     return (
         <DashboardLayout>
             <div className="flex flex-col h-full">
@@ -34,7 +44,7 @@ const Index = () => {
                         </p>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-center justify-center mx-4 sm:mx-12">
-                        {fakeProjects.map((project, index) => (
+                        {projects.map((project: any, index: any) => (
                             <ProjectCard item={project} key={index} />
                         ))}
                     </div>
