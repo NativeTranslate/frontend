@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import DashboardLayout from '@/components/layout/dashboard-layout';
 import {
     Table,
@@ -20,8 +20,8 @@ import {
     DialogTrigger,
 } from '@/components/ui/dialog';
 import DashboardHeader from '@/components/shared/dashboard-header';
-import { users } from '@/lib/data/fakeUsers';
 import { cn } from '@/lib/utils';
+import { NativeTranslate } from '@/lib/core/nativetranslate.ts';
 
 export default function Index() {
     const [selected, setSelected] = useState<{
@@ -33,6 +33,16 @@ export default function Index() {
         aboutMe: string;
         dateOfBirth: string;
     } | null>(null);
+
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        NativeTranslate.getAPI()
+            .getUsers()
+            .then(users => {
+                setUsers(users);
+            });
+    }, []);
 
     const getSelectedUser = (id: string) => {
         return users.find(user => user.id === id) || null;
@@ -99,10 +109,10 @@ export default function Index() {
                                                                 user.profilePicture
                                                             }
                                                             className="w-6 h-6 md:w-7 md:h-7 rounded-full object-cover"
-                                                            alt={`${user.name}'s profile`}
+                                                            alt={`${user.username}'s profile`}
                                                         />
                                                         <span className="truncate max-w-[100px] sm:max-w-none">
-                                                            {user.name}
+                                                            {user.username}
                                                         </span>
                                                     </div>
                                                 </TableCell>
@@ -136,11 +146,11 @@ export default function Index() {
                                     <img
                                         src={selected.profilePicture}
                                         className="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover mx-auto mt-4"
-                                        alt={`${selected.name}'s profile`}
+                                        alt={`${selected.username}'s profile`}
                                     />
                                     <div className="mt-4 space-y-3">
                                         <p className="text-xl sm:text-2xl font-semibold text-white-900">
-                                            {selected.name}
+                                            {selected.username}
                                         </p>
                                         <p className="text-gray-400 text-lg">
                                             {selected.role}
