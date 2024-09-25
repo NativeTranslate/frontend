@@ -28,7 +28,7 @@ const FeaturesSection = () => (
                     </h2>
                     <p className="text-base text-white-900">
                         Quickly integrate translations into your applications
-                        with our high-performance GraphQL APIs.
+                        with our high-performance Rest APIs.
                     </p>
                 </div>
                 <div className="flex flex-col items-center space-y-4 p-6 bg-dark-200 rounded-lg shadow-lg transition-transform transform hover:scale-105">

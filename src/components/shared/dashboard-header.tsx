@@ -8,17 +8,21 @@ interface Props {
 
 const DashboardHeader: React.FC<Props> = ({ title, children }) => {
     return (
-        <div className="flex flex-row items-center justify-between bg-dark-300 rounded-3xl p-4">
-            <div className="flex items-center">
-                <h1 className="text-2xl text-white-900 font-semibold">
-                    {title}
-                </h1>
+        <>
+            <div className="bg-dark-300 rounded-3xl p-4">
+                <div className={'flex flex-row items-center justify-between '}>
+                    <div className="flex items-center">
+                        <h1 className="text-2xl text-white-900 font-semibold">
+                            {title}
+                        </h1>
+                    </div>
+                    {children}
+                    <div className="flex items-center gap-5">
+                        <UserButton />
+                    </div>
+                </div>
             </div>
-            <div className="flex items-center gap-5">
-                {children}
-                <UserButton />
-            </div>
-        </div>
+        </>
     );
 };
 

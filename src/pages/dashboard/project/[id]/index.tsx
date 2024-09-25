@@ -162,7 +162,15 @@ const ProjectPage = () => {
     return (
         <DashboardLayout>
             <div className="flex flex-col h-full">
-                <DashboardHeader title={project.name} />
+                <DashboardHeader title={project.name}>
+                    <p
+                        className={
+                            'uppercase text-white-900 font-semibold underline animate-bounce'
+                        }
+                    >
+                        3 reviews pending
+                    </p>
+                </DashboardHeader>
                 <div className="flex flex-col md:flex-row gap-6 my-10 h-full">
                     <div className="flex-grow bg-dark-300 rounded-md overflow-y-auto ">
                         <SetupTabs
@@ -190,6 +198,9 @@ const ProjectPage = () => {
                                                 <div className="flex-grow" />
                                                 <Button className="bg-main-two hover:bg-main-one rounded-md w-full md:w-auto">
                                                     Open Editor
+                                                </Button>
+                                                <Button className="bg-main-two hover:bg-main-one rounded-md w-full md:w-auto">
+                                                    Open Reviews
                                                 </Button>
                                             </div>
                                         </div>

@@ -21,7 +21,8 @@ import InputLabel from '@/components/shared/input-label.tsx';
 
 const roleExplanations: { [key: string]: string } = {
     manager: 'Has unlimited control over the entire project',
-    translator: 'Can translate the content and vote for existing translations',
+    translator:
+        'Can translate the content without needing a review. Can also review translations from the project.',
 };
 
 export default function InviteDialog() {

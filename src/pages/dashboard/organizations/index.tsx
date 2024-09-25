@@ -1,9 +1,8 @@
 import DashboardLayout from '@/components/layout/dashboard-layout.tsx';
 import OrganizationCard from '@/components/shared/organization-card.tsx';
 import DashboardHeader from '@/components/shared/dashboard-header.tsx';
-import { Button } from '@/components/ui/button.tsx';
-import { PlusIcon } from 'lucide-react';
 import { fakeOrganizations } from '@/lib/data/fakeOrganizations.ts';
+import CreateOrganization from '@/components/dialog/create-organisation.tsx';
 
 const Organizations = () => {
     return (
@@ -17,10 +16,7 @@ const Organizations = () => {
                                 Your organizations
                             </h1>
                             <div className="flex-grow" />
-                            <Button className="mt-4 sm:mt-0 bg-main-two text-white-900 hover:bg-main-one transition-colors gap-1">
-                                <PlusIcon />
-                                Create new organization
-                            </Button>
+                            <CreateOrganization />
                         </div>
                         <p className="text-wrap max-w-prose text-gray-400 mt-4">
                             Explore the organizations you are a part of and see
