@@ -21,9 +21,19 @@ export function Toaster() {
                 ...props
             }) {
                 return (
-                    <Toast key={id} {...props}>
+                    <Toast
+                        className={
+                            'bg-dark-300 border-transparent text-white-900 shadow-lg'
+                        }
+                        key={id}
+                        {...props}
+                    >
                         <div className="grid gap-1">
-                            {title && <ToastTitle>{title}</ToastTitle>}
+                            {title && (
+                                <ToastTitle className={'text-primary-500'}>
+                                    {title}
+                                </ToastTitle>
+                            )}
                             {description && (
                                 <ToastDescription>
                                     {description}
@@ -31,7 +41,9 @@ export function Toaster() {
                             )}
                         </div>
                         {action}
-                        <ToastClose />
+                        <ToastClose
+                            className={'text-white-900 hover:text-white-900/90'}
+                        />
                     </Toast>
                 );
             })}

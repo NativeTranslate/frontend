@@ -9,10 +9,50 @@ import {
 } from 'lucide-react';
 import { useState } from 'react';
 import FormCard from '@/components/shared/form-card.tsx';
+import axios from 'axios';
+import { toast } from '@/components/ui/use-toast.ts';
 
 const Page = () => {
-    const [error] = useState(null);
-    const [isLoading] = useState(false);
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [inviteCode, setInviteCode] = useState('');
+    const [error, setError] = useState<string | null>(null);
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleSignUp = async (event: React.FormEvent) => {
+        event.preventDefault();
+        setIsLoading(true);
+
+        try {
+            await axios
+                .post('/auth/register', {
+                    email,
+                    username,
+                    password,
+                    inviteCode,
+                })
+                .catch((error: any) => {
+                    setError(error.response.data.error);
+                })
+                .then((response: any) => {
+                    if (response) {
+                        toast({
+                            title: 'Success!',
+                            description: 'You have successfully signed up.',
+                        });
+                        if (response.status === 200) {
+                            window.location.href = '/sign-in';
+                        }
+                    }
+                });
+        } catch (error: any) {
+            setError('A server error occurred. Please try again later.');
+            console.log(error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
     return (
         <div className="bg-dark-200 min-h-screen flex items-center justify-center p-4">
@@ -33,7 +73,7 @@ const Page = () => {
                     <h2 className="text-2xl text-white-900 font-bold mb-6">
                         Sign Up
                     </h2>
-                    <form className="space-y-4">
+                    <form className="space-y-4" onSubmit={handleSignUp}>
                         <div>
                             <label
                                 htmlFor="username"
@@ -48,6 +88,8 @@ const Page = () => {
                                     type="text"
                                     placeholder="Enter your username"
                                     className="bg-dark-200 border-dark-300 pr-10 w-full text-white-800"
+                                    value={username}
+                                    onChange={e => setUsername(e.target.value)} // State aktualisieren
                                 />
                                 <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                                     <User className="h-5 w-5 text-gray-400" />
@@ -68,6 +110,8 @@ const Page = () => {
                                     type="email"
                                     placeholder="Enter your email"
                                     className="bg-dark-200 border-dark-300 pr-10 w-full text-white-800"
+                                    value={email}
+                                    onChange={e => setEmail(e.target.value)} // State aktualisieren
                                 />
                                 <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                                     <Mail className="h-5 w-5 text-gray-400" />
@@ -88,6 +132,8 @@ const Page = () => {
                                     type="password"
                                     placeholder="••••••••"
                                     className="bg-dark-200 border-dark-300 pr-10 w-full text-white-800"
+                                    value={password}
+                                    onChange={e => setPassword(e.target.value)} // State aktualisieren
                                 />
                                 <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                                     <LockIcon className="h-5 w-5 text-gray-400" />
@@ -108,17 +154,16 @@ const Page = () => {
                                     type="text"
                                     placeholder="Enter your invite code"
                                     className="bg-dark-200 border-dark-300 pr-10 w-full text-white-800"
+                                    value={inviteCode}
+                                    onChange={e =>
+                                        setInviteCode(e.target.value)
+                                    } // State aktualisieren
                                 />
                                 <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                                     <PartyPopperIcon className="h-5 w-5 text-gray-400" />
                                 </div>
                             </div>
                         </div>
-                        {/*<div className="text-right">*/}
-                        {/*	<a href="#" className="text-sm font-medium text-main-one hover:text-main-two">*/}
-                        {/*		Forgot password?*/}
-                        {/*	</a>*/}
-                        {/*</div>*/}
                         {error && (
                             <p className="text-red-500 font-medium">{error}</p>
                         )}

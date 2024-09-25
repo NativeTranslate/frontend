@@ -4,14 +4,28 @@ import { Loader2Icon, LockIcon, Mail } from 'lucide-react';
 import { useState } from 'react';
 import FormCard from '@/components/shared/form-card.tsx';
 import ResetPassword from '@/components/dialog/reset-password.tsx';
-import { NativeTranslate } from '@/lib/core/nativetranslate.ts';
+import { useAuth } from '@/lib/core/auth-context.tsx';
 
 const Page = () => {
-    const [error] = useState(null);
-    const [isLoading] = useState(false);
+    const [error, setError] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const { login } = useAuth();
+
+    const handleLogin = async () => {
+        setIsLoading(true);
+        setError('');
+
+        try {
+            await login(email, password);
+        } catch (err) {
+            setError('Invalid email or password');
+            setIsLoading(false);
+        }
+    };
 
     return (
         <div className="bg-dark-200 min-h-screen flex items-center justify-center p-4">
@@ -84,9 +98,7 @@ const Page = () => {
                         <Button
                             disabled={isLoading}
                             className="w-full bg-main-two hover:bg-main-one text-white-800 gap-2"
-                            onClick={() => {
-                                NativeTranslate.getAPI().auth(email, password);
-                            }}
+                            onClick={handleLogin}
                         >
                             {isLoading ? 'Logging in..' : 'Log in'}
                             {isLoading && (

@@ -98,3 +98,32 @@
 .rdp-vhidden {
     @apply hidden;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    border: transparent;
+    -webkit-text-fill-color: rgb(243 248 255);
+    -webkit-box-shadow: 0 0 0 1000px rgb(21 30 44) inset;
+    font-family: "Poppins", sans-serif;
+    -webkit-transition: background-color 5000s ease-in-out 0s;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+input {
+    font-family: Poppins, sans-serif;
+
+}
+
+
+&:-webkit-autofill::first-line {
+    font-family: Poppins, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+}

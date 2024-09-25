@@ -16,12 +16,35 @@ import OverlappingAvatars from '@/components/shared/overlapping-avatars.tsx';
 import DashboardHeader from '@/components/shared/dashboard-header.tsx';
 import { users } from '@/lib/data/fakeUsers.ts';
 import { settingsConfig } from '@/lib/configs/settingsConfig.ts';
+import { useEffect, useState } from 'react';
+import { useAuth } from '@/lib/core/auth-context.tsx';
 
 const Profile = () => {
     const { id } = useParams();
     const user = users.find(user => user.id === id);
 
     const styles = ['Modern', 'Scandinavian', 'Minimalist', 'Gothic'];
+
+    const [userData, setUserData] = useState({
+        username: '',
+        role: '',
+        bio: '',
+    });
+
+    const auth = useAuth();
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const userData = await auth.getMe();
+                setUserData(userData);
+            } catch (error) {
+                console.error('Error fetching user data:', error);
+            }
+        };
+
+        fetchUserData();
+    }, [auth]);
 
     return (
         <DashboardLayout>
@@ -44,14 +67,14 @@ const Profile = () => {
                                     <div className="flex-grow space-y-4 text-center lg:text-left">
                                         <div>
                                             <h2 className="text-3xl font-bold">
-                                                {user?.name}
+                                                {userData.username}
                                             </h2>
                                             <p className="text-xl text-gray-400">
-                                                {user?.role}
+                                                {userData?.role.toUpperCase()}
                                             </p>
                                         </div>
                                         <p className="text-sm max-w-2xl">
-                                            {user?.aboutMe}
+                                            {userData?.bio}
                                         </p>
                                         <Button
                                             className="bg-main-two hover:bg-main-one transition-all rounded-full"

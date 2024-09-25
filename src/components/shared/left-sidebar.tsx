@@ -5,11 +5,12 @@ import {
 } from '@/components/ui/collapsible.tsx';
 import { Button } from '@/components/ui/button.tsx';
 import { ChevronDown, ChevronRight, LogOut } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { bottomLinks, topLinks } from '@/lib/configs/sidebarConfig.tsx';
 import { SidebarLink } from '@/lib/types';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useAuth } from '@/lib/core/auth-context.tsx';
 
 const MenuItem = ({ icon, label, children, href }: SidebarLink) => {
     const [isOpen, setIsOpen] = React.useState(false);
@@ -81,7 +82,7 @@ const MenuItem = ({ icon, label, children, href }: SidebarLink) => {
 };
 
 export default function LeftSidebar() {
-    const navigate = useNavigate();
+    const auth = useAuth();
 
     return (
         <nav
@@ -119,7 +120,7 @@ export default function LeftSidebar() {
                     <Button
                         variant="ghost"
                         className="w-full hover:bg-transparent justify-start text-left gap-2 text-main-one hover:text-main-two border border-primary-500"
-                        onClick={() => navigate('/login')}
+                        onClick={() => auth.logout()}
                     >
                         <LogOut className="h-5 w-5" />
                         Logout

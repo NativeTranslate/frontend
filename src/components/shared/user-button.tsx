@@ -11,6 +11,8 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { CogIcon, UserIcon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '@/lib/core/auth-context.tsx';
+import { useEffect, useState } from 'react';
 
 const links = [
     {
@@ -32,6 +34,24 @@ const UserButton = () => {
         navigate(href);
     };
 
+    const auth = useAuth();
+    const [username, setUsername] = useState('Loading..');
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const userData = await auth.getMe();
+                setUsername(userData.username);
+            } catch (error) {
+                console.error('Error fetching user data:', error);
+            }
+        };
+
+        fetchUserData();
+    }, [auth]);
+
+    const firstLetter = username.charAt(0).toUpperCase();
+
     return (
         <div className={'flex flex-row items-center justify-center gap-4 mr-5'}>
             <DropdownMenu>
@@ -42,17 +62,17 @@ const UserButton = () => {
                         }
                     >
                         <p className={'text-white-900 font-medium text-lg'}>
-                            John Doe
+                            {username}
                         </p>
                         <Avatar className={'w-10 h-10'}>
-                            <AvatarImage src="https://github.com/shadcn.png" />
-                            <AvatarFallback>CN</AvatarFallback>
+                            <AvatarImage src="gasgsa" />
+                            <AvatarFallback>{firstLetter}</AvatarFallback>
                         </Avatar>
                     </div>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
                     className={
-                        'bg-dark-300 border border-primary-500 text-white-900 mt-1'
+                        'bg-dark-300 border border-dark-400 text-white-900 mt-1'
                     }
                 >
                     {links.map(item => (
