@@ -19,7 +19,6 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from '@/components/ui/tooltip';
-import { fakeProjects } from '@/lib/data/fakeProjects';
 import { cn } from '@/lib/utils';
 import { users } from '@/lib/data/fakeUsers';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -32,6 +31,9 @@ import {
 import Basic from '@/pages/dashboard/project/[id]/tabs/basic.tsx';
 import Discussions from '@/pages/dashboard/project/[id]/tabs/discussions.tsx';
 import Members from '@/pages/dashboard/project/[id]/tabs/members.tsx';
+import { useParams } from 'react-router';
+import { useEffect, useState } from 'react';
+import { NativeTranslate } from '@/lib/core/nativetranslate.ts';
 
 const languages = [
     {
@@ -157,132 +159,148 @@ const ProjectInfoBox = ({ project }: { project: any }) => {
 };
 
 const ProjectPage = () => {
-    const project = fakeProjects[0];
+    const { id } = useParams<{ id: string }>() as any;
+
+    const [project, setProject] = useState(undefined) as any;
+
+    useEffect(() => {
+        NativeTranslate.getAPI()
+            .getProject(id)
+            .then(res => {
+                setProject(res);
+            });
+    }, [id]);
 
     return (
         <DashboardLayout>
-            <div className="flex flex-col h-full">
-                <DashboardHeader title={project.name}>
-                    <p
-                        className={
-                            'uppercase text-white-900 font-semibold underline animate-bounce'
-                        }
-                    >
-                        3 reviews pending
-                    </p>
-                </DashboardHeader>
-                <div className="flex flex-col md:flex-row gap-6 my-10 h-full">
-                    <div className="flex-grow bg-dark-300 rounded-md overflow-y-auto ">
-                        <SetupTabs
-                            className={'bg-dark-300 p-4 rounded-lg'}
-                            defaultTab="overview"
+            {project && (
+                <div className="flex flex-col h-full">
+                    <DashboardHeader title={project.name}>
+                        <p
+                            className={
+                                'uppercase text-white-900 font-semibold underline animate-bounce'
+                            }
                         >
-                            <TabHeader id="overview">Overview</TabHeader>
-                            <TabHeader id="members">Members</TabHeader>
-                            <TabHeader id="discussions">Discussions</TabHeader>
-                            <TabHeader id="settings">Settings</TabHeader>
+                            3 reviews pending
+                        </p>
+                    </DashboardHeader>
+                    <div className="flex flex-col md:flex-row gap-6 my-10 h-full">
+                        <div className="flex-grow bg-dark-300 rounded-md overflow-y-auto ">
+                            <SetupTabs
+                                className={'bg-dark-300 p-4 rounded-lg'}
+                                defaultTab="overview"
+                            >
+                                <TabHeader id="overview">Overview</TabHeader>
+                                <TabHeader id="members">Members</TabHeader>
+                                <TabHeader id="discussions">
+                                    Discussions
+                                </TabHeader>
+                                <TabHeader id="settings">Settings</TabHeader>
 
-                            <TabContent id="overview">
-                                <div className={'text-white-900'}>
-                                    <div className="flex flex-col mx-4 md:mx-12 my-6 md:my-12 select-none">
-                                        <div></div>
-                                        <div className="flex flex-col md:flex-row gap-3 items-start md:items-center">
-                                            <SearchField
-                                                route="/dashboard/project"
-                                                iconPosition="right"
-                                                placeholder="Search..."
-                                                otherClasses="w-full md:max-w-96"
-                                            />
-                                            <div className="flex flex-row gap-3 items-center w-full md:w-full">
-                                                <FilterField />
-                                                <div className="flex-grow" />
-                                                <Button className="bg-main-two hover:bg-main-one rounded-md w-full md:w-auto">
-                                                    Open Editor
-                                                </Button>
-                                                <Button className="bg-main-two hover:bg-main-one rounded-md w-full md:w-auto">
-                                                    Open Reviews
-                                                </Button>
+                                <TabContent id="overview">
+                                    <div className={'text-white-900'}>
+                                        <div className="flex flex-col mx-4 md:mx-12 my-6 md:my-12 select-none">
+                                            <div></div>
+                                            <div className="flex flex-col md:flex-row gap-3 items-start md:items-center">
+                                                <SearchField
+                                                    route="/dashboard/project"
+                                                    iconPosition="right"
+                                                    placeholder="Search..."
+                                                    otherClasses="w-full md:max-w-96"
+                                                />
+                                                <div className="flex flex-row gap-3 items-center w-full md:w-full">
+                                                    <FilterField />
+                                                    <div className="flex-grow" />
+                                                    <Button className="bg-main-two hover:bg-main-one rounded-md w-full md:w-auto">
+                                                        Open Editor
+                                                    </Button>
+                                                    <Button className="bg-main-two hover:bg-main-one rounded-md w-full md:w-auto">
+                                                        Open Reviews
+                                                    </Button>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <HorizontalSeparator />
-                                        <Table>
-                                            <TableBody>
-                                                {languages.map(
-                                                    (language: any) => (
-                                                        <TableRow
-                                                            key={language.name}
-                                                        >
-                                                            <TableCell>
-                                                                <div className="flex flex-row gap-3 items-center">
-                                                                    <div
-                                                                        className={cn(
-                                                                            'p-1.5 bg-dark-200 rounded-md',
-                                                                            language.primary &&
-                                                                                'border border-primary-500',
-                                                                        )}
-                                                                    >
-                                                                        <img
-                                                                            src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${language.flag}.svg`}
-                                                                            alt={
+                                            <HorizontalSeparator />
+                                            <Table>
+                                                <TableBody>
+                                                    {languages.map(
+                                                        (language: any) => (
+                                                            <TableRow
+                                                                key={
+                                                                    language.name
+                                                                }
+                                                            >
+                                                                <TableCell>
+                                                                    <div className="flex flex-row gap-3 items-center">
+                                                                        <div
+                                                                            className={cn(
+                                                                                'p-1.5 bg-dark-200 rounded-md',
+                                                                                language.primary &&
+                                                                                    'border border-primary-500',
+                                                                            )}
+                                                                        >
+                                                                            <img
+                                                                                src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${language.flag}.svg`}
+                                                                                alt={
+                                                                                    language.name
+                                                                                }
+                                                                                className="min-w-4 min-h-4 max-w-4 max-h-4"
+                                                                            />
+                                                                        </div>
+                                                                        <p className="font-medium">
+                                                                            {
                                                                                 language.name
                                                                             }
-                                                                            className="min-w-4 min-h-4 max-w-4 max-h-4"
-                                                                        />
+                                                                        </p>
                                                                     </div>
-                                                                    <p className="font-medium">
-                                                                        {
-                                                                            language.name
-                                                                        }
-                                                                    </p>
-                                                                </div>
-                                                            </TableCell>
-                                                            <TableCell>
-                                                                <div className="flex flex-row gap-5 items-center">
-                                                                    <div className="flex-grow" />
-                                                                    <Progress
-                                                                        value={
-                                                                            language.progress
-                                                                        }
-                                                                        className="w-full md:w-60"
-                                                                    />
-                                                                    <p>
-                                                                        {
-                                                                            language.progress
-                                                                        }
-                                                                        %
-                                                                    </p>
-                                                                </div>
-                                                            </TableCell>
-                                                        </TableRow>
-                                                    ),
-                                                )}
-                                            </TableBody>
-                                        </Table>
+                                                                </TableCell>
+                                                                <TableCell>
+                                                                    <div className="flex flex-row gap-5 items-center">
+                                                                        <div className="flex-grow" />
+                                                                        <Progress
+                                                                            value={
+                                                                                language.progress
+                                                                            }
+                                                                            className="w-full md:w-60"
+                                                                        />
+                                                                        <p>
+                                                                            {
+                                                                                language.progress
+                                                                            }
+                                                                            %
+                                                                        </p>
+                                                                    </div>
+                                                                </TableCell>
+                                                            </TableRow>
+                                                        ),
+                                                    )}
+                                                </TableBody>
+                                            </Table>
+                                        </div>
                                     </div>
-                                </div>
-                            </TabContent>
-                            <TabContent id="settings">
-                                <div className={'text-white-900'}>
-                                    <Basic />
-                                </div>
-                            </TabContent>
-                            <TabContent id={'discussions'}>
-                                <div className={'text-white-900'}>
-                                    <Discussions />
-                                </div>
-                            </TabContent>
-                            <TabContent id={'members'}>
-                                <div className={'text-white-900'}>
-                                    <Members />
-                                </div>
-                            </TabContent>
-                        </SetupTabs>
-                    </div>
-                    <div className="w-full md:w-auto md:flex-shrink-0">
-                        <ProjectInfoBox project={project} />
+                                </TabContent>
+                                <TabContent id="settings">
+                                    <div className={'text-white-900'}>
+                                        <Basic />
+                                    </div>
+                                </TabContent>
+                                <TabContent id={'discussions'}>
+                                    <div className={'text-white-900'}>
+                                        <Discussions />
+                                    </div>
+                                </TabContent>
+                                <TabContent id={'members'}>
+                                    <div className={'text-white-900'}>
+                                        <Members />
+                                    </div>
+                                </TabContent>
+                            </SetupTabs>
+                        </div>
+                        <div className="w-full md:w-auto md:flex-shrink-0">
+                            <ProjectInfoBox project={project} />
+                        </div>
                     </div>
                 </div>
-            </div>
+            )}
         </DashboardLayout>
     );
 };

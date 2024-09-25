@@ -13,6 +13,11 @@ export class RestAPI extends API {
         return response.data;
     }
 
+    async getProject(id: number): Promise<APIProject> {
+        const response = await axios.get('/api/projects/' + id);
+        return response.data;
+    }
+
     async auth(email: string, password: string): Promise<void> {
         const response = await axios.post('/auth/login', {
             email,

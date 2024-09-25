@@ -11,7 +11,17 @@ export class API {
         return undefined as any;
     }
 
+    async getProject(_id: number): Promise<APIProject> {
+        console.log('API: getProject');
+        return undefined as any;
+    }
+
     async auth(_email: string, _password: string): Promise<void> {
         console.log('API: auth');
+    }
+
+    async getUsers() {
+        console.log('API: getUsers');
+        return undefined as any;
     }
 }
