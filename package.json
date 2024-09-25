@@ -7,7 +7,9 @@
 		"dev": "vite",
 		"build": "tsc -b && vite build",
 		"lint": "eslint .",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"prettier:check": "prettier --check \"**/*.{ts,tsx}\"",
+		"prettier:write": "prettier --write \"**/*.{ts,tsx}\""
 	},
 	"dependencies": {
 		"@radix-ui/react-avatar": "^1.1.0",
