@@ -18,6 +18,7 @@ import { users } from '@/lib/data/fakeUsers.ts';
 import { settingsConfig } from '@/lib/configs/settingsConfig.ts';
 import { useEffect, useState } from 'react';
 import { useAuth } from '@/lib/core/auth-context.tsx';
+import { NativeTranslate } from '@/lib/core/nativetranslate.ts';
 
 const Profile = () => {
     const { id } = useParams();
@@ -33,11 +34,16 @@ const Profile = () => {
 
     const auth = useAuth();
 
+    const [settings, setSettings] = useState(null);
+
     useEffect(() => {
         const fetchUserData = async () => {
             try {
                 const userData = await auth.getMe();
                 setUserData(userData);
+
+                const settings = await NativeTranslate.getAPI().getSettings();
+                setSettings(settings);
             } catch (error) {
                 console.error('Error fetching user data:', error);
             }
@@ -115,6 +121,7 @@ const Profile = () => {
                             {settingsConfig.map((cardConfig, index) => (
                                 <CardSettings
                                     key={index}
+                                    settings={settings}
                                     cardConfig={cardConfig}
                                 />
                             ))}

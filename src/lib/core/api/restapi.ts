@@ -30,4 +30,33 @@ export class RestAPI extends API {
         });
         console.log(response);
     }
+
+    async getSettings(): Promise<any> {
+        const response = await axios.get('/api/users/me/settings', {
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('token'),
+            },
+        });
+
+        return response.data;
+    }
+
+    async updateSettings(key: string, value: string): Promise<any> {
+        const response = await axios.post(
+            '/api/users/me/settings',
+            {
+                key,
+                value,
+            },
+            {
+                headers: {
+                    Authorization: 'Bearer ' + localStorage.getItem('token'),
+                },
+            },
+        );
+
+        return response.data;
+    }
+
+    // localhost:8080/api/users/me/settings
 }

@@ -24,4 +24,14 @@ export class API {
         console.log('API: getUsers');
         return undefined as any;
     }
+
+    async getSettings() {
+        console.log('API: getSettings');
+        return undefined as any;
+    }
+
+    async updateSettings(_key: string, _value: string) {
+        console.log('API: updateSettings');
+        return undefined as any;
+    }
 }

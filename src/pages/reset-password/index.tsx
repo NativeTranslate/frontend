@@ -8,7 +8,7 @@ const Page = () => {
     const [error] = useState(null);
     const [isLoading] = useState(false);
 
-    const [isChanged] = useState(true);
+    const [isChanged] = useState(false);
 
     return (
         <div className="bg-dark-200 min-h-screen flex items-center justify-center p-4">
@@ -31,6 +31,26 @@ const Page = () => {
                             Reset Password
                         </h2>
                         <form className="space-y-4">
+                            <div>
+                                <label
+                                    htmlFor="password"
+                                    className="block text-sm font-medium text-gray-400 mb-1"
+                                >
+                                    Enter safety code
+                                </label>
+                                <div className="relative">
+                                    <Input
+                                        id="password"
+                                        name="password"
+                                        type="password"
+                                        placeholder="Enter your safety code"
+                                        className="bg-dark-200 border-dark-300 pr-10 w-full text-white-800"
+                                    />
+                                    <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                        <LockIcon className="h-5 w-5 text-gray-400" />
+                                    </div>
+                                </div>
+                            </div>
                             <div>
                                 <label
                                     htmlFor="password"

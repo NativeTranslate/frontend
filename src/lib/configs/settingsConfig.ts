@@ -2,52 +2,40 @@ import { CardConfig } from '../types';
 
 export const settingsConfig: CardConfig[] = [
     {
-        title: 'Account',
+        title: 'Application Notifications',
         switches: [
             {
-                id: 'switch-1',
-                label: 'Email me when someone follows me',
-                default: true,
-            },
-            {
-                id: 'switch-2',
-                label: 'Email me when someone answers on my post',
-                default: true,
-            },
-            {
-                id: 'switch-3',
-                label: 'Email me when someone mentions me',
-                default: true,
-            },
-        ],
-    },
-    {
-        title: 'Application',
-        switches: [
-            {
-                id: 'switch-4',
+                id: 'email_notifications',
                 label: 'New launches and projects',
                 default: true,
             },
             {
-                id: 'switch-5',
-                label: 'Monthly product updates',
+                id: 'email_monthly_updates',
+                label: 'Application updates',
                 default: false,
             },
-            { id: 'switch-6', label: 'Subscribe to newsletter', default: true },
+            {
+                id: 'email_newsletter',
+                label: 'Subscribe to newsletter',
+                default: true,
+            },
         ],
     },
     {
         title: 'Privacy',
         switches: [
-            { id: 'switch-7', label: 'Show email in profile', default: false },
             {
-                id: 'switch-8',
+                id: 'profile_show_email',
+                label: 'Show email in profile',
+                default: false,
+            },
+            {
+                id: 'profile_show_location',
                 label: 'Show location in profile',
                 default: false,
             },
             {
-                id: 'switch-9',
+                id: 'profile_show_phonenumber',
                 label: 'Show phone number in profile',
                 default: false,
             },
