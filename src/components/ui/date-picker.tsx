@@ -4,12 +4,34 @@ import { CalendarIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { format } from 'date-fns';
 import { Calendar } from '@/components/ui/calendar.tsx';
-import React from 'react';
+import React, { useEffect } from 'react';
 
-export function CustomDatePicker() {
-    const [date, setDate] = React.useState<Date>();
+interface CustomDatePickerProps {
+    defaultValue?: Date;
+    onChange?: (date: Date | undefined) => void;
+}
+
+export function CustomDatePicker({
+    defaultValue,
+    onChange,
+}: CustomDatePickerProps) {
+    const [date, setDate] = React.useState<Date | undefined>(defaultValue);
 
     const currentYear = new Date().getFullYear();
+
+    useEffect(() => {
+        if (defaultValue) {
+            setDate(defaultValue);
+        }
+    }, [defaultValue]);
+
+    // Handle date selection change
+    const handleDateChange = (selectedDate: Date | undefined) => {
+        setDate(selectedDate);
+        if (onChange) {
+            onChange(selectedDate);
+        }
+    };
 
     return (
         <Popover>
@@ -40,7 +62,7 @@ export function CustomDatePicker() {
                     className={'w-full bg-dark-300 text-gray-400 rounded-3xl'}
                     captionLayout="dropdown-buttons"
                     selected={date}
-                    onSelect={setDate}
+                    onSelect={handleDateChange}
                     fromYear={1900}
                     toYear={currentYear}
                 />

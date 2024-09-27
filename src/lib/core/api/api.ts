@@ -44,4 +44,9 @@ export class API {
         console.log('API: resetPassword');
         return undefined as any;
     }
+
+    async changeSettings(_key: string, _value: string) {
+        console.log('API: changeSettings');
+        return undefined as any;
+    }
 }

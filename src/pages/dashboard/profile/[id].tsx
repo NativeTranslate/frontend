@@ -3,12 +3,14 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
+    CalendarIcon,
     Facebook,
     Instagram,
     Mail,
     MapPin,
     Phone,
     Twitter,
+    User,
 } from 'lucide-react';
 import { useParams } from 'react-router';
 import CardSettings from '@/components/shared/card-settings';
@@ -40,7 +42,11 @@ const Profile = () => {
         const fetchUserData = async () => {
             try {
                 const userData = await auth.getMe();
-                setUserData(userData);
+                setUserData({
+                    ...userData,
+                    gender: 'They/Them',
+                    dob: '1990-01-01',
+                });
 
                 const settings = await NativeTranslate.getAPI().getSettings();
                 setSettings(settings);
@@ -52,6 +58,17 @@ const Profile = () => {
         fetchUserData();
     }, [auth]);
 
+    const calculateAge = (dob: string | number | Date) => {
+        const today = new Date();
+        const birthDate = new Date(dob);
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        return age;
+    };
+
     return (
         <DashboardLayout>
             <div className="flex flex-col h-full">
@@ -60,19 +77,21 @@ const Profile = () => {
                     <div className="p-6 space-y-8">
                         <Card className="bg-dark-200 border-none shadow-lg text-gray-100">
                             <CardContent className="p-6">
-                                <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8">
-                                    <Avatar className="w-32 h-32 border-4 border-main-two">
-                                        <AvatarImage
-                                            src={user?.profilePicture}
-                                            alt={user?.name}
-                                        />
-                                        <AvatarFallback>
-                                            {user?.name?.charAt(0)}
-                                        </AvatarFallback>
-                                    </Avatar>
+                                <div className="flex flex-col lg:flex-row items-center lg:items-stretch gap-8">
+                                    <div className="flex flex-col items-center justify-center">
+                                        <Avatar className="w-48 h-48 border-4 border-main-two">
+                                            <AvatarImage
+                                                src={user?.profilePicture}
+                                                alt={user?.name}
+                                            />
+                                            <AvatarFallback>
+                                                {user?.name?.charAt(0)}
+                                            </AvatarFallback>
+                                        </Avatar>
+                                    </div>
                                     <div className="flex-grow space-y-4 text-center lg:text-left">
                                         <div>
-                                            <h2 className="text-3xl font-bold">
+                                            <h2 className="text-3xl font-bold gap-2 flex">
                                                 {userData.username}
                                             </h2>
                                             <p className="text-xl text-gray-400">
@@ -89,7 +108,7 @@ const Profile = () => {
                                             Edit Info
                                         </Button>
                                     </div>
-                                    <div className="space-y-3 text-sm">
+                                    <div className="space-y-3 text-sm flex flex-col justify-center">
                                         <InfoItem
                                             icon={<Mail className="w-5 h-5" />}
                                             label="Email"
@@ -106,6 +125,18 @@ const Profile = () => {
                                             }
                                             label="Location"
                                             value={'Not available'}
+                                        />
+                                        <InfoItem
+                                            icon={<User className="w-5 h-5" />}
+                                            label="Pronouns"
+                                            value={userData.gender}
+                                        />
+                                        <InfoItem
+                                            icon={
+                                                <CalendarIcon className="w-5 h-5" />
+                                            }
+                                            label="Age"
+                                            value={`${calculateAge(userData.dob)} years`}
                                         />
                                         <div className="flex items-center justify-center lg:justify-start gap-4 pt-2">
                                             <Facebook className="w-6 h-6" />

@@ -10,8 +10,9 @@ import {
 interface CustomSelectProps {
     id: string;
     options: string[];
-    placeholder: string;
+    placeholder?: string;
     onChange: (value: string) => void;
+    defaultValue?: string;
 }
 
 const CustomSelect: React.FC<CustomSelectProps> = ({
@@ -19,9 +20,10 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
     options,
     placeholder,
     onChange,
+    defaultValue,
 }) => {
     return (
-        <Select onValueChange={onChange}>
+        <Select defaultValue={defaultValue} onValueChange={onChange}>
             <SelectTrigger
                 id={id}
                 className="w-full bg-dark-300 text-gray-400 rounded-md border-none px-4"
@@ -31,11 +33,14 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
                     placeholder={placeholder}
                 />
             </SelectTrigger>
-            <SelectContent className="bg-dark-300 text-white-900 border-none rounded-3xl">
+            <SelectContent
+                defaultValue={defaultValue}
+                className="bg-dark-300 text-white-900 border-none rounded-3xl"
+            >
                 {options.map(option => (
                     <SelectItem
                         key={option}
-                        className="focus:bg-main-two focus:text-white-900 transition-all"
+                        className="focus:bg-main-two focus:text-white-900 transition-all rounded-3xl"
                         value={option}
                     >
                         {option.charAt(0).toUpperCase() + option.slice(1)}

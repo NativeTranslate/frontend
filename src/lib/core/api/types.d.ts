@@ -15,3 +15,12 @@ export type APIProject = {
     targetLanguages: string[];
     created: number;
 };
+
+export type User = {
+    id: number;
+    username: string;
+    gender: string;
+    dateOfBirth: number;
+    email: string;
+    phoneNumber: string;
+};

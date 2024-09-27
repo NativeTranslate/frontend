@@ -76,4 +76,21 @@ export class RestAPI extends API {
 
         return response.data;
     }
+
+    async changeSettings(key: string, value: string): Promise<void> {
+        const response = await axios.post(
+            '/api/users/me/settings',
+            {
+                key,
+                value,
+            },
+            {
+                headers: {
+                    Authorization: 'Bearer ' + localStorage.getItem('token'),
+                },
+            },
+        );
+
+        return response.data;
+    }
 }

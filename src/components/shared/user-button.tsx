@@ -18,20 +18,21 @@ const links = [
     {
         label: 'Profile',
         icon: <UserIcon className={'h-5 w-5 mr-2'} />,
-        href: '/profile',
+        href: '/dashboard/profile/%id%',
     },
     {
         label: 'Settings',
         icon: <CogIcon className={'h-5 w-5 mr-2'} />,
-        href: '/settings',
+        href: '/dashboard/settings',
     },
 ];
 
 const UserButton = () => {
     const navigate = useNavigate();
+    const [id, setId] = useState('');
 
     const handleLink = (href: string) => {
-        navigate(href);
+        navigate(href.replace('%id%', id));
     };
 
     const auth = useAuth();
@@ -42,6 +43,7 @@ const UserButton = () => {
             try {
                 const userData = await auth.getMe();
                 setUsername(userData.username);
+                setId(userData.id);
             } catch (error) {
                 console.error('Error fetching user data:', error);
             }
@@ -66,7 +68,11 @@ const UserButton = () => {
                         </p>
                         <Avatar className={'w-10 h-10'}>
                             <AvatarImage src="gasgsa" />
-                            <AvatarFallback>{firstLetter}</AvatarFallback>
+                            <AvatarFallback
+                                className={'bg-dark-200 text-white-900'}
+                            >
+                                {firstLetter}
+                            </AvatarFallback>
                         </Avatar>
                     </div>
                 </DropdownMenuTrigger>
