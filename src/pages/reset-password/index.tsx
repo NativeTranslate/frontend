@@ -3,12 +3,42 @@ import { Input } from '@/components/ui/input';
 import { Loader2Icon, LockIcon } from 'lucide-react';
 import { useState } from 'react';
 import FormCard from '@/components/shared/form-card.tsx';
+import { NativeTranslate } from '@/lib/core/nativetranslate.ts';
 
 const Page = () => {
-    const [error] = useState(null);
-    const [isLoading] = useState(false);
+    const [error, setError] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
-    const [isChanged] = useState(false);
+    const [isChanged, setIsChanged] = useState(false);
+
+    const [form, setForm] = useState({
+        token: '',
+        password: '',
+        confirmPassword: '',
+    });
+
+    const handleSubmit = (event: React.FormEvent) => {
+        event.preventDefault();
+        setIsLoading(true);
+
+        if (form.password !== form.confirmPassword) {
+            setError('Passwords do not match');
+            setIsLoading(false);
+            return;
+        }
+
+        NativeTranslate.getAPI()
+            .resetPassword(form.token, form.password)
+            .then(() => {
+                setIsChanged(true);
+            })
+            .catch(error => {
+                setError(error.response.data.error);
+            })
+            .finally(() => {
+                setIsLoading(false);
+            });
+    };
 
     return (
         <div className="bg-dark-200 min-h-screen flex items-center justify-center p-4">
@@ -30,7 +60,7 @@ const Page = () => {
                         <h2 className="text-2xl text-white-900 font-bold mb-6">
                             Reset Password
                         </h2>
-                        <form className="space-y-4">
+                        <form className="space-y-4" onSubmit={handleSubmit}>
                             <div>
                                 <label
                                     htmlFor="password"
@@ -40,9 +70,15 @@ const Page = () => {
                                 </label>
                                 <div className="relative">
                                     <Input
-                                        id="password"
-                                        name="password"
-                                        type="password"
+                                        onChange={e =>
+                                            setForm({
+                                                ...form,
+                                                token: e.target.value,
+                                            })
+                                        }
+                                        id="token"
+                                        name="token"
+                                        type="text"
                                         placeholder="Enter your safety code"
                                         className="bg-dark-200 border-dark-300 pr-10 w-full text-white-800"
                                     />
@@ -60,6 +96,12 @@ const Page = () => {
                                 </label>
                                 <div className="relative">
                                     <Input
+                                        onChange={e =>
+                                            setForm({
+                                                ...form,
+                                                password: e.target.value,
+                                            })
+                                        }
                                         id="password"
                                         name="password"
                                         type="password"
@@ -80,6 +122,12 @@ const Page = () => {
                                 </label>
                                 <div className="relative">
                                     <Input
+                                        onChange={e =>
+                                            setForm({
+                                                ...form,
+                                                confirmPassword: e.target.value,
+                                            })
+                                        }
                                         id="confirm-password"
                                         name="confirm-password"
                                         type="password"

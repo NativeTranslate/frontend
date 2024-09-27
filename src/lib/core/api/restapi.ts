@@ -59,4 +59,21 @@ export class RestAPI extends API {
     }
 
     // localhost:8080/api/users/me/settings
+
+    async sendResetPasswordEmail(email: string): Promise<void> {
+        const response = await axios.post('/auth/reset-password', {
+            email,
+        });
+
+        return response.data;
+    }
+
+    async resetPassword(token: string, password: string): Promise<void> {
+        const response = await axios.post('/auth/reset-password-confirm', {
+            token: token,
+            password: password,
+        });
+
+        return response.data;
+    }
 }

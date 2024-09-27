@@ -34,4 +34,14 @@ export class API {
         console.log('API: updateSettings');
         return undefined as any;
     }
+
+    async sendResetPasswordEmail(_email: string) {
+        console.log('API: sendResetPasswordEmail');
+        return undefined as any;
+    }
+
+    async resetPassword(_token: string, _password: string) {
+        console.log('API: resetPassword');
+        return undefined as any;
+    }
 }

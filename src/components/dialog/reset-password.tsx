@@ -1,6 +1,5 @@
 import {
     Dialog,
-    DialogClose,
     DialogContent,
     DialogDescription,
     DialogFooter,
@@ -11,8 +10,36 @@ import {
 import { Button } from '@/components/ui/button.tsx';
 import { Input } from '@/components/ui/input.tsx';
 import { Label } from '@/components/ui/label.tsx';
+import { NativeTranslate } from '@/lib/core/nativetranslate.ts';
+import { useState } from 'react';
+import { Loader2Icon } from 'lucide-react';
 
 const ResetPassword = () => {
+    const [error, setError] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+    const [email, setEmail] = useState('');
+
+    const handleClick = () => {
+        setIsLoading(true);
+
+        if (!email) {
+            setError('Please enter your email');
+            return;
+        }
+
+        NativeTranslate.getAPI()
+            .sendResetPasswordEmail(email)
+            .then(_ => {
+                window.location.href = '/reset-password';
+            })
+            .catch(error => {
+                setError(error.response.data.error);
+            })
+            .finally(() => {
+                setIsLoading(false);
+            });
+    };
+
     return (
         <Dialog>
             <DialogTrigger asChild>
@@ -40,6 +67,7 @@ const ResetPassword = () => {
                         </Label>
                         <Input
                             id="email"
+                            onChange={e => setEmail(e.target.value)}
                             name="email"
                             type="email"
                             placeholder="Enter your email"
@@ -47,17 +75,21 @@ const ResetPassword = () => {
                         />
                     </div>
                 </div>
+                <p className="text-red-500 font-medium">{error}</p>
                 <DialogFooter className="sm:justify-start">
-                    <DialogClose asChild>
-                        <Button
-                            type="button"
-                            className={
-                                'w-full bg-main-two hover:bg-main-one transition-colors'
-                            }
-                        >
-                            Submit
-                        </Button>
-                    </DialogClose>
+                    <Button
+                        onClick={handleClick}
+                        disabled={isLoading}
+                        type="button"
+                        className={
+                            'w-full bg-main-two hover:bg-main-one transition-colors gap-2'
+                        }
+                    >
+                        Submit
+                        {isLoading && (
+                            <Loader2Icon className={'animate-spin'} />
+                        )}
+                    </Button>
                 </DialogFooter>
             </DialogContent>
         </Dialog>
