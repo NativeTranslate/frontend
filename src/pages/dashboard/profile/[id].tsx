@@ -10,7 +10,7 @@ import {
     MapPin,
     Phone,
     Twitter,
-    User,
+    UserIcon,
 } from 'lucide-react';
 import { useParams } from 'react-router';
 import CardSettings from '@/components/shared/card-settings';
@@ -21,6 +21,7 @@ import { settingsConfig } from '@/lib/configs/settingsConfig.ts';
 import { useEffect, useState } from 'react';
 import { useAuth } from '@/lib/core/auth-context.tsx';
 import { NativeTranslate } from '@/lib/core/nativetranslate.ts';
+import { User } from '@/lib/core/api/types';
 
 const Profile = () => {
     const { id } = useParams();
@@ -28,11 +29,7 @@ const Profile = () => {
 
     const styles = ['Modern', 'Scandinavian', 'Minimalist', 'Gothic'];
 
-    const [userData, setUserData] = useState({
-        username: '',
-        role: '',
-        bio: '',
-    });
+    const [userData, setUserData] = useState({} as User);
 
     const auth = useAuth();
 
@@ -44,8 +41,6 @@ const Profile = () => {
                 const userData = await auth.getMe();
                 setUserData({
                     ...userData,
-                    gender: 'They/Them',
-                    dob: '1990-01-01',
                 });
 
                 const settings = await NativeTranslate.getAPI().getSettings();
@@ -58,15 +53,11 @@ const Profile = () => {
         fetchUserData();
     }, [auth]);
 
-    const calculateAge = (dob: string | number | Date) => {
-        const today = new Date();
-        const birthDate = new Date(dob);
-        let age = today.getFullYear() - birthDate.getFullYear();
-        const m = today.getMonth() - birthDate.getMonth();
-        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-            age--;
-        }
-        return age;
+    const calculateAge = (dob: number) => {
+        const date = new Date(dob * 1000);
+        const diff = Date.now() - date.getTime();
+        const ageDate = new Date(diff);
+        return Math.abs(ageDate.getUTCFullYear() - 1970);
     };
 
     return (
@@ -95,7 +86,8 @@ const Profile = () => {
                                                 {userData.username}
                                             </h2>
                                             <p className="text-xl text-gray-400">
-                                                {userData?.role.toUpperCase()}
+                                                {userData?.role?.toUpperCase() ||
+                                                    'User'}
                                             </p>
                                         </div>
                                         <p className="text-sm max-w-2xl">
@@ -127,8 +119,10 @@ const Profile = () => {
                                             value={'Not available'}
                                         />
                                         <InfoItem
-                                            icon={<User className="w-5 h-5" />}
-                                            label="Pronouns"
+                                            icon={
+                                                <UserIcon className="w-5 h-5" />
+                                            }
+                                            label="Gender"
                                             value={userData.gender}
                                         />
                                         <InfoItem
@@ -136,7 +130,7 @@ const Profile = () => {
                                                 <CalendarIcon className="w-5 h-5" />
                                             }
                                             label="Age"
-                                            value={`${calculateAge(userData.dob)} years`}
+                                            value={`${calculateAge(userData?.dateOfBirth)} years`}
                                         />
                                         <div className="flex items-center justify-center lg:justify-start gap-4 pt-2">
                                             <Facebook className="w-6 h-6" />

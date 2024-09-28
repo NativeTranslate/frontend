@@ -110,7 +110,7 @@ select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
     border: transparent;
     -webkit-text-fill-color: rgb(243 248 255);
-    -webkit-box-shadow: 0 0 0 1000px rgb(21 30 44) inset;
+    -webkit-box-shadow: 0 0 0 1000px rgb(34, 45, 61) inset;
     font-family: "Poppins", sans-serif;
     -webkit-transition: background-color 5000s ease-in-out 0s;
     transition: background-color 5000s ease-in-out 0s;

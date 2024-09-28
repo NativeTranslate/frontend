@@ -10,10 +10,25 @@ interface InputWithIconProps {
     onEnter?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
     value?: string;
     className?: string;
+    disabled?: boolean;
+    type?: string;
 }
 
 const InputWithIcon = React.forwardRef<HTMLInputElement, InputWithIconProps>(
-    ({ id, placeholder, icon, onChange, onEnter, value, className }, ref) => {
+    (
+        {
+            id,
+            disabled,
+            placeholder,
+            icon,
+            onChange,
+            onEnter,
+            value,
+            className,
+            type = 'text',
+        },
+        ref,
+    ) => {
         const handleKeyDown = (
             event: React.KeyboardEvent<HTMLInputElement>,
         ) => {
@@ -25,9 +40,10 @@ const InputWithIcon = React.forwardRef<HTMLInputElement, InputWithIconProps>(
         return (
             <div className="relative w-full">
                 <Input
+                    disabled={disabled}
                     onKeyDown={handleKeyDown}
                     ref={ref}
-                    type="text"
+                    type={type}
                     id={id}
                     placeholder={placeholder}
                     className={`w-full bg-dark-300 text-gray-400 border-none rounded-md px-4 pr-12 placeholder:text-dark-400 placeholder:opacity-100 ${className}`}

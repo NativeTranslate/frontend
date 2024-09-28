@@ -77,12 +77,29 @@ export class RestAPI extends API {
         return response.data;
     }
 
-    async changeSettings(key: string, value: string): Promise<void> {
+    async changeSettings(settings: { [key: string]: string }): Promise<void> {
         const response = await axios.post(
-            '/api/users/me/settings',
+            '/api/users/me/account-settings',
+            settings,
             {
-                key,
-                value,
+                headers: {
+                    Authorization: 'Bearer ' + localStorage.getItem('token'),
+                },
+            },
+        );
+
+        return response.data;
+    }
+
+    async resetUserPassword(
+        currentPassword: string,
+        newPassword: string,
+    ): Promise<void> {
+        const response = await axios.post(
+            '/api/users/me/reset-password',
+            {
+                currentPassword,
+                newPassword,
             },
             {
                 headers: {

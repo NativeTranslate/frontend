@@ -2,6 +2,7 @@ import React, { forwardRef } from 'react';
 import { Textarea } from '@/components/ui/textarea.tsx';
 
 interface CustomTextareaProps {
+    id: string;
     placeholder?: string;
     value?: string;
     onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
@@ -9,9 +10,10 @@ interface CustomTextareaProps {
 }
 
 const CustomTextarea = forwardRef<HTMLTextAreaElement, CustomTextareaProps>(
-    ({ placeholder, value, onChange, className }, ref) => {
+    ({ id, placeholder, value, onChange, className }, ref) => {
         return (
             <Textarea
+                id={id}
                 ref={ref}
                 placeholder={placeholder}
                 value={value}

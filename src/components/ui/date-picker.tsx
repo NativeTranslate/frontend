@@ -7,11 +7,13 @@ import { Calendar } from '@/components/ui/calendar.tsx';
 import React, { useEffect } from 'react';
 
 interface CustomDatePickerProps {
+    id: string;
     defaultValue?: Date;
     onChange?: (date: Date | undefined) => void;
 }
 
 export function CustomDatePicker({
+    id,
     defaultValue,
     onChange,
 }: CustomDatePickerProps) {
@@ -58,6 +60,7 @@ export function CustomDatePicker({
                 className=" w-auto p-0 bg-transparent rounded-3xl border-dark-400"
             >
                 <Calendar
+                    id={id}
                     mode="single"
                     className={'w-full bg-dark-300 text-gray-400 rounded-3xl'}
                     captionLayout="dropdown-buttons"

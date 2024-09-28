@@ -23,4 +23,7 @@ export type User = {
     dateOfBirth: number;
     email: string;
     phoneNumber: string;
+    location: string;
+    bio: string;
+    role: string;
 };
