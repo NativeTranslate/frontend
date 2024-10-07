@@ -1,14 +1,10 @@
-import { Suspense, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import routes from 'virtual:generated-pages-react';
 import { useLocation, useRoutes } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Toaster } from '@/components/ui/toaster.tsx';
-
 import './globals.css';
-import Loading from '@/components/shared/loading.tsx';
-import PageWrapper from '@/components/shared/page-wrapper.tsx';
+import { StrictMode, useEffect } from 'react';
+import ThemeSwitcher from '@/components/nativetranslate/theme-switcher.tsx';
 import { AuthProvider, protectedRoutes, useAuth } from '@/lib/core/auth-context.tsx';
 
 /**
@@ -37,21 +33,16 @@ const App = (): JSX.Element | null => {
 };
 
 createRoot(document.getElementById('root')!).render(
-    <BrowserRouter>
-        <AuthProvider>
-            <Suspense fallback={<Loading />}>
-                <motion.div
-                    initial={{ scale: 0.95, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 0.4, ease: 'easeIn' }}
-                    className="relative"
-                >
-                    <PageWrapper>
-                        <App />
-                        <Toaster />
-                    </PageWrapper>
-                </motion.div>
-            </Suspense>
-        </AuthProvider>
-    </BrowserRouter>,
+    <StrictMode>
+        <BrowserRouter>
+            <AuthProvider>
+                <div className={'relative'}>
+                    <App />
+                </div>
+                <div className="fixed bottom-4 right-4">
+                    <ThemeSwitcher />
+                </div>
+            </AuthProvider>
+        </BrowserRouter>
+    </StrictMode>,
 );
