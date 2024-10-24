@@ -17,7 +17,7 @@ export type APIProject = {
 };
 
 export type User = {
-    id: number;
+    id: number | string;
     username: string;
     gender: string;
     dateOfBirth: number;
@@ -26,4 +26,6 @@ export type User = {
     location: string;
     bio: string;
     role: string;
+    avatar: string;
+    country: string;
 };

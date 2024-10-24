@@ -3,19 +3,22 @@ import routes from 'virtual:generated-pages-react';
 import { useLocation, useRoutes } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import './globals.css';
-import { StrictMode, useEffect } from 'react';
-import ThemeSwitcher from '@/components/nativetranslate/theme-switcher.tsx';
-import { AuthProvider, protectedRoutes, useAuth } from '@/lib/core/auth-context.tsx';
+import { StrictMode, Suspense, useEffect } from 'react';
+import {
+    ThemeSwitcher,
+    useTheme,
+} from '@/components/nativetranslate/theme-switcher';
+import {
+    AuthProvider,
+    protectedRoutes,
+    useAuth,
+} from '@/lib/core/auth-context';
+import Loading from '@/components/nativetranslate/loading';
 
-/**
- * The main application component.
- * Uses `useRoutes` to render the routes defined in the `routes` object.
- *
- * @returns {JSX.Element} The rendered routes.
- */
 const App = (): JSX.Element | null => {
     const location = useLocation();
     const { isAuthenticated, loading } = useAuth();
+    const theme = useTheme();
 
     useEffect(() => {
         if (!loading && !isAuthenticated) {
@@ -29,6 +32,10 @@ const App = (): JSX.Element | null => {
         }
     }, [isAuthenticated, loading, location]);
 
+    if (theme === null) {
+        return null;
+    }
+
     return useRoutes(routes) as JSX.Element;
 };
 
@@ -36,12 +43,14 @@ createRoot(document.getElementById('root')!).render(
     <StrictMode>
         <BrowserRouter>
             <AuthProvider>
-                <div className={'relative'}>
-                    <App />
-                </div>
-                <div className="fixed bottom-4 right-4">
-                    <ThemeSwitcher />
-                </div>
+                <Suspense fallback={<Loading />}>
+                    <div className="relative">
+                        <App />
+                    </div>
+                    <div className="fixed bottom-4 right-4 z-50">
+                        <ThemeSwitcher />
+                    </div>
+                </Suspense>
             </AuthProvider>
         </BrowserRouter>
     </StrictMode>,

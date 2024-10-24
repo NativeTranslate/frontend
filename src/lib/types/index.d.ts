@@ -53,17 +53,16 @@ export interface User {
     aboutMe: string;
 }
 
-export interface Project {
-    id: number;
+export type Project = {
+    id: string | number;
     logo: string;
     name: string;
     description: string;
     participants: number;
-    words?: number;
-    createdAt?: string;
+    createdAt: string;
+    managers: string[];
     lastActivity?: string;
-    managers?: User[];
-}
+};
 
 export interface Organization {
     id: string;
