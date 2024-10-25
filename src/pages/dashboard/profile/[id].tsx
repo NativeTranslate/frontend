@@ -6,11 +6,23 @@ import DashboardHeader from '@/components/nativetranslate/dashboard-header';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/nativetranslate/button';
-import { CalendarIcon, Mail, MapPin, Phone, UserIcon } from 'lucide-react';
+import {
+    CalendarIcon,
+    Facebook,
+    Github,
+    Globe,
+    Instagram,
+    Linkedin,
+    Mail,
+    MapPin,
+    Phone,
+    StarIcon,
+    Twitter,
+    UserIcon,
+} from 'lucide-react';
 import { User } from '@/lib/core/api/types';
 import { useAuth } from '@/lib/core/auth-context.tsx';
-import { settingsConfig } from '@/lib/configs/settingsConfig.ts';
-import CardSettings from '@/components/nativetranslate/card-settings';
+import ActivityGraph from '@/components/nativetranslate/activity-graph.tsx';
 
 const InfoItem = ({
     icon,
@@ -28,9 +40,59 @@ const InfoItem = ({
     </div>
 );
 
-export default function Profile() {
+const fakeSkills = [
+    { name: 'German', level: 3 },
+    { name: 'English', level: 4 },
+    { name: 'Espanol', level: 2 },
+    { name: 'France', level: 1 },
+    { name: 'Italy', level: 5 },
+];
+
+const fakeSocialMedia = {
+    facebook: 'https://facebook.com',
+    twitter: 'https://twitter.com',
+    linkedin: 'https://linkedin.com',
+    github: 'https://github.com',
+    instagram: 'https://instagram.com',
+    website: 'https://example.com',
+};
+
+interface SocialMediaIconProps {
+    platform: string;
+    url: string;
+}
+
+type iconMapProps = {
+    [key: string]: React.ComponentType<{ className: string }>;
+};
+
+const SocialMediaIcon = ({ platform, url }: SocialMediaIconProps) => {
+    const iconMap = {
+        facebook: Facebook,
+        twitter: Twitter,
+        linkedin: Linkedin,
+        github: Github,
+        instagram: Instagram,
+        website: Globe,
+    } as iconMapProps;
+
+    const Icon = iconMap[platform] || Globe;
+
+    return (
+        <div
+            className={'cursor-pointer'}
+            onClick={() => {
+                window.open(url, '_blank');
+            }}
+        >
+            <Icon className="h-4 w-4 hover:text-primary transition-all" />
+            <span className="sr-only">{platform}</span>
+        </div>
+    );
+};
+
+export default function Component() {
     const [userData, setUserData] = useState<User | null>(null);
-    const [settings] = useState(null);
     const auth = useAuth();
 
     useEffect(() => {
@@ -43,7 +105,7 @@ export default function Profile() {
             }
         };
 
-        fetchUserData().then(r => r);
+        fetchUserData().then(_ => _);
     }, []);
 
     const calculateAge = (dob: number) => {
@@ -90,6 +152,17 @@ export default function Profile() {
                                     <Button className="bg-primary hover:bg-secondary transition-all">
                                         Edit Profile
                                     </Button>
+                                    <div className="flex flex-wrap gap-4 items-center justify-center lg:justify-start mt-4">
+                                        {Object.entries(fakeSocialMedia).map(
+                                            ([platform, url]) => (
+                                                <SocialMediaIcon
+                                                    key={platform}
+                                                    platform={platform}
+                                                    url={url}
+                                                />
+                                            ),
+                                        )}
+                                    </div>
                                 </div>
                                 <div className="space-y-3 flex flex-col justify-center">
                                     <InfoItem
@@ -134,29 +207,35 @@ export default function Profile() {
 
                     <Card className="bg-light-one dark:bg-dark-one shadow-lg">
                         <CardHeader>
-                            <CardTitle>Account Settings</CardTitle>
+                            <CardTitle>Language Skills</CardTitle>
                         </CardHeader>
-                        <CardContent
-                            className={'flex gap-2 items-center justify-center'}
-                        >
-                            {settingsConfig.map((cardConfig, index) => (
-                                <CardSettings
-                                    key={index}
-                                    settings={settings}
-                                    cardConfig={cardConfig}
-                                />
-                            ))}
+                        <CardContent>
+                            <div className="grid grid-cols-2 gap-4">
+                                {fakeSkills.map((lang, index) => (
+                                    <div
+                                        key={index}
+                                        className="flex items-center justify-between"
+                                    >
+                                        <span>{lang.name}</span>
+                                        <div className="flex">
+                                            {[1, 2, 3, 4, 5].map(star => (
+                                                <StarIcon
+                                                    key={star}
+                                                    className={`w-5 h-5 ${
+                                                        star <= lang.level
+                                                            ? 'text-yellow-400 fill-yellow-400'
+                                                            : 'text-gray-300 dark:text-gray-600'
+                                                    }`}
+                                                />
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                         </CardContent>
                     </Card>
 
-                    <Card className="bg-light-one dark:bg-dark-one shadow-lg">
-                        <CardHeader>
-                            <CardTitle>Projects</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <p>User's projects will be displayed here.</p>
-                        </CardContent>
-                    </Card>
+                    <ActivityGraph />
                 </div>
             </DashboardHeader>
         </DashboardLayout>
