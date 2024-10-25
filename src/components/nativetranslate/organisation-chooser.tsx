@@ -6,7 +6,6 @@ import {
     ChevronsUpDown,
     Command,
     GalleryVerticalEnd,
-    icons,
     Plus,
 } from 'lucide-react';
 import {
@@ -55,8 +54,6 @@ const teams = [
 ];
 
 export default function OrganisationChooser({ className = '' }: Props) {
-    console.log(icons);
-
     return (
         <DropdownMenu>
             <DropdownMenuTrigger className={'w-full'} asChild>

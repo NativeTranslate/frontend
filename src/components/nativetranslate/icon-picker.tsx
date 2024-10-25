@@ -40,10 +40,12 @@ export default function Component() {
                 <DialogTrigger asChild>
                     <Button
                         variant="default_raised"
-                        icon={React.createElement(icons[selectedIcon ?? 'Map'])}
+                        icon={React.createElement(
+                            icons[selectedIcon ?? 'Users'],
+                        )}
                         className="w-full bg-light-input dark:bg-dark-input border-2 border-input dark:border-dark-border"
                     >
-                        {selectedIcon ?? 'Add'}
+                        {selectedIcon ?? 'Users'}
                     </Button>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[425px]">

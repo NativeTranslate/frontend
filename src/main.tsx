@@ -1,13 +1,14 @@
 import { createRoot } from 'react-dom/client';
 import routes from 'virtual:generated-pages-react';
-import {
-    BrowserRouter,
-    Navigate,
-    useLocation,
-    useRoutes,
-} from 'react-router-dom';
+import { BrowserRouter, Navigate, useRoutes } from 'react-router-dom';
 import './globals.css';
-import { StrictMode, Suspense, useEffect, useMemo, useState } from 'react';
+import React, {
+    StrictMode,
+    Suspense,
+    useEffect,
+    useMemo,
+    useState,
+} from 'react';
 import {
     ThemeSwitcher,
     useTheme,
@@ -19,8 +20,9 @@ import {
     useAuth,
 } from '@/lib/core/auth-context';
 import Loading from '@/components/nativetranslate/loading';
+import { useLocation } from 'react-router';
 
-const App = (): JSX.Element | null => {
+const App = (): React.ReactElement | null => {
     const location = useLocation();
     const { isAuthenticated, loading, getMe, userData } = useAuth();
     const theme = useTheme();
@@ -53,7 +55,7 @@ const App = (): JSX.Element | null => {
             }
         };
 
-        checkAccess();
+        checkAccess().then(_ => _);
     }, [isAuthenticated, loading, userData, getMe]);
 
     if (loading || theme === null || isCheckingRole) {
@@ -68,7 +70,7 @@ const App = (): JSX.Element | null => {
         return <Navigate to="/not-authorized" replace />;
     }
 
-    return useRoutes(routes) as JSX.Element;
+    return useRoutes(routes) as React.ReactElement;
 };
 
 createRoot(document.getElementById('root')!).render(

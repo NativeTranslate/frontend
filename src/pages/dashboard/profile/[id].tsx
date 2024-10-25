@@ -8,21 +8,25 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/nativetranslate/button';
 import {
     CalendarIcon,
-    Facebook,
-    Github,
     Globe,
-    Instagram,
-    Linkedin,
     Mail,
     MapPin,
     Phone,
     StarIcon,
-    Twitter,
     UserIcon,
 } from 'lucide-react';
 import { User } from '@/lib/core/api/types';
 import { useAuth } from '@/lib/core/auth-context.tsx';
 import ActivityGraph from '@/components/nativetranslate/activity-graph.tsx';
+import {
+    FaFacebook,
+    FaGithub,
+    FaGlobeAmericas,
+    FaInstagram,
+    FaLinkedin,
+} from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
+import EditSkillsDialog from '@/components/nativetranslate/edit-skills-dialog.tsx';
 
 const InfoItem = ({
     icon,
@@ -68,12 +72,12 @@ type iconMapProps = {
 
 const SocialMediaIcon = ({ platform, url }: SocialMediaIconProps) => {
     const iconMap = {
-        facebook: Facebook,
-        twitter: Twitter,
-        linkedin: Linkedin,
-        github: Github,
-        instagram: Instagram,
-        website: Globe,
+        facebook: FaFacebook,
+        twitter: FaXTwitter,
+        linkedin: FaLinkedin,
+        github: FaGithub,
+        instagram: FaInstagram,
+        website: FaGlobeAmericas,
     } as iconMapProps;
 
     const Icon = iconMap[platform] || Globe;
@@ -207,7 +211,11 @@ export default function Component() {
 
                     <Card className="bg-light-one dark:bg-dark-one shadow-lg">
                         <CardHeader>
-                            <CardTitle>Language Skills</CardTitle>
+                            <CardTitle className={'flex flex-row items-center'}>
+                                Language Skills
+                                <div className={'flex-grow'} />
+                                <EditSkillsDialog />
+                            </CardTitle>
                         </CardHeader>
                         <CardContent>
                             <div className="grid grid-cols-2 gap-4">
