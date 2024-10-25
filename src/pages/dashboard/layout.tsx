@@ -1,9 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Bell, MenuIcon } from 'lucide-react';
+import { MenuIcon } from 'lucide-react';
 import Sidebar from '@/components/nativetranslate/sidebar.tsx';
-import UserButton from '@/components/nativetranslate/user-button.tsx';
 
 export default function DashboardLayout({
     children,
@@ -59,15 +58,6 @@ export default function DashboardLayout({
                                 }`}
                             />
                         </button>
-                    </div>
-                    <div className="flex items-center space-x-4">
-                        <button className="text-white focus:outline-none">
-                            <Bell size={24} />
-                            <div className="absolute -mt-3 ml-3 w-3 h-3 bg-red-500 rounded-full"></div>
-                        </button>
-                        <div className="relative">
-                            <UserButton />
-                        </div>
                     </div>
                 </header>
 
