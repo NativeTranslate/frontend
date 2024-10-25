@@ -1,11 +1,7 @@
 import { Link } from 'react-router-dom';
-import { Code, Settings, Zap } from 'lucide-react';
+import { Code, Github, Settings, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
-// import {
-//     Dialog,
-//     DialogContent,
-//     DialogTrigger,
-// } from '@/components/ui/dialog.tsx';
+
 import { Button } from '@/components/nativetranslate/button.tsx';
 import { FlipWords } from '@/components/nativetranslate/flip-words.tsx';
 
@@ -143,32 +139,33 @@ const HomePage = () => {
                     <div className="container px-6 md:px-8">
                         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 text-center">
                             <div className="flex flex-col items-center space-y-4 p-6 bg-light-one dark:bg-dark-one rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                                <Settings className="h-10 w-10 text-primary mb-4" />
-                                <h2 className="text-xl font-semibold text-foreground">
-                                    Intuitive Dashboard
+                                <Settings className="h-10 w-10 mb-2 text-primary" />
+                                <h2 className="text-xl font-semibold">
+                                    Self-Hosted
                                 </h2>
-                                <p className="text-base text-muted-foreground">
-                                    Easily set and manage your translation
-                                    strings through our user-friendly interface.
+                                <p className="text-sm text-center text-gray-500 dark:text-gray-400">
+                                    Host NativeTranslate on your own
+                                    infrastructure. You have full control over
+                                    your data and customizations.
                                 </p>
                             </div>
                             <div className="flex flex-col items-center space-y-4 p-6 bg-light-one dark:bg-dark-one rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                                <Zap className="h-10 w-10 text-primary mb-4" />
-                                <h2 className="text-xl font-semibold text-foreground">
-                                    Fast API Integration
+                                <Zap className="h-10 w-10 mb-2 text-primary" />
+                                <h2 className="text-xl font-semibold">
+                                    Fast API
                                 </h2>
-                                <p className="text-base text-muted-foreground">
-                                    Quickly integrate translations into your
-                                    applications with our high-performance Rest
-                                    APIs.
+                                <p className="text-sm text-center text-gray-500 dark:text-gray-400">
+                                    Integrate translations into your
+                                    applications quickly with our
+                                    high-performance REST API.
                                 </p>
                             </div>
                             <div className="flex flex-col items-center space-y-4 p-6 bg-light-one dark:bg-dark-one rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                                <Code className="h-10 w-10 text-primary mb-4" />
-                                <h2 className="text-xl font-semibold text-foreground">
+                                <Code className="h-10 w-10 mb-2 text-primary" />
+                                <h2 className="text-xl font-semibold">
                                     Developer-Friendly
                                 </h2>
-                                <p className="text-base text-muted-foreground">
+                                <p className="text-sm text-center text-gray-500 dark:text-gray-400">
                                     Comprehensive documentation and SDKs for
                                     seamless integration across multiple
                                     platforms.
@@ -189,25 +186,40 @@ const HomePage = () => {
                                 <h2 className="text-3xl font-bold tracking-tighter text-primary md:text-4xl">
                                     Ready to Streamline Your Translations?
                                 </h2>
-                                <p className="mx-auto max-w-[600px] font-medium text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                                    NativeTranslate is available by invitation
-                                    only. Contact an administrator for access or
-                                    to request an invite.
+                                <p className="mx-auto max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+                                    NativeTranslate is open-source and free to
+                                    use. Get started by downloading from our
+                                    GitHub repository.
                                 </p>
                             </div>
-                            <div className="w-full max-w-sm space-y-4">
+                            <div className="w-full max-w-sm space-y-2">
                                 <Button
-                                    onClick={() => {
-                                        window.location.href = '/sign-up';
-                                    }}
-                                    className={'w-full'}
-                                    variant={'secondary_outline'}
+                                    variant={'default_raised'}
+                                    className="w-full"
                                 >
-                                    Sign Up
+                                    <a
+                                        href="https://github.com/yourusername/nativetranslate"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={
+                                            ' flex flex-row items-center'
+                                        }
+                                    >
+                                        <Github className="mr-2 h-4 w-4" />{' '}
+                                        Download from GitHub
+                                    </a>
                                 </Button>
-                                <p className="text-xs text-muted-foreground">
-                                    Need an invite? Contact an system
-                                    administrator.
+                                <p className="text-xs text-gray-500 dark:text-gray-400">
+                                    Need help? Create an{' '}
+                                    <Link
+                                        className={'underline'}
+                                        to={
+                                            'https://github.com/NativeTranslate/'
+                                        }
+                                    >
+                                        issue
+                                    </Link>{' '}
+                                    on GitHub.
                                 </p>
                             </div>
                         </div>
