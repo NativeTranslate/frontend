@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Button } from '@/components/nativetranslate/button.tsx';
 
 const NotFoundPage = () => {
     return (
@@ -56,12 +57,12 @@ const NotFoundPage = () => {
                             might have been removed, had its name changed, or is
                             temporarily unavailable.
                         </p>
-                        <Link
-                            to="/"
-                            className="inline-block mt-4 bg-primary text-white py-2 px-4 rounded hover:bg-blue-600 transition"
+                        <Button
+                            onClick={() => window.location.replace('/')}
+                            variant={'default_raised'}
                         >
                             Go Back to Home
-                        </Link>
+                        </Button>
                     </div>
                 </motion.section>
             </main>
