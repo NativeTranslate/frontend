@@ -90,16 +90,29 @@ export default function SidebarUsercard() {
                     <UserIcon className={'h-4 w-4'} />
                     Profile
                 </DropdownMenuItem>
-                <DropdownMenuItem>
+                <DropdownMenuItem
+                    onClick={() => {
+                        window.location.href = `/dashboard/profile/${id}`;
+                    }}
+                >
                     <BellIcon className={'h-4 w-4'} />
                     Notifications
                 </DropdownMenuItem>
-                <DropdownMenuItem>
+                <DropdownMenuItem
+                    onClick={() => {
+                        window.location.href = `/dashboard/settings`;
+                    }}
+                >
                     <CogIcon className={'h-4 w-4'} />
                     Settings
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>
+                <DropdownMenuItem
+                    onClick={() => {
+                        auth.logout();
+                        window.location.href = '/sign-in';
+                    }}
+                >
                     <LogOut className={'h-4 w-4'} />
                     Log out
                 </DropdownMenuItem>

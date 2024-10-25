@@ -186,9 +186,6 @@ export default function Sidebar({ isOpen }: { isOpen: boolean }) {
 
             {/* Footer */}
             <div className="border-t border-gray-200 dark:border-dark-border hover:bg-light-two dark:hover:bg-dark-two/50 cursor-pointer">
-                {/*<button className="w-full flex items-center justify-center px-4 py-2 bg-primary text-white rounded-md">*/}
-                {/*    Create Project*/}
-                {/*</button>*/}
                 <SidebarUsercard />
             </div>
         </aside>
