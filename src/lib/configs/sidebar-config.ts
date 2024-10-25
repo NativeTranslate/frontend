@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 
 export type SidebarItemType = {
-    icon: React.ElementType;
+    icon?: React.ElementType;
     title: string;
     path?: string;
     items?: SidebarItemType[];
@@ -41,6 +41,7 @@ export const sidebarConfig: SidebarConfigType = [
             {
                 icon: PlusIcon,
                 title: 'Create',
+                path: '/dashboard/projects/create',
             },
         ],
     },

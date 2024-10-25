@@ -2,6 +2,7 @@ import React, { createContext, ReactNode, useEffect, useState } from 'react';
 import axios from 'axios';
 
 export const protectedRoutes = ['/dashboard'];
+export const adminRoutes = ['/admin'];
 
 interface AuthContextType {
     isAuthenticated: boolean;
@@ -64,9 +65,6 @@ export const AuthProvider = ({ children }: Props) => {
                 password,
             });
             const token = response.data.token;
-
-            console.log(token);
-
             localStorage.setItem('token', token);
             setToken(token);
             setIsAuthenticated(true);
@@ -91,7 +89,7 @@ export const AuthProvider = ({ children }: Props) => {
             const response = await axios.get('/api/users/me', {
                 headers: { Authorization: `Bearer ${token}` },
             });
-            setUserData(response.data);
+            setUserData(response.data); // Store user data including role
             return response.data;
         } catch (error) {
             console.error('Failed to get user object:', error);

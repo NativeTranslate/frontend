@@ -64,7 +64,7 @@ export default function Profile() {
                         <CardContent className="p-6">
                             <div className="flex flex-col lg:flex-row items-center lg:items-stretch gap-8">
                                 <div className="flex flex-col items-center justify-center">
-                                    <Avatar className="w-32 h-32 border-4 border-primary">
+                                    <Avatar className="w-32 h-32 border-4 border-primary rounded-md">
                                         <AvatarImage
                                             src={userData?.avatar}
                                             alt={userData?.username}
