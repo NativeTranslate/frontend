@@ -2,9 +2,11 @@
 
 import {
     AudioWaveform,
+    BookAIcon,
     ChevronsUpDown,
     Command,
     GalleryVerticalEnd,
+    icons,
     Plus,
 } from 'lucide-react';
 import {
@@ -16,6 +18,19 @@ import {
     DropdownMenuShortcut,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from '@/components/ui/dialog.tsx';
+import { Button } from '@/components/nativetranslate/button.tsx';
+import { Input } from '@/components/nativetranslate/input.tsx';
+import { Textarea } from '@/components/nativetranslate/textarea.tsx';
+import IconPicker from './icon-picker';
 
 interface Props {
     className?: string;
@@ -40,11 +55,13 @@ const teams = [
 ];
 
 export default function OrganisationChooser({ className = '' }: Props) {
+    console.log(icons);
+
     return (
         <DropdownMenu>
             <DropdownMenuTrigger className={'w-full'} asChild>
                 <button
-                    className={`w-full flex flex-row items-center justify-start text-left font-normal ${className} focus:ring-0 focus:ring-offset-transparent focus:outline-none bg-light-two dark:bg-dark-two p-2 border rounded-md`}
+                    className={`w-full flex flex-row items-center justify-start text-left font-normal ${className} focus:ring-0 focus:ring-offset-transparent focus:outline-none bg-light-two dark:bg-dark-two p-2 border-2 rounded-md`}
                 >
                     <div className="flex items-center gap-2 w-full">
                         <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-primary text-primary-foreground">
@@ -83,14 +100,64 @@ export default function OrganisationChooser({ className = '' }: Props) {
                     </DropdownMenuItem>
                 ))}
                 <DropdownMenuSeparator />
-                <DropdownMenuItem className="gap-2 p-2">
-                    <div className="flex size-6 items-center justify-center rounded-md border bg-light-one dark:bg-dark-one">
-                        <Plus className="size-4" />
-                    </div>
-                    <div className="font-medium text-dark-input dark:text-light-input">
-                        Add team
-                    </div>
-                </DropdownMenuItem>
+                <Dialog>
+                    <DialogTrigger className={'flex items-center gap-2 w-full'}>
+                        <DropdownMenuItem
+                            className="gap-2 p-2 w-full"
+                            onSelect={event => event.preventDefault()}
+                        >
+                            <div className="flex size-6 items-center justify-center rounded-md border bg-light-one dark:bg-dark-one">
+                                <Plus className="size-4" />
+                            </div>
+                            <div className="font-medium text-dark-input dark:text-light-input">
+                                Add team
+                            </div>
+                        </DropdownMenuItem>
+                    </DialogTrigger>
+                    <DialogContent>
+                        <DialogHeader>
+                            <DialogTitle>Add a new team</DialogTitle>
+                            <DialogDescription>
+                                Create a new team to collaborate with your
+                                colleagues, and translate your projects.
+                            </DialogDescription>
+                        </DialogHeader>
+
+                        <div className={'flex flex-col gap-4'}>
+                            <div className={'flex flex-col gap-1'}>
+                                <label>Team name</label>
+                                <Input
+                                    label={'Acme Inc'}
+                                    icon={GalleryVerticalEnd}
+                                />
+                            </div>
+
+                            <div className={'flex flex-col gap-1'}>
+                                <label>Team description</label>
+                                <Textarea
+                                    label={'We are doing ...'}
+                                    icon={BookAIcon}
+                                />
+                            </div>
+
+                            <div className={'flex flex-col gap-1'}>
+                                <label>Select icon</label>
+                                <IconPicker />
+                            </div>
+                        </div>
+
+                        <DialogFooter>
+                            <Button
+                                variant={'default_raised'}
+                                onClick={() => {
+                                    console.log('Clicked');
+                                }}
+                            >
+                                Create team
+                            </Button>
+                        </DialogFooter>
+                    </DialogContent>
+                </Dialog>
             </DropdownMenuContent>
         </DropdownMenu>
     );

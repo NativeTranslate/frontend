@@ -35,10 +35,20 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         );
 
         React.useEffect(() => {
+            console.log('value:', value);
             if (value !== undefined) {
                 setHasValue(String(value).length > 0);
             }
         }, [value]);
+
+        React.useEffect(() => {
+            const input = (
+                ref as React.MutableRefObject<HTMLInputElement | null>
+            )?.current;
+            if (input && input.matches(':-webkit-autofill')) {
+                setHasValue(true);
+            }
+        }, []);
 
         return (
             <div className="relative">
@@ -46,15 +56,14 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     type={type}
                     className={cn(
                         `${error ? 'border-2 border-bigred focus:border-bigred dark:focus:border-bigred' : 'border-2 border-input dark:border-dark-border dark:focus:border-primary dark:border-opacity-30 focus:border-primary'}
-            flex h-14 w-full font-semibold font-openSans rounded-md bg-background px-3 pt-6 pb-2 text-sm
-            ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium
-            placeholder:text-transparent file:text-foreground text-muted-foreground focus-visible:outline-none
-            focus-visible:ring-0 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-dark-input
-            placeholder:opacity-0 placeholder:top-3`,
+              flex h-14 w-full font-semibold font-openSans rounded-md bg-background px-3 pt-6 pb-2 text-sm
+              ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium
+              placeholder:text-transparent file:text-foreground text-muted-foreground focus-visible:outline-none
+              focus-visible:ring-0 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-dark-input
+              placeholder:opacity-0 placeholder:top-3`,
                         Icon && iconDirection === 'left' && 'pl-10',
                         Icon && iconDirection === 'right' && 'pr-10',
                         className,
-                        // Autofill styles
                         '[&:-webkit-autofill]:bg-background [&:-webkit-autofill]:dark:bg-dark-input',
                         '[&:-webkit-autofill]:border-2 [&:-webkit-autofill]:dark:border-dark-border',
                         '[&:-webkit-autofill]:focus:border-primary [&:-webkit-autofill]:dark:focus:border-primary',

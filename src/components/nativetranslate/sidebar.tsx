@@ -174,7 +174,7 @@ export default function Sidebar({ isOpen }: { isOpen: boolean }) {
                     ))}
                 </div>
 
-                <div>
+                <div className={'mb-6'}>
                     <h3 className="px-4 py-2 text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                         Projects
                     </h3>

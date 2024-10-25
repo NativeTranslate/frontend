@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useAuth } from '@/lib/core/auth-context.tsx';
+import { DashboardIcon } from '@radix-ui/react-icons';
 
 export default function SidebarUsercard() {
     const auth = useAuth();
@@ -88,6 +89,16 @@ export default function SidebarUsercard() {
                     </div>
                 </div>
                 <DropdownMenuSeparator />
+                <DropdownMenuItem
+                    onClick={() => {
+                        window.location.href = `/dashboard`;
+                    }}
+                >
+                    <DashboardIcon className={'h-4 w-4'} />
+                    Dashboard
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+
                 <DropdownMenuItem
                     onClick={() => {
                         window.location.href = `/dashboard/profile/${id}`;

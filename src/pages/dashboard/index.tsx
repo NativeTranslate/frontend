@@ -14,9 +14,6 @@ import { useEffect, useState } from 'react';
 import { NativeTranslate } from '@/lib/core/nativetranslate';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { TranslationsChart } from '@/components/nativetranslate/translation-chart.tsx';
-import { HorizontalSeparator } from '@/components/nativetranslate/seperator.tsx';
-import { fakeProjects } from '@/lib/data/fakeProjects.ts';
-import ProjectCard from '@/components/nativetranslate/project-card.tsx';
 
 interface StatCardProps {
     title: string;
@@ -109,19 +106,6 @@ export default function Index() {
                                 Translations Overview
                             </h1>
                             <TranslationsChart />
-                        </div>
-                    </div>
-                    <HorizontalSeparator />
-
-                    <div>
-                        <h1 className="mt-2 text-2xl font-semibold">
-                            Suggested Projects
-                        </h1>
-
-                        <div className="pt-5 grid grid-cols-3 gap-4 items-center justify-center">
-                            {fakeProjects.map((project, index) => (
-                                <ProjectCard key={index} item={project} />
-                            ))}
                         </div>
                     </div>
                 </div>
