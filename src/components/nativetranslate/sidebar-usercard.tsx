@@ -65,6 +65,12 @@ export default function SidebarUsercard() {
                     <div className={'flex-grow'} />
                     <div>
                         <ChevronsUpDown className="ml-auto h-4 w-4 shrink-0 opacity-50 text-dark-input dark:text-light-input" />
+                        {/*Notification Icon*/}
+                        <div
+                            className={
+                                'absolute w-3 h-3 bg-red-500 rounded-full -translate-y-5 -translate-x-2'
+                            }
+                        />
                     </div>
                 </div>
             </DropdownMenuTrigger>
@@ -92,11 +98,16 @@ export default function SidebarUsercard() {
                 </DropdownMenuItem>
                 <DropdownMenuItem
                     onClick={() => {
-                        window.location.href = `/dashboard/profile/${id}`;
+                        window.location.href = `/dashboard/notifications`;
                     }}
                 >
                     <BellIcon className={'h-4 w-4'} />
                     Notifications
+                    <div
+                        className={
+                            'absolute w-3 h-3 bg-red-500 rounded-full -translate-y-2 -translate-x-2'
+                        }
+                    />
                 </DropdownMenuItem>
                 <DropdownMenuItem
                     onClick={() => {
